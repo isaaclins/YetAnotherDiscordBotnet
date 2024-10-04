@@ -1,5 +1,8 @@
-const { app, BrowserWindow } = require("electron");
 const path = require("path");
+const { app, BrowserWindow } = require("electron");
+require("electron-reload")(path.join(__dirname, "app"), {
+  electron: path.join(__dirname, "node_modules", ".bin", "electron"),
+});
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -14,10 +17,10 @@ function createWindow() {
     autoHideMenuBar: true,
   });
 
-  win.loadURL("http://localhost:3000");
+  win.loadURL("http://localhost:3000"); // Assuming Next.js runs on port 3000
 }
 
-app.on("ready", createWindow);
+app.whenReady().then(createWindow);
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
