@@ -10,6 +10,7 @@
   "main": "main.js",
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
+    "@playwright/test": "^1.47.2",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-slot": "^1.1.0",
