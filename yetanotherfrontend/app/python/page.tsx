@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import {
     Form,
@@ -14,18 +15,21 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { AlertCircle } from "lucide-react"
-
+import { Terminal } from "lucide-react"
 import {
     Alert,
     AlertDescription,
     AlertTitle,
 } from "@/components/ui/alert"
+
 const FormSchema = z.object({
     username: z.string().nonempty(),
 });
 
 const Page: React.FC = () => {
+    const [alertVisible, setAlertVisible] = useState(false);
+    const [submittedData, setSubmittedData] = useState<z.infer<typeof FormSchema> | null>(null);
+
     const form = useForm({
         defaultValues: {
             username: '',
@@ -48,14 +52,25 @@ const Page: React.FC = () => {
                 console.error('Failed to save settings.');
             } else {
                 console.log('Settings saved successfully.');
+                setSubmittedData(data);
+                setAlertVisible(true);
             }
         } catch (error) {
             console.error('Error:', error);
         }
     }
 
+    useEffect(() => {
+        if (alertVisible) {
+            const timer = setTimeout(() => {
+                setAlertVisible(false);
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [alertVisible]);
+
     return (
-        <div className="flex items-center justify-center min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+        <div className="flex items-center justify-center min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] relative">
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} method="POST" className="w-2/3 space-y-6 flex flex-col items-center">
                     <FormField
@@ -68,6 +83,24 @@ const Page: React.FC = () => {
                     <Button type="submit" className="w-full sm:w-1/2">Save</Button>
                 </form>
             </Form>
+            {alertVisible && submittedData && (
+                <Alert className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-4 z-50 w-2/3 transition-opacity duration-1000 opacity-100">
+                    <Terminal className="h-4 w-4" />
+                    <AlertTitle>Submitted following data:</AlertTitle>
+                    <AlertDescription>
+                        <pre>{JSON.stringify(submittedData, null, 2)}</pre>
+                    </AlertDescription>
+                </Alert>
+            )}
+            {!alertVisible && (
+                <Alert className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-4 z-50 w-2/3 transition-opacity duration-1000 opacity-0 pointer-events-none">
+                    <Terminal className="h-4 w-4" />
+                    <AlertTitle>Submitted following data:</AlertTitle>
+                    <AlertDescription>
+                        <pre>{JSON.stringify(submittedData, null, 2)}</pre>
+                    </AlertDescription>
+                </Alert>
+            )}
         </div>
     );
 };
