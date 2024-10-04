@@ -21,7 +21,6 @@ import {
     AlertDescription,
     AlertTitle,
 } from "@/components/ui/alert"
-
 const FormSchema = z.object({
     username: z.string().nonempty(),
 });
@@ -36,6 +35,7 @@ const Page: React.FC = () => {
 
     async function onSubmit(data: z.infer<typeof FormSchema>) {
         try {
+            console.log(data);
             const response = await fetch('/api/save-settings', {
                 method: 'POST',
                 headers: {
@@ -45,29 +45,30 @@ const Page: React.FC = () => {
             });
 
             if (!response.ok) {
-                throw new Error('Failed to save settings.');
+                console.error('Failed to save settings.');
+            } else {
+                console.log('Settings saved successfully.');
             }
-
-            alert('Settings saved successfully.');
         } catch (error) {
-            console.error(error);
-            alert('Failed to save settings.');
+            console.error('Error:', error);
         }
     }
 
     return (
-        <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
+        <div className="flex items-center justify-center min-h-screen">
+            <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} method="POST" className="w-2/3 space-y-6">
                 <FormField
-                    control={form.control}
-                    name="username"
-                    render={({ field }) => (
-                        <Input {...field} placeholder="Username" />
-                    )}
+                control={form.control}
+                name="username"
+                render={({ field }) => (
+                    <Input {...field} placeholder="Username" />
+                )}
                 />
                 <Button type="submit">Save</Button>
             </form>
-        </Form>
+            </Form>
+        </div>
     );
 };
 
