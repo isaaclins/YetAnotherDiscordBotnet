@@ -87,7 +87,27 @@ const Page: React.FC = () => {
                             <Input {...field} placeholder="Username" className="w-full sm:w-1/2" />
                         )}
                     />
-                    <Button type="submit" className="w-full sm:w-1/2">Save</Button>
+                    <div className="flex w-full sm:w-1/2 space-x-4">
+                        <Button type="submit" className="flex-1">Save</Button>
+                        <AlertDialog>
+                            <AlertDialogTrigger asChild>
+                                <Button variant="outline" className="flex-1">Compile</Button>
+                            </AlertDialogTrigger>
+                            <AlertDialogContent>
+                                <AlertDialogHeader>
+                                    <AlertDialogTitle>Bot will be compiled with following data:</AlertDialogTitle>
+                                    <AlertDialogDescription>
+                                        The bot will be created with following attributes:
+                                        <pre>{JSON.stringify(liveData, null, 2)}</pre>
+                                    </AlertDialogDescription>
+                                </AlertDialogHeader>
+                                <AlertDialogFooter>
+                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                    <AlertDialogAction>Continue</AlertDialogAction>
+                                </AlertDialogFooter>
+                            </AlertDialogContent>
+                        </AlertDialog>
+                    </div>
                 </form>
             </Form>
             <Alert className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-4 z-50 w-2/3 transition-opacity duration-1000 opacity-100">
@@ -97,6 +117,7 @@ const Page: React.FC = () => {
                     <pre>{JSON.stringify(liveData, null, 2)}</pre>
                 </AlertDescription>
             </Alert>
+
         </div>
     );
 };
