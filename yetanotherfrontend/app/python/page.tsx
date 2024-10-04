@@ -3,7 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import fs from 'fs';
 import { Button } from "@/components/ui/button"
 import {
     Form,
@@ -32,6 +31,7 @@ const Page: React.FC = () => {
         defaultValues: {
             username: '',
         },
+        resolver: zodResolver(FormSchema),
     });
 
     async function onSubmit(data: z.infer<typeof FormSchema>) {
@@ -48,22 +48,10 @@ const Page: React.FC = () => {
                 throw new Error('Failed to save settings.');
             }
 
-            return (
-                <Alert variant="default">
-                    <AlertCircle className="h-4 w-4" />
-                    <AlertTitle>Success</AlertTitle>
-                    <AlertDescription>Settings saved successfully.</AlertDescription>
-                </Alert>
-            );
+            alert('Settings saved successfully.');
         } catch (error) {
             console.error(error);
-            return (
-                <Alert variant="destructive">
-                    <AlertCircle className="h-4 w-4" />
-                    <AlertTitle>Error</AlertTitle>
-                    <AlertDescription>Failed to save settings.</AlertDescription>
-                </Alert>
-            );
+            alert('Failed to save settings.');
         }
     }
 
@@ -74,10 +62,10 @@ const Page: React.FC = () => {
                     control={form.control}
                     name="username"
                     render={({ field }) => (
-                        <input {...field} placeholder="Username" />
+                        <Input {...field} placeholder="Username" />
                     )}
                 />
-                <button type="submit">Save</button>
+                <Button type="submit">Save</Button>
             </form>
         </Form>
     );
