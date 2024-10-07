@@ -15,10 +15,10 @@ function createWindow() {
       devTools: true,
       javascript: true, // Ensure JavaScript is enabled
     },
-    autoHideMenuBar: true,
+    // autoHideMenuBar: true,
   });
 
-  win.loadURL("http://localhost:3000"); // Assuming Next.js runs on port 3000
+  win.loadURL("http://localhost:3000"); 
 }
 
 app.whenReady().then(createWindow);

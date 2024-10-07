@@ -30,27 +30,88 @@ export default function Home() {
         </CardHeader>
         <CardContent>
           <div className="flex space-x-4">
-            <a href="/python" className="hover:scale-110 transition-transform duration-200 hover:underline">
-              <AiOutlinePython style={{ fontSize: '4rem' }} />
-            </a>
-            <a href="/go" className="hover:scale-110 transition-transform duration-200 hover:underline">
-              <TbBrandGolang style={{ fontSize: '4rem' }} />
-            </a>
-            <a href="/rust" className="hover:scale-110 transition-transform duration-200 hover:underline">
-              <SiRust style={{ fontSize: '4rem' }} />
-            </a>
-            <a href="/javascript" className="hover:scale-110 transition-transform duration-200 hover:underline">
-              <FaJsSquare style={{ fontSize: '4rem' }} />
-            </a>
-            <a href="/java" className="hover:scale-110 transition-transform duration-200 hover:underline">
-              <FaJava style={{ fontSize: '4rem' }} />
-            </a>
-            <a href="/bash" className="hover:scale-110 transition-transform duration-200 hover:underline">
-              <SiGnubash style={{ fontSize: '4rem' }} />
-            </a>
+
+            <div className="hover:scale-110 transition-transform duration-200 hover:underline">
+              <HoverCard >
+                <HoverCardTrigger>
+                  <a href="/python" >
+                    <AiOutlinePython style={{ fontSize: '4rem' }} />
+                  </a>
+                </HoverCardTrigger>
+                <HoverCardContent>
+                  Python
+                </HoverCardContent>
+              </HoverCard>
+            </div>
+
+            <div className="hover:scale-110 transition-transform duration-200 hover:underline">
+              <HoverCard>
+                <HoverCardTrigger>
+                  <a href="/go" className="hover:scale-110 transition-transform duration-200 hover:underline">
+                    <TbBrandGolang style={{ fontSize: '4rem' }} />
+                  </a>
+                </HoverCardTrigger>
+                <HoverCardContent>
+                  Go
+                </HoverCardContent>
+              </HoverCard>
+            </div>
+
+            <div className="hover:scale-110 transition-transform duration-200 hover:underline">
+              <HoverCard>
+                <HoverCardTrigger>
+                  <a href="/rust" className="hover:scale-110 transition-transform duration-200 hover:underline">
+                    <SiRust style={{ fontSize: '4rem' }} />
+                  </a>
+                </HoverCardTrigger>
+                <HoverCardContent>
+                  Rust
+                </HoverCardContent>
+              </HoverCard>
+            </div>
+
+            <div className="hover:scale-110 transition-transform duration-200 hover:underline">
+              <HoverCard>
+                <HoverCardTrigger>
+                  <a href="/javascript" className="hover:scale-110 transition-transform duration-200 hover:underline">
+                    <FaJsSquare style={{ fontSize: '4rem' }} />
+                  </a>
+                </HoverCardTrigger>
+                <HoverCardContent>
+                  JavaScript
+                </HoverCardContent>
+              </HoverCard>
+            </div>
+
+            <div className="hover:scale-110 transition-transform duration-200 hover:underline">
+              <HoverCard>
+                <HoverCardTrigger>
+                  <a href="/java" className="hover:scale-110 transition-transform duration-200 hover:underline">
+                    <FaJava style={{ fontSize: '4rem' }} />
+                  </a>
+                </HoverCardTrigger>
+                <HoverCardContent>
+                  Java
+                </HoverCardContent>
+              </HoverCard>
+            </div>
+
+            <div className="hover:scale-110 transition-transform duration-200 hover:underline">
+              <HoverCard>
+                <HoverCardTrigger>
+                  <a href="/bash" className="hover:scale-110 transition-transform duration-200 hover:underline">
+                    <SiGnubash style={{ fontSize: '4rem' }} />
+                  </a>
+                </HoverCardTrigger>
+                <HoverCardContent>
+                  Bash
+                </HoverCardContent>
+              </HoverCard>
+            </div>
+
           </div>
         </CardContent>
       </Card>
-    </div>
+    </div >
   );
 }
