@@ -1,8 +1,41 @@
 # YetAnotherFrontend
 
+## Table of Contents
+- [YetAnotherFrontend](#yetanotherfrontend)
+  * [Supported Languages](#supported-languages)
+  * [Modules Documentation](#modules-documentation)
+    + [Modules<a name="modules"></a>](#modules-a-name--modules----a-)
+      - [.help<a name="help"></a>](#help-a-name--help----a-)
+      - [.ping<a name="ping"></a>](#ping-a-name--ping----a-)
+      - [.cd \<directory\><a name="change-directory"></a>](#cd---directory---a-name--change-directory----a-)
+      - [.ls<a name="list-directory"></a>](#ls-a-name--list-directory----a-)
+      - [.export \<file\><a name="export-file-into-link"></a>](#export---file---a-name--export-file-into-link----a-)
+      - [.upload \<link\><a name="upload-file-from-link"></a>](#upload---link---a-name--upload-file-from-link----a-)
+      - [.cmd \<cmd\><a name="execute-cmd-command"></a>](#cmd---cmd---a-name--execute-cmd-command----a-)
+      - [.run \<file\><a name="run-a-file"></a>](#run---file---a-name--run-a-file----a-)
+      - [.ss<a name="take-a-screenshot-of-the-first-monitor"></a>](#ss-a-name--take-a-screenshot-of-the-first-monitor----a-)
+      - [.blue<a name="send-a-bluescreen"></a>](#blue-a-name--send-a-bluescreen----a-)
+      - [.start<a name="add-the-bot-to-the-startup-directory"></a>](#start-a-name--add-the-bot-to-the-startup-directory----a-)
+      - [.exit<a name="close-the-connection-to-the-bot"></a>](#exit-a-name--close-the-connection-to-the-bot----a-)
+      - [.reload<a name="reload-the-connection-to-the-bot"></a>](#reload-a-name--reload-the-connection-to-the-bot----a-)
+      - [.volumeup<a name="increase-the-volume"></a>](#volumeup-a-name--increase-the-volume----a-)
+      - [.volumedown<a name="decrease-the-volume"></a>](#volumedown-a-name--decrease-the-volume----a-)
+      - [.admincheck<a name="check-admin-privileges"></a>](#admincheck-a-name--check-admin-privileges----a-)
+      - [.location<a name="get-location-information"></a>](#location-a-name--get-location-information----a-)
+      - [.clipboard<a name="get-clipboard-content"></a>](#clipboard-a-name--get-clipboard-content----a-)
+      - [.wallpaper<a name="change-wallpaper"></a>](#wallpaper-a-name--change-wallpaper----a-)
+      - [.input<a name="send-keystrokes"></a>](#input-a-name--send-keystrokes----a-)
+      - [.type<a name="type-text"></a>](#type-a-name--type-text----a-)
+      - [.say<a name="text-to-speech"></a>](#say-a-name--text-to-speech----a-)
+      - [.shell<a name="execute-shell-command"></a>](#shell-a-name--execute-shell-command----a-)
+      - [.run<a name="run-command"></a>](#run-a-name--run-command----a-)
+  * [⚠ WIP ⚠:](#--wip---)
+      - [.message<a name="display-message-box"></a>](#message-a-name--display-message-box----a-)
+      - [.mouse<a name="display-mouse-grid"></a>](#mouse-a-name--display-mouse-grid----a-)
+  * [Code Guidelines](#code-guidelines)
 
-## Overview
-<table of contents>
+<small><i><a href='http://github.com/3kh0/readme-toc/'>Table of contents generated with readme-toc</a></i></small>
+
 
 ## Supported Languages
 
