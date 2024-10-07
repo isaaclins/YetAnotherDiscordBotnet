@@ -24,12 +24,12 @@ export default function Home() {
         </CardHeader>
         <CardContent>
           <div className="flex space-x-4">
-            <LanguageCard href="/python" icon={<AiOutlinePython style={{ fontSize: '4rem' }} />} label="Python" />
-            <LanguageCard href="/go" icon={<TbBrandGolang style={{ fontSize: '4rem' }} />} label="Golang" />
-            <LanguageCard href="/rust" icon={<SiRust style={{ fontSize: '4rem' }} />} label="Rust" />
-            <LanguageCard href="/javascript" icon={<FaJsSquare style={{ fontSize: '4rem' }} />} label="JavaScript" />
-            <LanguageCard href="/java" icon={<FaJava style={{ fontSize: '4rem' }} />} label="Java" />
-            <LanguageCard href="/bash" icon={<SiGnubash style={{ fontSize: '4rem' }} />} label="Bash" />
+            <LanguageCard href="/python" icon={<AiOutlinePython style={{ fontSize: '5rem' }} />} label="Python" />
+            <LanguageCard href="/go" icon={<TbBrandGolang style={{ fontSize: '5rem' }} />} label="Golang" />
+            <LanguageCard href="/rust" icon={<SiRust style={{ fontSize: '5rem' }} />} label="Rust" />
+            <LanguageCard href="/javascript" icon={<FaJsSquare style={{ fontSize: '5rem' }} />} label="JavaScript" />
+            <LanguageCard href="/java" icon={<FaJava style={{ fontSize: '5rem' }} />} label="Java" />
+            <LanguageCard href="/bash" icon={<SiGnubash style={{ fontSize: '5rem' }} />} label="Bash" />
           </div>
         </CardContent>
       </Card>
