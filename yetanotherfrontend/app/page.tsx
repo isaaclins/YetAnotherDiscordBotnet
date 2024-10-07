@@ -11,6 +11,14 @@ import { AiOutlinePython } from "react-icons/ai";
 import { FaJsSquare } from "react-icons/fa";
 import { FaJava } from "react-icons/fa6";
 import { SiGnubash } from "react-icons/si";
+import { TbBrandGolang } from "react-icons/tb";
+import { SiRust } from "react-icons/si";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+
 
 export default function Home() {
   return (
@@ -24,6 +32,12 @@ export default function Home() {
           <div className="flex space-x-4">
             <a href="/python" className="hover:scale-110 transition-transform duration-200 hover:underline">
               <AiOutlinePython style={{ fontSize: '4rem' }} />
+            </a>
+            <a href="/go" className="hover:scale-110 transition-transform duration-200 hover:underline">
+              <TbBrandGolang style={{ fontSize: '4rem' }} />
+            </a>
+            <a href="/rust" className="hover:scale-110 transition-transform duration-200 hover:underline">
+              <SiRust style={{ fontSize: '4rem' }} />
             </a>
             <a href="/javascript" className="hover:scale-110 transition-transform duration-200 hover:underline">
               <FaJsSquare style={{ fontSize: '4rem' }} />
