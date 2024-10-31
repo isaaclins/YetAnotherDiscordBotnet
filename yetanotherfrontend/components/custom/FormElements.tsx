@@ -10,16 +10,17 @@ interface TextInputProps {
     control: Control<any>;
     label: string;
     placeholder?: string;
+    type?: string;
 }
 
-export const TextInput: React.FC<TextInputProps> = ({ name, control, label, placeholder }) => (
+export const TextInput: React.FC<TextInputProps> = ({ name, control, label, placeholder, type = "text" }) => (
     <FormItem>
         <FormLabel>{label}</FormLabel>
         <FormControl>
             <Controller
                 name={name}
                 control={control}
-                render={({ field }) => <Input {...field} placeholder={placeholder} />}
+                render={({ field }) => <Input {...field} placeholder={placeholder} type={type} />}
             />
         </FormControl>
         <FormMessage />
