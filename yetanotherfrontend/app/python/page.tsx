@@ -3,6 +3,15 @@
 import React, { useState } from "react";
 import { z, ZodSchema } from "zod";
 import FormComponent from "@/components/custom/FormComponent";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+  } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 
 const createSchema = (fields: { [key: string]: string | boolean | number }): ZodSchema => {
     const schema: any = {};
@@ -54,8 +63,20 @@ const Page: React.FC = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] relative">
-            <FormComponent onSubmit={onSubmit} liveData={liveData} setLiveData={setLiveData} fields={fields} schema={schema} />
+        <div>
+            <Card className="w-[350px]">
+                <CardHeader>
+                    <CardTitle>Botnet Customization</CardTitle>
+                    <CardDescription>Customize and compile your very own Botnet.</CardDescription>
+                </CardHeader>
+                <CardContent className="grid w-full items-center gap-4">
+                    <FormComponent  onSubmit={onSubmit} liveData={liveData} setLiveData={setLiveData} fields={fields} schema={schema} />
+                </CardContent>
+                <CardFooter className="flex justify-between">
+                    <Button variant="outline">Compile</Button>
+                    <Button>Save</Button>
+                </CardFooter>
+            </Card>
         </div>
     );
 };

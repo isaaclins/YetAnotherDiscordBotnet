@@ -76,3 +76,19 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/**
+ * Remove default number input spinner
+ *
+ * Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/**
+ * Remove default number input spinner
+ * Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

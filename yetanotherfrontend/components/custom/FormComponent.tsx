@@ -41,7 +41,7 @@ const FormComponent: React.FC<FormComponentProps> = ({ onSubmit, liveData, setLi
                         } else if (typeof value === "boolean") {
                             return <CheckboxInput key={key} name={key} control={form.control} label={key} />;
                         } else if (typeof value === "number") {
-                            return <TextInput key={key} name={key} control={form.control} label={key} placeholder={key} />;
+                            return <TextInput key={key} name={key} control={form.control} label={key} placeholder={key} type="number" />;
                         }
                         return null;
                     })}
