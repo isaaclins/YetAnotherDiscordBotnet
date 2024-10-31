@@ -1,18 +1,19 @@
 import React, { useEffect } from "react";
-import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z, ZodSchema } from "zod";
 import { Form } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
-import { TextInput, CheckboxInput, RadioInput } from "@/components/custom/FormElements";
+import { TextInput, CheckboxInput } from "@/components/custom/FormElements";
 import { Terminal } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { toast } from "sonner";
 
 interface FormComponentProps {
     onSubmit: SubmitHandler<any>;
     liveData: any;
     setLiveData: React.Dispatch<React.SetStateAction<any>>;
-    fields: { [key: string]: string | boolean | number };
+    fields: { [key: string]: any };
     schema: ZodSchema;
 }
 
@@ -30,22 +31,43 @@ const FormComponent: React.FC<FormComponentProps> = ({ onSubmit, liveData, setLi
         }
     }, [watchedValues, liveData]);
 
+    const renderFields = (fields: { [key: string]: any }, parentName: string = '') => {
+        return Object.keys(fields).map((key) => {
+            const value = fields[key];
+            const fieldName = parentName ? `${parentName}.${key}` : key;
+            const label = key; // Use only the key as the label
+
+            if (typeof value === "string") {
+                return <TextInput key={fieldName} name={fieldName} control={form.control} label={label} placeholder={label} />;
+            } else if (typeof value === "boolean") {
+                return <CheckboxInput key={fieldName} name={fieldName} control={form.control} label={label} />;
+            } else if (typeof value === "number") {
+                return <TextInput key={fieldName} name={fieldName} control={form.control} label={label} placeholder={label} type="number" />;
+            } else if (typeof value === "object" && value !== null) {
+                return (
+                    <div key={fieldName} className="nested-fields">
+                        <h4>{label}</h4>
+                        {renderFields(value, fieldName)}
+                    </div>
+                );
+            }
+            return null;
+        });
+    };
+
     return (
         <div>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} method="POST">
-                    {Object.keys(fields).map((key) => {
-                        const value = fields[key];
-                        if (typeof value === "string") {
-                            return <TextInput key={key} name={key} control={form.control} label={key} placeholder={key} />;
-                        } else if (typeof value === "boolean") {
-                            return <CheckboxInput key={key} name={key} control={form.control} label={key} />;
-                        } else if (typeof value === "number") {
-                            return <TextInput key={key} name={key} control={form.control} label={key} placeholder={key} type="number" />;
-                        }
-                        return null;
-                    })}
-                    <Button type="submit">Submit</Button>
+                    {renderFields(fields)}
+                    <div className="flex justify-between">
+                        <Button variant="outline" onClick={() => toast("Your settings have been saved", { description: "You can now compile your Botnet!", duration: 5000, action: { label: "discard", onClick: () => console.log("discard"), }, })} >
+                            Save Settings
+                        </Button>
+                        <Button variant="outline" onClick={() => toast("Your settings have been saved", { description: "You can now compile your Botnet!", duration: 5000, action: { label: "discard", onClick: () => console.log("discard"), }, })} >
+                            Compile
+                        </Button>
+                    </div>
                 </form>
             </Form>
             <div>
