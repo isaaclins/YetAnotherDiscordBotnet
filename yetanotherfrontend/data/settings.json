@@ -1,1 +1,10 @@
-{"token":"test","ScreenshotModule":true,"additionalCheckbox":false,"radioOption":"option1"}
+{
+  "BotData": {
+    "Token": "this is an example",
+    "GuildID": "1423123123123123123123432123123212123123321321321"
+  },
+  "Modules": {
+    "Module1": true,
+    "Module2": true
+  }
+}

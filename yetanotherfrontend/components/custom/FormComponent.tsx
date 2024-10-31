@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z, ZodSchema } from "zod";
+import { settingsSchema } from "@/lib/schemas/settingsSchema";
 import { Form } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { TextInput, CheckboxInput } from "@/components/custom/FormElements";
@@ -14,13 +14,12 @@ interface FormComponentProps {
     liveData: any;
     setLiveData: React.Dispatch<React.SetStateAction<any>>;
     fields: { [key: string]: any };
-    schema: ZodSchema;
 }
 
-const FormComponent: React.FC<FormComponentProps> = ({ onSubmit, liveData, setLiveData, fields, schema }) => {
+const FormComponent: React.FC<FormComponentProps> = ({ onSubmit, liveData, setLiveData, fields }) => {
     const form = useForm({
         defaultValues: fields,
-        resolver: zodResolver(schema),
+        resolver: zodResolver(settingsSchema),
     });
 
     const watchedValues = form.watch();
@@ -29,7 +28,7 @@ const FormComponent: React.FC<FormComponentProps> = ({ onSubmit, liveData, setLi
         if (JSON.stringify(liveData) !== JSON.stringify(watchedValues)) {
             setLiveData(watchedValues);
         }
-    }, [watchedValues, liveData]);
+    }, [watchedValues, liveData, setLiveData]);
 
     const renderFields = (fields: { [key: string]: any }, parentName: string = '') => {
         return Object.keys(fields).map((key) => {
@@ -61,10 +60,25 @@ const FormComponent: React.FC<FormComponentProps> = ({ onSubmit, liveData, setLi
                 <form onSubmit={form.handleSubmit(onSubmit)} method="POST">
                     {renderFields(fields)}
                     <div className="flex justify-between">
-                        <Button variant="outline" onClick={() => toast("Your settings have been saved", { description: "You can now compile your Botnet!", duration: 5000, action: { label: "discard", onClick: () => console.log("discard"), }, })} >
+                        <Button
+                            variant="outline"
+                            type="submit"
+                            onClick={() => {
+                                toast("Your settings have been saved", {
+                                    description: "You can now compile your Botnet!",
+                                    duration: 5000,
+                                    action: {
+                                        label: "discard",
+                                        onClick: () => console.log("discard"),
+                                    },
+                                });
+                            }}
+                        >
                             Save Settings
                         </Button>
-                        <Button variant="outline" onClick={() => toast("Your settings have been saved", { description: "You can now compile your Botnet!", duration: 5000, action: { label: "discard", onClick: () => console.log("discard"), }, })} >
+                        <Button
+                            variant="outline"
+                        >
                             Compile
                         </Button>
                     </div>
@@ -75,7 +89,7 @@ const FormComponent: React.FC<FormComponentProps> = ({ onSubmit, liveData, setLi
                     <Terminal />
                     <AlertTitle>Live Data</AlertTitle>
                     <AlertDescription>
-                        <pre>{JSON.stringify(liveData, null, 2)}</pre>
+                        <pre>{JSON.stringify(watchedValues, null, 2)}</pre>
                     </AlertDescription>
                 </Alert>
             </div>

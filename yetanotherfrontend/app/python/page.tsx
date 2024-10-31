@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import { z, ZodSchema } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { settingsSchema, fields } from "@/lib/schemas/settingsSchema";
 import FormComponent from "@/components/custom/FormComponent";
 import {
     Card,
@@ -11,50 +13,24 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 
-const createSchema = (fields: { [key: string]: any }, parentName: string = ''): ZodSchema => {
-    const schema: any = {};
-    Object.keys(fields).forEach((key) => {
-        const value = fields[key];
-        const fieldName = parentName ? `${parentName}.${key}` : key;
-        if (typeof value === "string") {
-            schema[fieldName] = z.string().nonempty();
-        } else if (typeof value === "boolean") {
-            schema[fieldName] = z.boolean();
-        } else if (typeof value === "number") {
-            schema[fieldName] = z.number();
-        } else if (typeof value === "object" && value !== null) {
-            Object.assign(schema, createSchema(value, fieldName));
-        }
-    });
-    return z.object(schema);
-};
-
 const Page: React.FC = () => {
-    const fields = {
-        BotData: {
-            Token: "example",
-            GuildID: 1423,
-        },
-        Modules: {
-            "Module1": true,
-            "Module2": false,
-        },
-    };
-
-    const schema = createSchema(fields);
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: zodResolver(settingsSchema),
+        defaultValues: fields,
+    });
 
     const [submittedData, setSubmittedData] = useState<any | null>(null);
     const [liveData, setLiveData] = useState<any>(fields);
-
     const onSubmit = async (data: any) => {
         try {
             console.log(data);
+            let dataToSend =liveData
             const response = await fetch('/api/save-settings', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify(dataToSend), // Use the data parameter here
             });
 
             if (!response.ok) {
@@ -76,7 +52,7 @@ const Page: React.FC = () => {
                     <CardDescription>Customize and compile your very own Botnet.</CardDescription>
                 </CardHeader>
                 <CardContent className="grid w-full justify-center items-center gap-4">
-                    <FormComponent onSubmit={onSubmit} liveData={liveData} setLiveData={setLiveData} fields={fields} schema={schema} />
+                    <FormComponent onSubmit={handleSubmit(onSubmit)} liveData={liveData} setLiveData={setLiveData} fields={fields} />
                 </CardContent>
             </Card>
         </div>

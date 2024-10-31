@@ -1,11 +1,14 @@
+// [pages/api/save-settings.ts]
 import { NextApiRequest, NextApiResponse } from "next";
 import fs from "fs";
 import path from "path";
+import { settingsSchema } from "../../lib/schemas/settingsSchema";
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
     try {
-      const datajson = JSON.stringify(req.body);
+      const parsedData = await settingsSchema.parseAsync(req.body);
+      const datajson = JSON.stringify(parsedData, null, 2);
       const dirPath = path.join(process.cwd(), "DATA");
       const filePath = path.join(dirPath, "settings.json");
 
