@@ -1,5 +1,4 @@
-"use client"
-
+"use client";
 import React, { useState } from "react";
 import { z, ZodSchema } from "zod";
 import FormComponent from "@/components/custom/FormComponent";
@@ -10,19 +9,21 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-  } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+} from "@/components/ui/card";
 
-const createSchema = (fields: { [key: string]: string | boolean | number }): ZodSchema => {
+const createSchema = (fields: { [key: string]: any }, parentName: string = ''): ZodSchema => {
     const schema: any = {};
     Object.keys(fields).forEach((key) => {
         const value = fields[key];
+        const fieldName = parentName ? `${parentName}.${key}` : key;
         if (typeof value === "string") {
-            schema[key] = z.string().nonempty();
+            schema[fieldName] = z.string().nonempty();
         } else if (typeof value === "boolean") {
-            schema[key] = z.boolean();
+            schema[fieldName] = z.boolean();
         } else if (typeof value === "number") {
-            schema[key] = z.number();
+            schema[fieldName] = z.number();
+        } else if (typeof value === "object" && value !== null) {
+            Object.assign(schema, createSchema(value, fieldName));
         }
     });
     return z.object(schema);
@@ -30,9 +31,14 @@ const createSchema = (fields: { [key: string]: string | boolean | number }): Zod
 
 const Page: React.FC = () => {
     const fields = {
-        String: "example",
-        boolean: false,
-        integers: 1423,
+        BotData: {
+            Token: "example",
+            GuildID: 1423,
+        },
+        Modules: {
+            "Module1": true,
+            "Module2": false,
+        },
     };
 
     const schema = createSchema(fields);
@@ -63,19 +69,15 @@ const Page: React.FC = () => {
     };
 
     return (
-        <div>
+        <div className="flex justify-center items-center min-h-screen">
             <Card className="w-[350px]">
                 <CardHeader>
                     <CardTitle>Botnet Customization</CardTitle>
                     <CardDescription>Customize and compile your very own Botnet.</CardDescription>
                 </CardHeader>
-                <CardContent className="grid w-full items-center gap-4">
-                    <FormComponent  onSubmit={onSubmit} liveData={liveData} setLiveData={setLiveData} fields={fields} schema={schema} />
+                <CardContent className="grid w-full justify-center items-center gap-4">
+                    <FormComponent onSubmit={onSubmit} liveData={liveData} setLiveData={setLiveData} fields={fields} schema={schema} />
                 </CardContent>
-                <CardFooter className="flex justify-between">
-                    <Button variant="outline">Compile</Button>
-                    <Button>Save</Button>
-                </CardFooter>
             </Card>
         </div>
     );
