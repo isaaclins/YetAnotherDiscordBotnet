@@ -26,3 +26,4 @@ go.work.sum
 yetanotherfrontend/data/settings.json
 /yetanotherfrontend/data
 yetanotherfrontend/data/settings.json
+python/settings.py
