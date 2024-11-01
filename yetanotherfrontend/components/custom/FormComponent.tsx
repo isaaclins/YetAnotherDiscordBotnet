@@ -55,39 +55,26 @@ const FormComponent: React.FC<FormComponentProps> = ({ onSubmit, liveData, setLi
     };
 
     return (
-        <div>
+        <div className="overflow-x-auto">
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} method="POST">
                     {renderFields(fields)}
                     <div className="flex justify-between">
-                        <Button
-                            variant="outline"
-                            type="submit"
-                            onClick={() => {
-                                toast("Your settings have been saved", {
-                                    description: "You can now compile your Botnet!",
-                                    duration: 5000,
-                                    action: {
-                                        label: "discard",
-                                        onClick: () => console.log("discard"),
-                                    },
-                                });
-                            }}
-                        >
+                        <Button variant="outline" type="submit" onClick={() => { toast("Your settings have been saved", { description: "You can now compile your Botnet!", duration: 5000, action: { label: "discard", onClick: () => console.log("discard"), }, }); }}>
                             Save Settings
                         </Button>
-                        <Button
-                            variant="outline"
-                        >
+                        <Button variant="outline">
                             Compile
                         </Button>
                     </div>
                 </form>
             </Form>
-            <div>
-                <Alert>
+            <div >
+                <Alert className="overflow-x-auto">
                     <Terminal />
-                    <AlertTitle>Live Data</AlertTitle>
+                    <AlertTitle>
+                        <b>Live Data</b>
+                    </AlertTitle>
                     <AlertDescription>
                         <pre>{JSON.stringify(watchedValues, null, 2)}</pre>
                     </AlertDescription>
