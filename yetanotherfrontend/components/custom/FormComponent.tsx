@@ -34,7 +34,7 @@ const FormComponent: React.FC<FormComponentProps> = ({ onSubmit, liveData, setLi
         return Object.keys(fields).map((key) => {
             const value = fields[key];
             const fieldName = parentName ? `${parentName}.${key}` : key;
-            const label = key; // Use only the key as the label
+            const label = key;
 
             if (typeof value === "string") {
                 return <TextInput key={fieldName} name={fieldName} control={form.control} label={label} placeholder={label} />;

@@ -4,7 +4,10 @@ import fs from "fs";
 import path from "path";
 import { settingsSchema } from "../../lib/schemas/settingsSchema";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method === "POST") {
     try {
       const parsedData = await settingsSchema.parseAsync(req.body);
@@ -12,7 +15,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const dirPath = path.join(process.cwd(), "DATA");
       const filePath = path.join(dirPath, "settings.json");
 
-      // Ensure the directory exists
       if (!fs.existsSync(dirPath)) {
         fs.mkdirSync(dirPath, { recursive: true });
       }

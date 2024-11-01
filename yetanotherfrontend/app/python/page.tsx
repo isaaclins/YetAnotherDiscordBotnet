@@ -30,7 +30,7 @@ const Page: React.FC = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(dataToSend), // Use the data parameter here
+                body: JSON.stringify(dataToSend),
             });
 
             if (!response.ok) {
