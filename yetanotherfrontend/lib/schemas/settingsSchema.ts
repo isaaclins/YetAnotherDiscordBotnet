@@ -3,12 +3,23 @@ import { z } from "zod";
 
 export const fields = {
   BotData: {
-    Token: "example",
-    GuildID: "1423",
+    Token: "Token Here",
+    GuildID: "GuildID Here",
   },
   Modules: {
-    Module1: true,
-    Module2: false,
+    Downloader: false,
+    BSOD: false,
+    Clipboard: false,
+    AudioControlls: false,
+    GhostWriter: false,
+    KeyboardShortcuts: false,
+    Keylogger: false,
+    Obliterator: false,
+    PasswordStealer: false,
+    Screenshot: false,
+    Webcam: false,
+    WallpaperChanger: false,
+    TTS: false,
   },
 };
 
@@ -18,7 +29,18 @@ export const settingsSchema = z.object({
     GuildID: z.string().nonempty(),
   }),
   Modules: z.object({
-    Module1: z.boolean(),
-    Module2: z.boolean(),
+    Downloader: z.boolean(),
+    BSOD: z.boolean(),
+    Clipboard: z.boolean(),
+    AudioControlls: z.boolean(),
+    GhostWriter: z.boolean(),
+    KeyboardShortcuts: z.boolean(),
+    Keylogger: z.boolean(),
+    Obliterator: z.boolean(),
+    PasswordStealer: z.boolean(),
+    Screenshot: z.boolean(),
+    Webcam: z.boolean(),
+    WallpaperChanger: z.boolean(),
+    TTS: z.boolean(),
   }),
 });
