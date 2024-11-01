@@ -1,13 +1,5 @@
 # THIS COMPONENT WILL:
 # contain the BARE MINIMUM like shell, ls, cd, exit & reload
-# ----------------------
-# DONE:
-# -cd
-# -reload
-# -ls
-# -shell
-# -exit 
-# ----------------------
 
 import os
 import discord
