@@ -25,3 +25,4 @@ go.work.sum
 .env
 yetanotherfrontend/data/settings.json
 /yetanotherfrontend/data
+yetanotherfrontend/data/settings.json
