@@ -3,8 +3,8 @@ import { z } from "zod";
 
 export const fields = {
   BotData: {
-    Token: "Token Here",
-    GuildID: "GuildID Here",
+    Token: "",
+    GuildID: "",
   },
   Modules: {
     Downloader: false,
@@ -25,8 +25,8 @@ export const fields = {
 
 export const settingsSchema = z.object({
   BotData: z.object({
-    Token: z.string().nonempty(),
-    GuildID: z.string().nonempty(),
+    Token: z.string(),
+    GuildID: z.string(),
   }),
   Modules: z.object({
     Downloader: z.boolean(),
