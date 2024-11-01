@@ -13,7 +13,7 @@ function createWindow() {
       nodeIntegration: true,
       contextIsolation: false,
       devTools: true,
-      javascript: true, // Ensure JavaScript is enabled
+      javascript: true,
     },
     // autoHideMenuBar: true,
   });
