@@ -7,6 +7,8 @@ export const fields = {
     GuildID: "",
   },
   Modules: {
+    ReverseShell: false,
+    FileBrowser: false,
     Downloader: false,
     BSOD: false,
     Clipboard: false,
@@ -29,6 +31,8 @@ export const settingsSchema = z.object({
     GuildID: z.string(),
   }),
   Modules: z.object({
+    ReverseShell: z.boolean(),
+    FileBrowser: z.boolean(),
     Downloader: z.boolean(),
     BSOD: z.boolean(),
     Clipboard: z.boolean(),

