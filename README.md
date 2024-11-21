@@ -1,5 +1,14 @@
 # YetAnotherFrontend
 
+## Developer Notes:
+
+- to run project, run `npm run dev`
+- to run only browser, run `npm run browser`
+- to run only frontend, run `npm run next`¨
+- TODO:
+- 
+
+
 ## Table of Contents
 - [YetAnotherFrontend](#yetanotherfrontend)
   * [Supported Languages](#supported-languages)
