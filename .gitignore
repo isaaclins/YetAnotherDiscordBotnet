@@ -23,7 +23,25 @@ go.work.sum
 
 # env file
 .env
-yetanotherfrontend/data/settings.json
-/yetanotherfrontend/data
-yetanotherfrontend/data/settings.json
-python/settings.py
+*/yetanotherfrontend/data
+*/python/settings.py
+
+
+# Developer tools' files
+*/.lite_workspace.lua
+
+# Neutralinojs binaries and builds
+*/bin
+*/dist
+
+# Neutralinojs client (minified)
+*/neutralino.js
+
+# Neutralinojs related files
+*/.storage
+*.log
+
+*/auth_info.json
+yetanotherbrowser/.tmp/auth_info.json
+yetanotherbrowser/resources/js/neutralino.js
+yetanotherbrowser/.tmp/window_state.config.json
