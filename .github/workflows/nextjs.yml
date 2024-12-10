@@ -1,14 +1,12 @@
-name: Deploy Next.js site to Pages
+name: Next.js CI
 
 on:
   push:
-    branches: ["main"]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 concurrency:
   group: "pages"
@@ -53,21 +51,21 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            website/.next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('website/package-lock.json', 'website/yarn.lock') }}-${{ hashFiles('website/**/*.[jt]s', 'website/**/*.[jt]sx') }}
+            ~/.npm
+            ~/.cache/yarn
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock', '**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('website/package-lock.json', 'website/yarn.lock') }}-
+            ${{ runner.os }}-node-
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-        working-directory: ./website
-      - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
-        working-directory: ./website
+        run: ${{ steps.detect-package-manager.outputs.runner }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Build
+        run: npm run build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
-          path: ./website/out
-
+          name: nextjs-build
+          path: .next
+          
   # Deployment job
   deploy:
     environment:
