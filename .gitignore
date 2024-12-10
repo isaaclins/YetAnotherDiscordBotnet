@@ -1,44 +1,36 @@
-# If you prefer the allow list template instead of the deny list, see community template:
-# https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
-#
-# Binaries for programs and plugins
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Test binary, built with `go test -c`
-*.test
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
 
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
+# testing
+/coverage
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
+# next.js
+/.next/
+/out/
 
-# Go workspace file
-go.work
-go.work.sum
+# production
+/build
 
-# env file
-.env
-*/yetanotherfrontend/data
-*/python/settings.py
+# misc
+.DS_Store
+*.pem
 
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Developer tools' files
-*/.lite_workspace.lua
+# local env files
+.env*.local
 
-# Neutralinojs binaries and builds
+# vercel
+.vercel
 
-# Neutralinojs client (minified)
-
-# Neutralinojs related files
-*/.storage
-*.log
-
-*/auth_info.json
-yetanotherbrowser/.tmp/auth_info.json
-yetanotherbrowser/resources/js/neutralino.js
-yetanotherbrowser/.tmp/window_state.config.json
+# typescript
+*.tsbuildinfo
+next-env.d.ts
