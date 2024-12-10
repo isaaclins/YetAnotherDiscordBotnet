@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  basePath: '/yetanotherdiscordbotnet',
+  assetPrefix: '/yetanotherdiscordbotnet/',
+  reactStrictMode: true,
+  swcMinify: true,
 };
 
 export default nextConfig;
