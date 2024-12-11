@@ -12,7 +12,7 @@ export default async function handler(
     try {
       const parsedData = await settingsSchema.parseAsync(req.body);
       const datajson = JSON.stringify(parsedData, null, 2);
-      const dirPath = path.join(process.cwd(), "../python/settings/");
+      const dirPath = path.join(process.cwd(), "../settings/");
       const filePath = path.join(dirPath, "settings.json");
 
       if (!fs.existsSync(dirPath)) {
