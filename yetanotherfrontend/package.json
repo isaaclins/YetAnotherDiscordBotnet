@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npm run next\" \"npm run browser\"",
-    "next": "next dev"
+    "dev": "concurrently \"npm run next\" \"npm run browserdev\"",
+    "next": "next dev",
+    "browserdev": "cd browser && npm install && neu run"
   },
   "main": "main.js",
   "dependencies": {

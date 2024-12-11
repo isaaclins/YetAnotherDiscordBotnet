@@ -90,6 +90,9 @@ Neutralino.init();
 Neutralino.events.on("trayMenuItemClicked", onTrayMenuItemClicked);
 Neutralino.events.on("windowClose", onWindowClose);
 
+Neutralino.events.on("ready", () => {
+    Neutralino.os.open("http://localhost:3000");
+});
 // Conditional initialization: Set up system tray if not running on macOS
 if(NL_OS != "Darwin") { // TODO: Fix https://github.com/neutralinojs/neutralinojs/issues/615
     setTray();

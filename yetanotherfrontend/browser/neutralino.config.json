@@ -5,7 +5,7 @@
   "defaultMode": "window",
   "port": 0,
   "documentRoot": "/resources/",
-  "url": "/",
+  "url": "localhost:3000",
   "enableServer": true,
   "enableNativeAPI": true,
   "tokenSecurity": "one-time",
@@ -32,7 +32,7 @@
   },
   "modes": {
     "window": {
-      "title": "yetanotherbrowser",
+      "title": "YetAnotherDiscordBotnet Builder V1.0",
       "width": 800,
       "height": 500,
       "minWidth": 400,
@@ -41,7 +41,7 @@
       "fullScreen": false,
       "alwaysOnTop": false,
       "icon": "/resources/icons/appIcon.png",
-      "enableInspector": true,
+      "enableInspector": false,
       "borderless": false,
       "maximize": false,
       "hidden": false,

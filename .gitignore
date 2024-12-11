@@ -42,3 +42,4 @@ go.work.sum
 yetanotherbrowser/.tmp/auth_info.json
 yetanotherbrowser/resources/js/neutralino.js
 yetanotherbrowser/.tmp/window_state.config.json
+yetanotherfrontend/browser/.tmp/auth_info.json
