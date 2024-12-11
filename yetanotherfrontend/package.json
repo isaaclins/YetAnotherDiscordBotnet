@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "concurrently \"npm run next\" \"npm run browser\"",
     "next": "next dev",
-    "browser": "cd ../yetanotherbrowser && neu run"
+    "browser": "cd ./yetanotherbrowser && npm install && neu run"
   },
   "main": "main.js",
   "dependencies": {

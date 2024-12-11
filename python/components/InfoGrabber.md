@@ -1,6 +1,6 @@
 # THIS COMPONENT WILL:
 # Grab the discord token from the user's discord app browser
-#----------------------
+# ----------------------
 # TODO:
 # - grabloot
 
