@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"npm run next\" \"npm run browser\"",
-    "next": "next dev",
-    "browser": "cd ./yetanotherbrowser && npm install && neu run"
+    "next": "next dev"
   },
   "main": "main.js",
   "dependencies": {
