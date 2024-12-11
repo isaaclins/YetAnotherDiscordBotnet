@@ -2,11 +2,6 @@
 # https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
 #
 # Binaries for programs and plugins
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
 
 # Test binary, built with `go test -c`
 *.test
@@ -30,16 +25,4 @@ go.work.sum
 # Developer tools' files
 */.lite_workspace.lua
 
-# Neutralinojs binaries and builds
-
-# Neutralinojs client (minified)
-
-# Neutralinojs related files
-*/.storage
-*.log
-
-*/auth_info.json
-yetanotherbrowser/.tmp/auth_info.json
-yetanotherbrowser/resources/js/neutralino.js
-yetanotherbrowser/.tmp/window_state.config.json
 yetanotherfrontend/browser/.tmp/auth_info.json
