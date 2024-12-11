@@ -6,16 +6,16 @@ import importlib
 print("[+] Building client.py")
 settings_path = "python/settings/settings.json"
 if not os.path.exists(settings_path):
-    print(f"Settings file not found at {settings_path}")
+    print(f"[-] Settings file not found at {settings_path}")
     exit(1)
 
 # Read and parse the settings.json file
-print(f"Reading settings from {settings_path}")
+print(f"[+] Reading settings from {settings_path}")
 try:
     with open(settings_path, "r") as file:
         settings = json.load(file)
 except json.JSONDecodeError as e:
-    print(f"Error parsing JSON: {e}")
+    print(f"[-] Error parsing JSON: {e}")
     exit(1)
 
 # Extract the modules to include
@@ -67,7 +67,7 @@ for module_name, enabled in modules.items():
             module = importlib.import_module(module_path)
             client_code += module.get_code()
         except ModuleNotFoundError:
-            print(f"Module {module_name} not found at {module_path}")
+            print(f"[-] Module {module_name} not found at {module_path}")
 
 # Finalize the client.py content
 client_code += """
@@ -81,4 +81,4 @@ client_path = "python/client/client.py"
 with open(client_path, "w") as file:
     file.write(client_code)
 
-print(f"client.py has been generated at {client_path}")
+print(f"[+] client.py has been generated at {client_path}")
