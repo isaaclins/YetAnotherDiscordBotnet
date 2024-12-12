@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "setup": "npm install && concurrently \"cd browser && npm install\"",
     "dev": "concurrently \"npm run next\" \"npm run browserdev\"",
     "next": "next dev",
-    "browserdev": "cd browser && npm install && neu run",
-    "everything": "npm install && npm run dev"
+    "browserdev": "cd browser && neu run",
+    "all": "npm run setup && npm run dev"
   },
   "main": "main.js",
   "dependencies": {
