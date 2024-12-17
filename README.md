@@ -11,9 +11,11 @@
 
 ## Table of Contents
 - [YetAnotherFrontend](#yetanotherfrontend)
-  * [Supported Languages](#supported-languages)
-  * [Modules Documentation](#modules-documentation)
-  * [Code Guidelines](#code-guidelines)
+  - [Developer Notes:](#developer-notes)
+  - [Table of Contents](#table-of-contents)
+  - [Supported Languages](#supported-languages)
+  - [Modules Documentation](#modules-documentation)
+  - [Code Guidelines](#code-guidelines)
 
 ## Supported Languages
 
@@ -72,3 +74,4 @@ I will try to give you credits for what you did and how it helped in the project
  
 <small><i><a href='http://github.com/3kh0/readme-toc/'>Table of contents generated with readme-toc</a></i></small>Test commit
 Test commit
+
