@@ -29,16 +29,15 @@ jobs:
         echo "::set-output name=commits::$COMMITS"
         echo "Commit messages: $COMMITS"
 
-    - name: Switch to main branch
-      run: git checkout main
+    - name: Get messages and date and checkout main branch
+      run: |
+        COMMITS=$(git log --oneline --no-merges $(git rev-parse HEAD^)..HEAD)
+        DATE=$(date)
+        echo "Commit messages: $COMMITS"
+        git checkout main
 
     - name: Update changelog
       run: |
-        echo Get the commits between the last push and the current commit
-        COMMITS=$(git log --oneline --no-merges $(git rev-parse HEAD^)..HEAD)
-        DATE=$(date)
-        
-        echo Append the date and commits to the changelog
         sed -i "10a# $(date '+%Y-%m-%d %H:%M:%S')\n\n${COMMITS}\n" ./content/changelog.md
     
 
