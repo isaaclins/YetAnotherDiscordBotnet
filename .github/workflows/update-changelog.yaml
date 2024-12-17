@@ -35,7 +35,8 @@ jobs:
     - name: Update changelog
       run: |
         COMMITS="${{ steps.get_commits.outputs.commits }}"
-        echo -e "\n## Latest Updates\n\n$COMMITS\n" >> ./content/changelog.md
+        DATE=$(date)
+        sed -i '10a\\n## Updates on $DATE\n\n$COMMITS\n' ./content/changelog.md
 
     - name: Commit and push changes
       run: |
