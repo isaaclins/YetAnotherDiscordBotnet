@@ -34,9 +34,13 @@ jobs:
 
     - name: Update changelog
       run: |
-        COMMITS=$(git log --pretty=format:"- %s")
+        echo Get the commits between the last push and the current commit
+        COMMITS=$(git log --oneline --no-merges $(git rev-parse HEAD^)..HEAD)
         DATE=$(date)
-        sed -i "10a# $(date '+%Y-%m-%d %H:%M:%S')\\n\\n${COMMITS}\\n" ./content/changelog.md
+        
+        echo Append the date and commits to the changelog
+        sed -i "10a# $(date '+%Y-%m-%d %H:%M:%S')\n\n${COMMITS}\n" ./content/changelog.md
+    
 
     - name: Commit and push changes
       run: |
