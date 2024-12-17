@@ -18,27 +18,15 @@ jobs:
     - name: Fetch all branches
       run: git fetch --all
 
-    - name: Checkout main branch
-      run: git checkout main
-
-    - name: Get commit messages from code branch
-      id: get_commits
-      run: |
-        git checkout code
-        COMMITS=$(git log main..code --pretty=format:"- %s")
-        echo "::set-output name=commits::$COMMITS"
-        echo "Commit messages: $COMMITS"
-
     - name: Get messages and date and checkout main branch
       run: |
-        COMMITS=$(git log --oneline --no-merges $(git rev-parse HEAD^)..HEAD)
-        DATE=$(date)
-        echo "Commit messages: $COMMITS"
-        git checkout main
+        git checkout code
+        DATE=$(date) & COMMITS=$(git log --oneline --no-merges $(git rev-parse HEAD^)..HEAD) && echo "Commit messages: $COMMITS"
 
     - name: Update changelog
       run: |
-        sed -i "10a# $(date '+%Y-%m-%d %H:%M:%S')\n\n${COMMITS}\n" ./content/changelog.md
+        git checkout main && sed -i "10a# $(date '+%Y-%m-%d %H:%M:%S')\n\n${COMMITS}\n" ./content/changelog.md
+
 
     - name: Commit and push changes
       run: |
