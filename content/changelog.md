@@ -18,3 +18,7 @@ Stay updated with the latest changes in the YetAnotherDiscordBotnet project.
 - Fixed various bugs and issues.
 
 For more detailed information, please visit our [GitHub Repository](https://github.com/YourUsername/YetAnotherDiscordBotnet).
+## Latest Updates
+
+- feat: füge Debug-Ausgabe für Commit-Nachrichten hinzu und wechsle zum Hauptbranch
+
