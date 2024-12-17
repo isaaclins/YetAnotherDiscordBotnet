@@ -5,6 +5,7 @@ import importlib
 # Path to the settings.json file
 print("[+] Building client.py")
 settings_path = "python/settings/settings.json"
+client_path = "python/client/client.py"
 if not os.path.exists(settings_path):
     print(f"[-] Settings file not found at {settings_path}")
     exit(1)
@@ -77,7 +78,6 @@ client.run(bottoken)
 """
 
 # Write the generated code to client.py
-client_path = "python/client/client.py"
 with open(client_path, "w") as file:
     file.write(client_code)
 
