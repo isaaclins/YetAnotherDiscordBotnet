@@ -15,29 +15,33 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Get commit messages from code branch
-      id: get_commits
-      run: |
-        COMMITS=$(git log --oneline --no-merges $(git rev-parse HEAD^)..HEAD)
+    - name: get latest commit messages
+      run: COMMITS=$(git log --oneline --no-merges $(git rev-parse HEAD^)..HEAD)
 
     - name: Switch to main branch
       run: git checkout main
 
-    - name: Update changelog
-      run: |
-        echo Get the commits between the last push and the current commit
-        DATE=$(date)
-        echo Append the date and commits to the changelog
-        sed -i "10a# $(date '+%Y-%m-%d %H:%M:%S')\n\n${COMMITS}\n" ./content/changelog.md
-    
+    - name: get date
+      run: DATE=$(date)
+        
+    - name: Add commit messages to changelog
+      run: sed -i "10a# $(date '+%Y-%m-%d %H:%M:%S')\n\n${COMMITS}\n" ./content/changelog.md
+
+    - name: set git config NAME
+      run: git config --global user.name 'github-actions[bot]'
+
+    - name: set git config EMAIL
+      run: git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+    - name: Add changelog to git staging
+      run: git add ./content/changelog.md
 
     - name: Commit and push changes
-      run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add ./content/changelog.md
-        git commit -m "Update changelog with latest commit messages"
-        git push origin main
+      run: git commit -m "Update changelog with latest commit messages"  
+
+    - name: Push changes to main branch
+      run: git push origin main
+
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
