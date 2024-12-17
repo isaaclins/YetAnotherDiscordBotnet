@@ -24,6 +24,7 @@ For more information, [Contact me](mailto:contact@isaaclins.com).
 
 ## Changelog
 
+Stay updated with the latest changes in the project by visiting the [Changelog](YetAnotherDiscordBot/changelog/).
 Stay updated with the latest changes in the project by visiting the [Changelog](/changelog/).
 
 ## Contributing
