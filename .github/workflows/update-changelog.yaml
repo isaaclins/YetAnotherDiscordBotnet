@@ -34,7 +34,7 @@ jobs:
 
     - name: Update changelog
       run: |
-        COMMITS="${{ steps.get_commits.outputs.commits }}"
+        COMMITS=$(git log --pretty=format:"- %s")
         DATE=$(date)
         sed -i "10a# $(date '+%Y-%m-%d %H:%M:%S')\n\n${COMMITS}\n" ./content/changelog.md
 
