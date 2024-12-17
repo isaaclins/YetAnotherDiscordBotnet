@@ -16,3 +16,8 @@ This is an Automated process which takes the latest commit message and overwrite
 
 - fix: entferne Punkt am Ende der Kommentarzeile in Uploader.py
 
+
+## Latest Updates
+
+- feat: füge Trigger für Pages-Workflow im Changelog-Update hinzu
+
