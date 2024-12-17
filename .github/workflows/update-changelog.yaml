@@ -27,8 +27,8 @@ jobs:
       run: |
         DATE=$(date)
         COMMITS=$(git log --pretty=format:"%h %s%n" @{u})
-        sed -i "10a ## $DATE" ./content/changelog.md
-        sed -i "11a $COMMITS" ./content/changelog.md
+        sed -i "10a ## ${DATE}" ./content/changelog.md
+        echo "${COMMITS}" | sed -i "11r /dev/stdin" ./content/changelog.md
         cat ./content/changelog.md
 
 
