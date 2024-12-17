@@ -32,7 +32,8 @@ jobs:
         
     - name: Add commit messages to changelog and cat it
       run: |
-        sed -i "10a# $(date '+%Y-%m-%d %H:%M:%S')\n\n${COMMITS}\n" ./content/changelog.md
+        echo "## $DATE" >> ./content/changelog.md
+        echo "$COMMITS" >> ./content/changelog.md
         cat ./content/changelog.md
 
 
