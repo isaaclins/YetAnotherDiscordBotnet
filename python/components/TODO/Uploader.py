@@ -1,5 +1,5 @@
 # THIS COMPONENT WILL:
-# upload a file (link or attachment) to the given directory.
+# upload a file (link or attachment) to the given directory
 # ----------------------
 # TODO:
 # -upload -d </path/to/directory/> -a (has attachment)
