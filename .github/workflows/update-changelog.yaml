@@ -1,0 +1,36 @@
+name: Update Changelog
+
+on:
+  push:
+    branches:
+      - code
+
+jobs:
+  update-changelog:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
+
+    - name: Get latest commit message
+      id: get_commit
+      run: |
+        echo "::set-output name=message::$(git log -1 --pretty=format:%s)"
+
+    - name: Update changelog
+      run: |
+        COMMIT_MESSAGE="${{ steps.get_commit.outputs.message }}"
+        echo -e "\n## Latest Update\n\n- $COMMIT_MESSAGE\n" >> content/changelog.md
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add content/changelog.md
+        git commit -m "Update changelog with latest commit message"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
