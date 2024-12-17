@@ -9,8 +9,8 @@ PLEASE for the love of god visit the [LEGAL](/legal/) before doing anything with
 ## Explore
 
 {{< cards >}}
-  {{< card link="docs" title="Docs" icon="book-open" >}}
-  {{< card link="legal" title="Legal" icon="user" >}}
+{{< card link="docs" title="Docs" icon="book-open" >}}
+{{< card link="legal" title="Legal" icon="user" >}}
 {{< /cards >}}
 
 ## Documentation
