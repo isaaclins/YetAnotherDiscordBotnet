@@ -15,11 +15,10 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: set git config NAME
-      run: git config --global user.name 'github-actions[bot]'
-
-    - name: set git config EMAIL
-      run: git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+    - name: set git config NAME & set git config EMAIL
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
     - name: Switch to main branch
       run: git checkout main
@@ -27,7 +26,7 @@ jobs:
     - name: Add commit messages to changelog and cat it
       run: |
         DATE=$(date)
-        COMMITS=$(git log --oneline --no-merges $(git rev-parse HEAD^)..HEAD)
+        COMMITS=$(git log --pretty=format:"%h %s%n" @{u})
         sed -i "10a ## $DATE" ./content/changelog.md
         sed -i "11a $COMMITS" ./content/changelog.md
         cat ./content/changelog.md
