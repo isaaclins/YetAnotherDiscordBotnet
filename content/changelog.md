@@ -8,6 +8,10 @@ toc: false
 Stay updated with the latest changes in the YetAnotherDiscordBotnet project.
 This is an Automated process which takes the latest commit message and overwrites it to the bottom of this page.
 
+# 2024-12-17 17:10:15
+
+- fix: ändere das Format des Datumsstempels im Changelog-Update
+
 n## Updates on 2024-12-17 17:07:55
 
 - fix: aktualisiere Datumsformat im Changelog-Update
