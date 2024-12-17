@@ -33,3 +33,5 @@ go.work.sum
 */.lite_workspace.lua
 
 yetanotherfrontend/browser/.tmp/auth_info.json
+/python/__pycache__
+python/settings.py
