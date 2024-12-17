@@ -36,7 +36,7 @@ jobs:
       run: |
         COMMITS=$(git log --pretty=format:"- %s")
         DATE=$(date)
-        sed -i "10a# $(date '+%Y-%m-%d %H:%M:%S')\n\n${COMMITS}\n" ./content/changelog.md
+        sed -i "10a# $(date '+%Y-%m-%d %H:%M:%S')\\n\\n${COMMITS}\\n" ./content/changelog.md
 
     - name: Commit and push changes
       run: |
