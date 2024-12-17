@@ -19,14 +19,18 @@ jobs:
       run: git fetch --all
 
     - name: Get messages and date and checkout main branch
+      id: get-commits
       run: |
         git checkout code
-        DATE=$(date) & COMMITS=$(git log --oneline --no-merges $(git rev-parse HEAD^)..HEAD) && echo "Commit messages: $COMMITS"
+        DATE=$(date '+%Y-%m-%d %H:%M:%S')
+        COMMITS=$(git log --oneline --no-merges $(git rev-parse HEAD^)..HEAD)
+        echo "DATE=$DATE" >> $GITHUB_ENV
+        echo "COMMITS=$COMMITS" >> $GITHUB_ENV
 
     - name: Update changelog
       run: |
-        git checkout main && sed -i "10a# $(date '+%Y-%m-%d %H:%M:%S')\n\n${COMMITS}\n" ./content/changelog.md
-
+        git checkout main
+        sed -i "10a# ${{ env.DATE }}\n\n${{ env.COMMITS }}\n" ./content/changelog.md
 
     - name: Commit and push changes
       run: |
