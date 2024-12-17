@@ -2,6 +2,13 @@
 # https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
 #
 # Binaries for programs and plugins
+# Hugo output
+public/
+resources/
+.hugo_build.lock
+
+# Editor
+.vscode/
 
 # Test binary, built with `go test -c`
 *.test
