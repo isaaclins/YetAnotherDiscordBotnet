@@ -25,9 +25,9 @@ jobs:
         
     - name: Add commit messages to changelog and cat it
       run: |
-      COMMITS=$(git log --pretty=format:"%h %ad %s" --date=short @{u})
-      echo "## ${COMMITS}" | sed -i "11r /dev/stdin" ./content/changelog.md
-      cat ./content/changelog.md
+        COMMITS=$(git log --pretty=format:"%h %ad %s" --date=short @{u})
+        echo "## ${COMMITS}" | sed -i "11r /dev/stdin" ./content/changelog.md
+        cat ./content/changelog.md
 
 
     - name: Add changelog to git staging
