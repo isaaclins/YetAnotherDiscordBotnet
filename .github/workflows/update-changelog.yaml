@@ -18,9 +18,6 @@ jobs:
     - name: Fetch all branches
       run: git fetch --all
 
-    - name: Checkout main branch
-      run: git checkout main
-
     - name: Get commit messages from code branch
       id: get_commits
       run: |
@@ -37,7 +34,6 @@ jobs:
         echo Get the commits between the last push and the current commit
         COMMITS=$(git log --oneline --no-merges $(git rev-parse HEAD^)..HEAD)
         DATE=$(date)
-        
         echo Append the date and commits to the changelog
         sed -i "10a# $(date '+%Y-%m-%d %H:%M:%S')\n\n${COMMITS}\n" ./content/changelog.md
     
