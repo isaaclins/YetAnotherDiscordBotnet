@@ -39,7 +39,6 @@ jobs:
     - name: Update changelog
       run: |
         sed -i "10a# $(date '+%Y-%m-%d %H:%M:%S')\n\n${COMMITS}\n" ./content/changelog.md
-    
 
     - name: Commit and push changes
       run: |
