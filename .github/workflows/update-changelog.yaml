@@ -27,6 +27,10 @@ jobs:
         git checkout code
         COMMITS=$(git log main..code --pretty=format:"- %s")
         echo "::set-output name=commits::$COMMITS"
+        echo "Commit messages: $COMMITS"
+
+    - name: Switch to main branch
+      run: git checkout main
 
     - name: Update changelog
       run: |
