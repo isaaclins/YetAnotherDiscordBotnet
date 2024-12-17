@@ -21,19 +21,15 @@ jobs:
     - name: set git config EMAIL
       run: git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-    - name: get latest commit messages
-      run: COMMITS=$(git log --oneline --no-merges $(git rev-parse HEAD^)..HEAD)
-
-    - name: get date
-      run: DATE=$(date)
-
     - name: Switch to main branch
       run: git checkout main
         
     - name: Add commit messages to changelog and cat it
       run: |
-        sed -i '10a ## $DATE' ./content/changelog.md
-        sed -i '11a $COMMITS' ./content/changelog.md
+        DATE=$(date)
+        COMMITS=$(git log --oneline --no-merges $(git rev-parse HEAD^)..HEAD)
+        sed -i "10a ## $DATE" ./content/changelog.md
+        sed -i "11a $COMMITS" ./content/changelog.md
         cat ./content/changelog.md
 
 
