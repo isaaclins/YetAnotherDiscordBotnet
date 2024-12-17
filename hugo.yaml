@@ -24,7 +24,7 @@ menu:
       pageRef: /legal
       weight: 2
     - name: Contact ↗
-      url: "https://github.com/imfing"
+      url: "mailto://contact@isaaclins.com"
       weight: 3
     - name: Search
       weight: 4
