@@ -70,4 +70,4 @@ When contributing, please adhere to the following guidelines:
 Thank you for considering contributing to our project! Your efforts help make this project better for everyone <br>
 I will try to give you credits for what you did and how it helped in the project!
  
-<small><i><a href='http://github.com/3kh0/readme-toc/'>Table of contents generated with readme-toc</a></i></small>
+<small><i><a href='http://github.com/3kh0/readme-toc/'>Table of contents generated with readme-toc</a></i></small>Test commit
