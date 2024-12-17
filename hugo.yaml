@@ -1,6 +1,5 @@
 # Hugo configuration file
-title: My Site
-
+title: YADB Documentation
 # import hextra as module
 module:
   imports:
@@ -21,8 +20,8 @@ menu:
     - name: Docs
       pageRef: /docs
       weight: 1
-    - name: About
-      pageRef: /about
+    - name: legal
+      pageRef: /legal
       weight: 2
     - name: Contact ↗
       url: "https://github.com/imfing"
@@ -33,14 +32,14 @@ menu:
         type: search
     - name: GitHub
       weight: 5
-      url: "https://github.com/imfing/hextra-starter-template"
+      url: "https://github.com/isaaclins/YetAnotherDiscordBotnet"
       params:
         icon: github
-    - name: Twitter
+    - name: Discord
       weight: 6
       url: "https://twitter.com/"
       params:
-        icon: x-twitter
+        icon: discord
 
 params:
   navbar:
