@@ -1,6 +1,6 @@
 ---
 title: Changelog
-toc: false
+toc: true
 ---
 
 # Changelog
