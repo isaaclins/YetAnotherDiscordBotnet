@@ -2,5 +2,5 @@
 
 [![Update Changelog](https://github.com/isaaclins/YetAnotherDiscordBotnet/actions/workflows/update-changelog.yaml/badge.svg)](https://github.com/isaaclins/YetAnotherDiscordBotnet/actions/workflows/update-changelog.yaml)
 
-# important sites:
-[ICONS](https://v1.heroicons.com/)
+# Important Sites
+- [ICONS](https://v1.heroicons.com/)
