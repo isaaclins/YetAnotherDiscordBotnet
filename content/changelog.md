@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 18-12-2024
 
+ 9187398 removed unnecessary lines
+
+ abc1065 removed unnecessary line
+
+
+
+## 18-12-2024
+
  1db3e8c Aktualisiere das Update-Changelog-Skript zur Verwendung von actions/checkout@v4 und verbessere die Commit-Nachrichtenerfassung
 
  abc1065 removed unnecessary line
