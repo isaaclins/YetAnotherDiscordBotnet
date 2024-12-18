@@ -19,6 +19,7 @@ jobs:
     - name: Get latest commit message
       id: get_commit
       run: |
+        git checkout code
         # Get the commits by date and format them, then sort them by date
         git log --pretty=format:'%ad %h %s' --date=format:'%d-%m-%Y' | sort | awk '
         {
