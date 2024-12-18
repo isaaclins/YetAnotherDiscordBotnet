@@ -44,9 +44,9 @@ jobs:
           }
           prev_date = date;
           print hash, msg;
-        }' | \
-        sed '11r /dev/stdin' ./content/changelog.md > ./content/changelog.tmp && mv ./content/changelog.tmp ./content/changelog.md
-
+        }' > ./content/changelog.tmp
+        cat ./content/changelog.tmp ./content/changelog.md > ./content/changelog.new && mv ./content/changelog.new ./content/changelog.md
+    
     - name: Add Changelog to Staging
       run: git add ./content/changelog.md
 
