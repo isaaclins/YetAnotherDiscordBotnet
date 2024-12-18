@@ -11,55 +11,45 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
-        fetch-depth: 0
+        fetch-depth: 2
 
-    - name: Set Git Config
+    - name: Get latest commit message
+      id: get_commit
+      run: |
+        git fetch
+        git checkout code
+        # Get the commits by date and format them, then sort them by date
+        git log --pretty=format:'%ad %h %s' --date=format:'%d-%m-%Y' | sort | awk '
+        {
+            date = $1;
+            $1 = "";
+            commits[date] = commits[date] "\n" $0 "\n";
+        }
+        END {
+            for (date in commits) {
+                print "## " date;
+                print commits[date];
+                print "\n";
+            }
+        }
+        ' > commits.txt
+
+    - name: Change branch and save commit messages
+      run: |
+        git checkout main
+        awk 'NR==11 {print; system("cat commits.txt"); next} 1' content/changelog.md > temp && mv temp content/changelog.md && rm commits.txt
+
+    - name: Commit and push changes
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add content/changelog.md
+        git commit -m "Update changelog with latest commit message"
+        git push
 
-    - name: Switch to main branch
-      run: git checkout main
-
-    - name: Pull latest changes
-      run: git pull origin main
-
-    - name: Update Changelog
-      run: |
-        git log --pretty=format:"%ad %h %s" --date=iso | \
-        awk '{date=substr($0, 1, 19); hash=$2; $1=$2=$3=""; msg=substr($0, 5); print date, hash, msg}' | \
-        sort -r | \
-        awk '
-        BEGIN { prev_date = "" }
-        {
-          date = substr($0, 1, 10);
-          time = substr($0, 12, 8);
-          hash = $11;
-          $1=$2=$3=""; msg=substr($0, 4);
-          if (prev_date != date) {
-            if (NR != 1) { print "" }
-            print "## " date " " time;
-          }
-          prev_date = date;
-          print hash, msg;
-        }' | \
-        sed '11r /dev/stdin' ./content/changelog.md > ./content/changelog.tmp && mv ./content/changelog.tmp ./content/changelog.md
-
-    - name: Add Changelog to Staging
-      run: git add ./content/changelog.md
-
-    - name: Commit Changes
-      run: |
-        git commit -m "Update changelog with latest commit messages" || echo "No changes to commit"
-
-    - name: Push Changes
-      run: git push origin main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Trigger Pages Workflow
+    - name: Trigger pages workflow
       run: |
         curl -X POST \
           -H "Accept: application/vnd.github.v3+json" \
