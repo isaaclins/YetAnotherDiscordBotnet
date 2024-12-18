@@ -15,7 +15,7 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: set git config NAME & set git config EMAIL
+    - name: Set Git Config
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
@@ -23,25 +23,43 @@ jobs:
     - name: Switch to main branch
       run: git checkout main
 
-    - name: Add commit messages to changelog and cat it
-      run: |
-        COMMITS=$(git log --pretty=format:"## %ad%n*%h* %s" --date=format:"%Y-%m-%d %H:%M:%S" @{u})
-        echo "${COMMITS}" | sed -i "11r /dev/stdin" ./content/changelog.md
-        cat ./content/changelog.md
+    - name: Pull latest changes
+      run: git pull origin main
 
-    - name: Add changelog to git staging
+    - name: Update Changelog
+      run: |
+        git log --pretty=format:"%ad %h %s" --date=iso | \
+        awk '{date=substr($0, 1, 19); hash=$4; $1=$2=$3=$4=""; msg=substr($0, 5); print date, hash, msg}' | \
+        sort | \
+        awk '
+        BEGIN { prev_date = "" }
+        {
+          date = substr($0, 1, 10);
+          time = substr($0, 12, 8);
+          hash = $11;
+          $1=$2=$3=""; msg=substr($0, 4);
+          if (prev_date != date) {
+            if (NR != 1) { print "" }
+            print "## " date " " time;
+          }
+          prev_date = date;
+          print hash, msg;
+        }' | \
+        sed '11r /dev/stdin' ./content/changelog.md > ./content/changelog.tmp && mv ./content/changelog.tmp ./content/changelog.md
+
+    - name: Add Changelog to Staging
       run: git add ./content/changelog.md
 
-    - name: Commit and push changes
-      run: git commit -m "Update changelog with latest commit messages"  
+    - name: Commit Changes
+      run: |
+        git commit -m "Update changelog with latest commit messages" || echo "No changes to commit"
 
-    - name: Push changes to main branch
+    - name: Push Changes
       run: git push origin main
-
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Trigger pages workflow
+    - name: Trigger Pages Workflow
       run: |
         curl -X POST \
           -H "Accept: application/vnd.github.v3+json" \
