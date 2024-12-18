@@ -30,7 +30,7 @@ jobs:
       run: |
         git log --pretty=format:"%ad %h %s" --date=iso | \
         awk '{date=substr($0, 1, 19); hash=$4; $1=$2=$3=$4=""; msg=substr($0, 5); print date, hash, msg}' | \
-        sort | \
+        sort -r | \
         awk '
         BEGIN { prev_date = "" }
         {
