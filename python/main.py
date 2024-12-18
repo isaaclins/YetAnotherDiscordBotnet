@@ -86,6 +86,7 @@ async def on_message(message):
             await message.reply(embed=embed)
     # ADDED AUDIO MANIPULATION MODULE
         elif message.content.lower().startswith(".lower"):
+            import ctypes
             volume = message.content[7:]  # Extract volume value after the command
         try:
             volume = int(volume)  # Convert input to integer
