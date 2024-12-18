@@ -18,12 +18,25 @@ jobs:
     - name: Get latest commit message
       id: get_commit
       run: |
-        echo "::set-output name=message::$(git log -1 --pretty=format:%s)"
+        # Get the commits by date and format them, then sort them by date
+        git log --pretty=format:'%ad %h %s' --date=format:'%d-%m-%Y' | sort | awk '
+        {
+            date = $1;
+            $1 = "";
+            commits[date] = commits[date] "\n" $0 "\n";
+        }
+        END {
+            for (date in commits) {
+                print "## " date;
+                print commits[date];
+                print "\n";
+            }
+        }' > ${{ steps.get_commit.outputs.commits }}
 
-    - name: Update changelog
+    - name: Change branch and save commit messages
       run: |
-        COMMIT_MESSAGE="${{ steps.get_commit.outputs.message }}"
-        echo -e "\n## Latest Update\n\n- $COMMIT_MESSAGE\n" >> content/changelog.md
+        git checkout main
+        awk 'NR==11 {print; system("cat ${{ steps.get_commit.outputs.commits }}"); next} 1' content/changelog.md > temp && mv temp content/changelog.md
 
     - name: Commit and push changes
       run: |
