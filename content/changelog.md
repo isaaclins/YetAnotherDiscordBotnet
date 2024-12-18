@@ -9,6 +9,14 @@ Stay updated with the latest changes in the YetAnotherDiscordBotnet project.
 This is an Automated process which takes the latest commit message and overwrites it to the bottom of this page.
 
 
+## 18-12-2024
+
+ 1db3e8c Aktualisiere das Update-Changelog-Skript zur Verwendung von actions/checkout@v4 und verbessere die Commit-Nachrichtenerfassung
+
+ 840b681 this is an example commit to test the changelog; also just added a line to main.py
+
+
+
 ## 2024-12-18 17:25:19
  de9510 Merge branch 'main' of https://github.com/isaaclins/YetAnotherDiscordBotnet
  b52714 Entferne den 'main'-Branch aus dem Update-Changelog-Workflow
