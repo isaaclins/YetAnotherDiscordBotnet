@@ -20,13 +20,12 @@ For more information, [Contact me](mailto:contact@isaaclins.com).
 
 ## Additional Resources
 
-- [GitHub Repository](https://github.com/YourUsername/YetAnotherDiscordBotnet)
+- [GitHub Repository](https://github.com/isaaclins/YetAnotherDiscordBotnet)
 - [Support](mailto:support@isaaclins.com)
 
 ## Changelog
 
-Stay updated with the latest changes in the project by visiting the [Changelog](YetAnotherDiscordBot/changelog/).
-Stay updated with the latest changes in the project by visiting the [Changelog](/changelog/).
+Stay updated with the latest changes in the project by visiting the [Changelog](changelog/).
 
 ## Contributing
 
