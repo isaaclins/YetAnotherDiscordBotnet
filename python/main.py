@@ -110,6 +110,4 @@ async def on_message(message):
         except Exception as e:
             await message.channel.send(f"An error occurred: {e}")
             
-
-
 client.run(bottoken)
