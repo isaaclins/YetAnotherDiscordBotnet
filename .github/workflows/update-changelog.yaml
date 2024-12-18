@@ -32,12 +32,13 @@ jobs:
                 print commits[date];
                 print "\n";
             }
-        }' > ${{ steps.get_commit.outputs.commits }}
+        }
+        ' > commits.txt
 
     - name: Change branch and save commit messages
       run: |
         git checkout main
-        awk 'NR==11 {print; system("cat ${{ steps.get_commit.outputs.commits }}"); next} 1' content/changelog.md > temp && mv temp content/changelog.md
+        awk 'NR==11 {print; system("cat commits.txt}"); next} 1' content/changelog.md > temp && mv temp content/changelog.md && rm commits.txt
 
     - name: Commit and push changes
       run: |
