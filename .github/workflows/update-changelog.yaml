@@ -38,7 +38,7 @@ jobs:
     - name: Change branch and save commit messages
       run: |
         git checkout main
-        awk 'NR==11 {print; system("cat commits.txt}"); next} 1' content/changelog.md > temp && mv temp content/changelog.md && rm commits.txt
+        awk 'NR==11 {print; system("cat commits.txt"); next} 1' content/changelog.md > temp && mv temp content/changelog.md && rm commits.txt
 
     - name: Commit and push changes
       run: |
