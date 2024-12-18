@@ -1,6 +1,7 @@
 ---
-title: Documentation
+title: Yet-Another-Discord-Botnet
 toc: false
+
 ---
 
 This is a simple Documentation for the YetAnotherDiscordBotnet project.
@@ -9,8 +10,8 @@ PLEASE for the love of god visit the [LEGAL](/legal/) before doing anything with
 ## Explore
 
 {{< cards >}}
-{{< card link="docs" title="Docs" icon="book-open" >}}
-{{< card link="legal" title="Legal" icon="user" >}}
+{{< card link="documentation" title="Documentation" icon="book-open" >}}
+{{< card link="purpose" title="Purpose of YADB" icon="question-mark-circle" >}}
 {{< /cards >}}
 
 ## Documentation
