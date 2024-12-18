@@ -29,7 +29,7 @@ jobs:
     - name: Update Changelog
       run: |
         git log --pretty=format:"%ad %h %s" --date=iso | \
-        awk '{date=substr($0, 1, 19); hash=$4; $1=$2=$3=$4=""; msg=substr($0, 5); print date, hash, msg}' | \
+        awk '{date=substr($0, 1, 19); hash=$2; $1=$2=$3=""; msg=substr($0, 5); print date, hash, msg}' | \
         sort -r | \
         awk '
         BEGIN { prev_date = "" }
@@ -44,9 +44,9 @@ jobs:
           }
           prev_date = date;
           print hash, msg;
-        }' > ./content/changelog.tmp
-        cat ./content/changelog.tmp ./content/changelog.md > ./content/changelog.new && mv ./content/changelog.new ./content/changelog.md
-    
+        }' | \
+        sed '11r /dev/stdin' ./content/changelog.md > ./content/changelog.tmp && mv ./content/changelog.tmp ./content/changelog.md
+
     - name: Add Changelog to Staging
       run: git add ./content/changelog.md
 
