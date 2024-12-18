@@ -1,3 +1,13 @@
+---
+title: Changelog
+toc: false
+---
+
+# Changelog
+
+Stay updated with the latest changes in the YetAnotherDiscordBotnet project.
+This is an Automated process which takes the latest commit message and overwrites it to the bottom of this page.
+
 ## 2024-10-02 07:31:45
  Add renovate.json
  Initial commit
@@ -253,12 +263,4 @@ neuesten feat: aktualisiere Changelog mit automatischer Aktualisierung der neues
 ## 2024-12-18 09:22:04
  Merge pull request #99 from isaaclins/MAIN/actions-configure-pages-5.x
  Merge pull request #98 from isaaclins/MAIN/actions-checkout-4.x
----
-title: Changelog
-toc: false
----
 
-# Changelog
-
-Stay updated with the latest changes in the YetAnotherDiscordBotnet project.
-This is an Automated process which takes the latest commit message and overwrites it to the bottom of this page.
