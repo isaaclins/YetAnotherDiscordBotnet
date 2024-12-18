@@ -8,6 +8,7 @@ from settings import guildid, bottoken
 from uuid import getnode 
 import subprocess
 
+
 intents = discord.Intents.all()
 intents.members = True
 client = discord.Client(intents=intents)
