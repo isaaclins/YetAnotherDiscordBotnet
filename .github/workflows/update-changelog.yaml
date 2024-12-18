@@ -43,7 +43,7 @@ jobs:
             print "## " date " " time;
           }
           prev_date = date;
-          print hash, msg;
+          print hash, msg "\n";
         }' | \
         sed '11r /dev/stdin' ./content/changelog.md > ./content/changelog.tmp && mv ./content/changelog.tmp ./content/changelog.md
 
