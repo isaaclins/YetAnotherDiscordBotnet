@@ -93,9 +93,6 @@ async def on_message(message):
             if volume < 0 or volume > 100:
                 await message.channel.send("Please enter a volume between 0 and 100.")
                 return
-
-            if os.name == "posix":  # For macOS
-                os.system(f"osascript -e 'set volume output volume {volume}'")
             elif os.name == "nt":  # For Windows
                 # Calculate volume level (0 to 65535)
                 volume_level = int(volume * 65535 / 100)
