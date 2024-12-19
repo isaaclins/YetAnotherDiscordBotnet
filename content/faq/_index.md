@@ -8,9 +8,11 @@ Here are some Frequently asked questions:
 ### Is the software safe?
 yes, you can check every line of code. i always recommend you to compile it yourself, as there are well-documented steps of doing so. (https://isaaclins/YetAnotherDiscordBotnet/compile)
 if you got the sofware from somewhere else, its most likely malicious itself and I do not recommend using anything other than this repository itself:
+<br>
+<br>
+
 {{< card link="https://github.com/isaaclins/YetAnotherDiscordBotnet" title="Repository" icon="question-mark-circle" >}}
 
-<hr>
 
 ### Why did you create it?
 The reason for me programming this is to test the maximum of my capacities of what I'm capable of.
