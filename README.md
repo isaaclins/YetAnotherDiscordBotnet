@@ -4,3 +4,4 @@
 
 # Important Sites
 - [ICONS](https://v1.heroicons.com/)
+- [docs](https://imfing.github.io/hextra/docs/)

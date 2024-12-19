@@ -1,13 +1,22 @@
 ---
 title: Yet-Another-Discord-Botnet
 toc: false
-
 ---
 
-This is a simple Documentation for the YetAnotherDiscordBotnet project.
-PLEASE for the love of god visit the [LEGAL](/legal/) before doing anything with this.
+{{< callout  emoji="⚠"  type="warning" >}}
 
-## Explore
+This is a simple Documentation for the YetAnotherDiscordBotnet project. <br>
+**PLEASE FOR THE LOVE OF GOD** visit the [**LEGAL**](https://isaaclins.com/YetAnotherDiscordBotnet/legal/) before doing anything with this.
+{{< /callout >}}
+<br>
+
+<div style="display: flex; justify-content: center; align-items: center;>
+
+{{< cards >}}
+{{< card style="text-decoration: none;" onclick="alert()" title="LEGAL" icon="book-open" >}}
+{{< /cards >}}
+
+</div>
 
 {{< cards >}}
 {{< card link="documentation" title="Documentation" icon="book-open" >}}
@@ -19,7 +28,3 @@ PLEASE for the love of god visit the [LEGAL](/legal/) before doing anything with
 
 {{< /cards >}}
 
-
-## Contributing
-
-Interested in contributing? Check out our [Contributing Guidelines](/contributing/) to get started.
