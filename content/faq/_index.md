@@ -6,8 +6,7 @@ toc: true
 Here are some Frequently asked questions:
 
 ### Is the software safe?
-yes, you can check every line of code. i always recommend you to compile it yourself, as there are well-documented steps of doing so. (https://isaaclins/YetAnotherDiscordBotnet/compile)
-if you got the sofware from somewhere else, its most likely malicious itself and I do not recommend using anything other than this repository itself:
+Yes, you can check every line of code. I always recommend compiling it yourself, as there are well-documented steps for doing so. (https://isaaclins/YetAnotherDiscordBotnet/compile) If you got the software from somewhere else, it's most likely malicious, and I do not recommend using anything other than this repository:
 <br>
 <br>
 
@@ -17,13 +16,13 @@ if you got the sofware from somewhere else, its most likely malicious itself and
 <hr> 
 
 ### Why did you create it?
-The reason for me programming this is to test the maximum of my capacities of what I'm capable of.
+The reason for programming this is to test the maximum of my capacities and what I'm capable of.
 <br>
 <br>
 <hr> 
 
 ### Isn't it potentially dangerous for everyone to use this?
-Yes, this project can be potentially dangerous if misused. It is crucial to understand the ethical implications and responsibilities that come with using such software. The intent behind creating this was purely educational and to explore the technical aspects, not to cause harm.
+Yes, this project can be dangerous if misused. It is crucial to understand the ethical implications and responsibilities that come with using such software. The intent behind creating this was purely educational and to explore the technical aspects, not to cause harm.
 
 <br>
 <hr> 
@@ -41,14 +40,13 @@ Always seek permission before testing on any system that you do not own. Use thi
 <hr> 
 
 ### Are there any legal concerns I should be aware of?
-Yes, misuse of this software can lead to serious legal consequences, including criminal charges. It is essential to understand and adhere to all applicable laws and regulations when using or experimenting with this project.
-Do **NOT** use this maliciously
+Yes, misuse of this software can lead to serious legal consequences, including criminal charges. It is essential to understand and adhere to all applicable laws and regulations when using or experimenting with this project. Do **NOT** use this maliciously.
 
 <br>
 <hr> 
 
 ### Can this project be used for malicious purposes?
-While the project itself is a proof of concept and intended for educational purposes, it must never be used maliciously. It is crucial to approach this project with a strong ethical mindset and a commitment to using it for legitimate and constructive purposes only.
+No, this project must never be used maliciously. It is a proof of concept intended for educational purposes only. Approach this project with a strong ethical mindset and a commitment to using it for legitimate and constructive purposes.
 
 <br>
 <hr> 
