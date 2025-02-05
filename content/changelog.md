@@ -9,6 +9,14 @@ Stay updated with the latest changes in the YetAnotherDiscordBotnet project.
 This is an Automated process which takes the latest commit message and overwrites it to the bottom of this page.
 
 
+## 05-02-2025
+
+ 390c058 Add Windows TTS functionality to send text-to-speech messages
+
+ f520b2a Add wallpaper management functionality to set and retrieve wallpapers
+
+
+
 ## 18-12-2024
 
  ab97728 Remove macOS volume control command from on_message function
