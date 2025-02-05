@@ -1,28 +1,22 @@
-// [lib/schemas/settingsSchema.ts]
 import { z } from "zod";
+import fs from "fs";
+import path from "path";
+
+const componentsDir = path.join(process.cwd(), "../python/components/done");
+const componentFiles = fs.readdirSync(componentsDir);
+
+const modules = componentFiles.reduce((acc, file) => {
+  const moduleName = path.basename(file, path.extname(file));
+  acc[moduleName] = false;
+  return acc;
+}, {});
 
 export const fields = {
   BotData: {
     Token: "",
     GuildID: "",
   },
-  Modules: {
-    ReverseShell: false,
-    FileBrowser: false,
-    Downloader: false,
-    BSOD: false,
-    Clipboard: false,
-    AudioControlls: false,
-    GhostWriter: false,
-    KeyboardShortcuts: false,
-    Keylogger: false,
-    Obliterator: false,
-    PasswordStealer: false,
-    Screenshot: false,
-    Webcam: false,
-    WallpaperChanger: false,
-    TTS: false,
-  },
+  Modules: modules,
 };
 
 export const settingsSchema = z.object({
@@ -30,21 +24,10 @@ export const settingsSchema = z.object({
     Token: z.string(),
     GuildID: z.string(),
   }),
-  Modules: z.object({
-    ReverseShell: z.boolean(),
-    FileBrowser: z.boolean(),
-    Downloader: z.boolean(),
-    BSOD: z.boolean(),
-    Clipboard: z.boolean(),
-    AudioControlls: z.boolean(),
-    GhostWriter: z.boolean(),
-    KeyboardShortcuts: z.boolean(),
-    Keylogger: z.boolean(),
-    Obliterator: z.boolean(),
-    PasswordStealer: z.boolean(),
-    Screenshot: z.boolean(),
-    Webcam: z.boolean(),
-    WallpaperChanger: z.boolean(),
-    TTS: z.boolean(),
-  }),
+  Modules: z.object(
+    Object.keys(modules).reduce((acc, moduleName) => {
+      acc[moduleName] = z.boolean();
+      return acc;
+    }, {})
+  ),
 });
