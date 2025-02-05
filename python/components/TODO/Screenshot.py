@@ -6,7 +6,7 @@
 
 def get_code():
     return """
-    # ADDED AUDIO MANIPULATION MODULE
+    # ADDED SCREENSHOT MODULE
         elif message.content.lower().startswith(".screenshot"):
             try:
                 import pyautogui
