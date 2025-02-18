@@ -1,11 +1,19 @@
 import json
 import os
 import importlib
+from datetime import datetime
+
+# Ensure the OUTPUT directory exists with a timestamp
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+output_dir = os.path.join(os.path.dirname(__file__), 'OUTPUT', timestamp)
+os.makedirs(output_dir, exist_ok=True)
+
+client_path = os.path.join(output_dir, 'client.py')
 
 # Path to the settings.json file
 print("[+] Building client.py")
-settings_path = "python/settings/settings.json"
-client_path = "python/client/client.py"
+settings_path = os.path.join(os.path.dirname(__file__), '..', 'settings', 'settings.json')
+client_path = "python/OUTPUT/client.py"
 if not os.path.exists(settings_path):
     print(f"[-] Settings file not found at {settings_path}")
     exit(1)
