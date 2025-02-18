@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-18
 
+ 8814ed6 Merge pull request #121 from isaaclins/renovate/playwright-monorepo
+
+ b623554 fix(deps): update dependency zod to v3.24.2
+
+ f6e6558 Merge pull request #122 from isaaclins/renovate/zod-3.x-lockfile
+
+
+
+## 2025-02-18
+
  54b4ee4 Merge pull request #120 from isaaclins/renovate/major-tailwindcss-monorepo
 
  8814ed6 Merge pull request #121 from isaaclins/renovate/playwright-monorepo
