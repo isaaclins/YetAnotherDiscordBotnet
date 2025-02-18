@@ -11,7 +11,9 @@
   "packageRules": [
     {
       "automerge": true,
-      "matchPackageNames": ["*"]
+      "matchPackageNames": [
+        "*"
+      ]
     }
   ],
   "autoApprove": true,
@@ -21,10 +23,5 @@
     "contact@isaaclins.com",
     "isaaclins"
   ],
-  "postUpdateOptions": [
-    {
-      "command": "cd yetanotherfrontend && npm test",
-      "description": "Run tests to ensure the app works correctly after updating dependencies"
-    }
-  ]
+  "postUpdateOptions": []
 }
