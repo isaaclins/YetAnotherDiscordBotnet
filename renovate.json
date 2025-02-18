@@ -20,5 +20,11 @@
   "reviewers": [
     "contact@isaaclins.com",
     "isaaclins"
+  ],
+  "postUpdateOptions": [
+    {
+      "command": "npm test",
+      "description": "Run tests to ensure the app works correctly after updating dependencies"
+    }
   ]
 }
