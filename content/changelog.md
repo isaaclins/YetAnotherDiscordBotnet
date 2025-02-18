@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-18
 
+ 2226e71 fix(deps): update dependency tailwind-merge to v3
+
+ bd3c4d1 fix(deps): update dependency sonner to v1.7.4 (#116)
+
+ d1e354b Merge pull request #117 from isaaclins/renovate/tailwind-merge-3.x
+
+
+
+## 2025-02-18
+
  012c333 Merge pull request #110 from isaaclins/renovate/neutralinojs-neu-11.x-lockfile
 
  bd3c4d1 fix(deps): update dependency sonner to v1.7.4 (#116)
