@@ -21,10 +21,12 @@
     "contact@isaaclins.com",
     "isaaclins"
   ],
-  "postUpdateOptions": [
-    {
-      "command": "cd yetanotherfrontend && npm test",
-      "description": "Run tests to ensure the app works correctly after updating dependencies"
-    }
-  ]
+  "postUpgradeTasks": {
+    "commands": [
+      "npm test"
+    ],
+    "fileFilters": [
+      "yetanotherfrontend/package.json"
+    ]
+  }
 }
