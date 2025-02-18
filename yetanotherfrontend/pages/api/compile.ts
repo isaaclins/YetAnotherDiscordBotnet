@@ -7,7 +7,7 @@ export default async function handler(
   ) {
     if (req.method === "POST") {
       try {
-        res.status(200).json({ message: "Compilation started." });
+        res.status(201).json({ message: "Compilation started." });
         console.log("Compiling!!!")
       }
       catch (error) {
