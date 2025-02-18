@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-18
 
+ 012c333 Merge pull request #110 from isaaclins/renovate/neutralinojs-neu-11.x-lockfile
+
+ 065c5a1 fix(deps): update nextjs monorepo to v14.2.24 (#115)
+
+ c33a602 fix(deps): update dependency @neutralinojs/neu to v11.3.1
+
+
+
+## 2025-02-18
+
  065c5a1 fix(deps): update nextjs monorepo to v14.2.24 (#115)
 
  b233a29 Merge pull request #114 from isaaclins/renovate/npm-next-vulnerability
