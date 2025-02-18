@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-18
 
+ 54b4ee4 Merge pull request #120 from isaaclins/renovate/major-tailwindcss-monorepo
+
+ 989f095 Merge pull request #119 from isaaclins/renovate/hookform-resolvers-4.x
+
+ cb361d5 chore(deps): update dependency tailwindcss to v4
+
+
+
+## 2025-02-18
+
  05e7f41 fix(deps): update dependency @hookform/resolvers to v4
 
  989f095 Merge pull request #119 from isaaclins/renovate/hookform-resolvers-4.x
