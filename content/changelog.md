@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-18
 
+ 994530e feat: Add allowedCommands to run npm test in renovate.json
+
+ 9b55be7 feat: Update allowedCommands and postUpgradeTasks to include npm run test
+
+
+
+## 2025-02-18
+
  6abf768 Merge pull request #113 from isaaclins/renovate/migrate-config
 
  994530e feat: Add allowedCommands to run npm test in renovate.json
