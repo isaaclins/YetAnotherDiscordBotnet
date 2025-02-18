@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 18-02-2025
 
+ 0e736b3 feat: Enhance compilation process with timestamped output directory and exec integration
+
+ d113814 feat: Add compile functionality to initiate compilation process and handle responses
+
+
+
+## 18-02-2025
+
  d113814 feat: Add compile functionality to initiate compilation process and handle responses
 
 
