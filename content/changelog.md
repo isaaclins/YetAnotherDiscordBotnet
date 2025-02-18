@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-18
 
+ 1d78984 feat: Add post-update option to run tests after updating dependencies
+
+ 84dc40c feat: Update post-update command to run tests in yetanotherfrontend and add placeholder test script
+
+
+
+## 2025-02-18
+
  0fa6355 fix: Update date format in changelog workflow to YYYY-MM-DD
 
  711f712 feat: Update timestamp format and enhance logging in builder.py
