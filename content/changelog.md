@@ -13,6 +13,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
  0fa6355 fix: Update date format in changelog workflow to YYYY-MM-DD
 
+ 5ebeeca feat: Add GitHub Actions workflow for running tests and update package.json scripts
+
+
+
+## 2025-02-18
+
+ 0fa6355 fix: Update date format in changelog workflow to YYYY-MM-DD
+
  711f712 feat: Update timestamp format and enhance logging in builder.py
 
 
