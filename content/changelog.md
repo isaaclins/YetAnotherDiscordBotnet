@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-18
 
+ 05e7f41 fix(deps): update dependency @hookform/resolvers to v4
+
+ 989f095 Merge pull request #119 from isaaclins/renovate/hookform-resolvers-4.x
+
+ ba553ef Merge pull request #118 from isaaclins/renovate/react-toastify-11.x
+
+
+
+## 2025-02-18
+
  1b42648 fix(deps): update dependency react-toastify to v11
 
  ba553ef Merge pull request #118 from isaaclins/renovate/react-toastify-11.x
