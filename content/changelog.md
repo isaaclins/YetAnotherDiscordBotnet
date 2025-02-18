@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-18
 
+ 1c4bd67 feat: Remove postUpgradeTasks and allowedCommands from renovate.json
+
+ 9ad63b9 feat: Update Renovate CI workflow to run npm commands in yetanotherfrontend directory
+
+
+
+## 2025-02-18
+
  079dc72 feat: Add Renovate CI workflow for automated testing
 
  1c4bd67 feat: Remove postUpgradeTasks and allowedCommands from renovate.json
