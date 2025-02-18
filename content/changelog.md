@@ -13,6 +13,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
  6abf768 Merge pull request #113 from isaaclins/renovate/migrate-config
 
+ 994530e feat: Add allowedCommands to run npm test in renovate.json
+
+
+
+## 2025-02-18
+
+ 6abf768 Merge pull request #113 from isaaclins/renovate/migrate-config
+
  6f0aef5 feat: Update post-update configuration to use postUpgradeTasks for running tests in yetanotherfrontend
 
  9cbf4bd Merge branch 'code' into renovate/migrate-config
