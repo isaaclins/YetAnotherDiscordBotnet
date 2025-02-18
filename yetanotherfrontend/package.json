@@ -9,7 +9,7 @@
     "browserdev": "cd browser && neu run",
     "all": "npm run setup && npm run dev",
     "test:start": "concurrently \"npm install && npm run next\" \"wait-on http://localhost:3000 && npm run test:response\"",
-    "test:response": "npx mocha __test__/testResponse.js"
+    "test:response": "npx mocha __test__/*.js"
   },
   "main": "main.js",
   "dependencies": {
