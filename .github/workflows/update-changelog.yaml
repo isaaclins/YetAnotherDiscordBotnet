@@ -21,7 +21,7 @@ jobs:
         git fetch
         git checkout code
         # Get the commits by date and format them, then sort them by date
-        git log --pretty=format:'%ad %h %s' --date=format:'%d-%m-%Y' | sort | awk '
+        git log --pretty=format:'%ad %h %s' --date=format:'%Y-%m-%d' | sort | awk '
         {
             date = $1;
             $1 = "";
