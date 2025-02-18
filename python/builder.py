@@ -4,28 +4,30 @@ import importlib
 from datetime import datetime
 
 # Ensure the OUTPUT directory exists with a timestamp
-timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+timestamp = datetime.now().strftime("%Y_%m_%d-%H:%M:%S")
 output_dir = os.path.join(os.path.dirname(__file__), 'OUTPUT', timestamp)
 os.makedirs(output_dir, exist_ok=True)
 
 client_path = os.path.join(output_dir, 'client.py')
 
 # Path to the settings.json file
-print("[+] Building client.py")
 settings_path = os.path.join(os.path.dirname(__file__), '..', 'settings', 'settings.json')
-client_path = "python/OUTPUT/client.py"
+print(f"[?] Settings path: {settings_path}")
+
+print(f"[?] Client path: {client_path}")
 if not os.path.exists(settings_path):
     print(f"[-] Settings file not found at {settings_path}")
     exit(1)
 
 # Read and parse the settings.json file
-print(f"[+] Reading settings from {settings_path}")
+print(f"[?] Reading settings from {settings_path}")
 try:
     with open(settings_path, "r") as file:
         settings = json.load(file)
 except json.JSONDecodeError as e:
     print(f"[-] Error parsing JSON: {e}")
     exit(1)
+print(f"[+] Reading settings from {settings_path} successfully")
 
 # Extract the modules to include
 modules = settings["Modules"]
@@ -79,14 +81,17 @@ for module_name, enabled in modules.items():
             print(f"[-] Module {module_name} not found at {module_path}")
 
 # Finalize the client.py content
+print("[.] Building client.py")
 client_code += """
 # Add more commands and functionality as needed...
 
 client.run(bottoken)
 """
+print("[+] Building client.py successful")
 
 # Write the generated code to client.py
 with open(client_path, "w") as file:
     file.write(client_code)
+print("[+] writing client.py successful")
 
-print(f"[+] client.py has been generated at {client_path}")
+print(f"[+] client.py has been generated at {client_path}") 
