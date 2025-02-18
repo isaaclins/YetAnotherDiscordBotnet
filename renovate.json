@@ -17,17 +17,8 @@
     "contact@isaaclins.com",
     "isaaclins"
   ],
-  "postUpgradeTasks": {
-    "commands": [
-      "(cd {{{packageFileDir}}} && npm run test)"
-    ],
-    "fileFilters": [
-      "yetanotherfrontend/package.json"
-    ]
-  },
-  "allowedCommands": [
-    "npm test",
-    "npm run test"
+  "assignees": [
+    "isaaclins"
   ],
   "prCreation": "status-success"
 }
