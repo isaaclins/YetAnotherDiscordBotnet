@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-18
 
+ 29e4f18 Merge pull request #125 from isaaclins/renovate/lucide-monorepo
+
+ 3560941 Merge pull request #124 from isaaclins/renovate/react-hook-form-7.x-lockfile
+
+ e7f931f fix(deps): update dependency lucide-react to ^0.475.0
+
+
+
+## 2025-02-18
+
  3560941 Merge pull request #124 from isaaclins/renovate/react-hook-form-7.x-lockfile
 
  5d7d524 fix(deps): update dependency react-hook-form to v7.54.2
