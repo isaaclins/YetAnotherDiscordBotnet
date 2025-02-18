@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-18
 
+ 1b42648 fix(deps): update dependency react-toastify to v11
+
+ ba553ef Merge pull request #118 from isaaclins/renovate/react-toastify-11.x
+
+ d1e354b Merge pull request #117 from isaaclins/renovate/tailwind-merge-3.x
+
+
+
+## 2025-02-18
+
  2226e71 fix(deps): update dependency tailwind-merge to v3
 
  bd3c4d1 fix(deps): update dependency sonner to v1.7.4 (#116)
