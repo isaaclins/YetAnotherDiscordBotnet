@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-18
 
+ 7145647 Merge pull request #126 from isaaclins/renovate/hookform-resolvers-3.x-lockfile
+
+ 88e9664 Merge pull request #127 from isaaclins/renovate/postcss-8.x-lockfile
+
+ b5e5f68 Merge branch 'code' into renovate/hookform-resolvers-3.x-lockfile
+
+
+
+## 2025-02-18
+
  88e9664 Merge pull request #127 from isaaclins/renovate/postcss-8.x-lockfile
 
  d795a88 chore(deps): update dependency postcss to v8.5.2
