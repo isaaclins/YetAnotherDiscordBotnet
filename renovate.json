@@ -11,9 +11,7 @@
   "packageRules": [
     {
       "automerge": true,
-      "matchPackageNames": [
-        "*"
-      ]
+      "matchPackageNames": ["*"]
     }
   ],
   "autoApprove": true,
@@ -23,5 +21,12 @@
     "contact@isaaclins.com",
     "isaaclins"
   ],
-  "postUpdateOptions": []
+  "postUpgradeTasks": {
+    "commands": [
+      "npm test"
+    ],
+    "fileFilters": [
+      "yetanotherfrontend/package.json"
+    ]
+  }
 }
