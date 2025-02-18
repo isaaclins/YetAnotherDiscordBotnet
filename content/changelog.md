@@ -13,6 +13,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
  54b4ee4 Merge pull request #120 from isaaclins/renovate/major-tailwindcss-monorepo
 
+ 8814ed6 Merge pull request #121 from isaaclins/renovate/playwright-monorepo
+
+ 8df8a5b fix(deps): update playwright monorepo to v1.50.1
+
+
+
+## 2025-02-18
+
+ 54b4ee4 Merge pull request #120 from isaaclins/renovate/major-tailwindcss-monorepo
+
  989f095 Merge pull request #119 from isaaclins/renovate/hookform-resolvers-4.x
 
  cb361d5 chore(deps): update dependency tailwindcss to v4
