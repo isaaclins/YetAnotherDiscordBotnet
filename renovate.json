@@ -23,13 +23,14 @@
   ],
   "postUpgradeTasks": {
     "commands": [
-      "npm test"
+      "npm run test"
     ],
     "fileFilters": [
       "yetanotherfrontend/package.json"
     ]
   },
   "allowedCommands": [
-    "npm test"
+    "npm test",
+    "npm run test"
   ]
 }
