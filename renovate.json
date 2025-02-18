@@ -28,5 +28,8 @@
     "fileFilters": [
       "yetanotherfrontend/package.json"
     ]
-  }
+  },
+  "allowedCommands": [
+    "npm test"
+  ]
 }
