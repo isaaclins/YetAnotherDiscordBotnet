@@ -9,6 +9,14 @@ Stay updated with the latest changes in the YetAnotherDiscordBotnet project.
 This is an Automated process which takes the latest commit message and overwrites it to the bottom of this page.
 
 
+## 2025-02-18
+
+ 0fa6355 fix: Update date format in changelog workflow to YYYY-MM-DD
+
+ 711f712 feat: Update timestamp format and enhance logging in builder.py
+
+
+
 ## 18-02-2025
 
  0e736b3 feat: Enhance compilation process with timestamped output directory and exec integration
