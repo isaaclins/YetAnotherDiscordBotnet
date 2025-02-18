@@ -13,6 +13,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
  29e4f18 Merge pull request #125 from isaaclins/renovate/lucide-monorepo
 
+ ea22182 Merge branch 'code' into renovate/tailwind-merge-2.x-lockfile
+
+ eadb885 Merge pull request #123 from isaaclins/renovate/tailwind-merge-2.x-lockfile
+
+
+
+## 2025-02-18
+
+ 29e4f18 Merge pull request #125 from isaaclins/renovate/lucide-monorepo
+
  3560941 Merge pull request #124 from isaaclins/renovate/react-hook-form-7.x-lockfile
 
  e7f931f fix(deps): update dependency lucide-react to ^0.475.0
