@@ -9,6 +9,18 @@ Stay updated with the latest changes in the YetAnotherDiscordBotnet project.
 This is an Automated process which takes the latest commit message and overwrites it to the bottom of this page.
 
 
+## 18-02-2025
+
+ d113814 feat: Add compile functionality to initiate compilation process and handle responses
+
+
+
+## 05-02-2025
+
+ f520b2a Add wallpaper management functionality to set and retrieve wallpapers
+
+
+
 ## 05-02-2025
 
  390c058 Add Windows TTS functionality to send text-to-speech messages
