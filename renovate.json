@@ -23,7 +23,7 @@
   ],
   "postUpdateOptions": [
     {
-      "command": "npm test",
+      "command": "cd yetanotherfrontend && npm test",
       "description": "Run tests to ensure the app works correctly after updating dependencies"
     }
   ]

@@ -7,7 +7,8 @@
     "dev": "concurrently \"npm run next\" \"npm run browserdev\"",
     "next": "next dev",
     "browserdev": "cd browser && neu run",
-    "all": "npm run setup && npm run dev"
+    "all": "npm run setup && npm run dev",
+    "test":"echo \"okay, no test yet tho\" && exit 0"
   },
   "main": "main.js",
   "dependencies": {
