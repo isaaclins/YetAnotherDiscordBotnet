@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-18
 
+ 6f0aef5 feat: Update post-update configuration to use postUpgradeTasks for running tests in yetanotherfrontend
+
+ 84dc40c feat: Update post-update command to run tests in yetanotherfrontend and add placeholder test script
+
+
+
+## 2025-02-18
+
  1d78984 feat: Add post-update option to run tests after updating dependencies
 
  84dc40c feat: Update post-update command to run tests in yetanotherfrontend and add placeholder test script
