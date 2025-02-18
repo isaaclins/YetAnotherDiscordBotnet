@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-18
 
+ 88e9664 Merge pull request #127 from isaaclins/renovate/postcss-8.x-lockfile
+
+ d795a88 chore(deps): update dependency postcss to v8.5.2
+
+ eadb885 Merge pull request #123 from isaaclins/renovate/tailwind-merge-2.x-lockfile
+
+
+
+## 2025-02-18
+
  29e4f18 Merge pull request #125 from isaaclins/renovate/lucide-monorepo
 
  ea22182 Merge branch 'code' into renovate/tailwind-merge-2.x-lockfile
