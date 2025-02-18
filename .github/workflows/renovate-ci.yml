@@ -20,7 +20,7 @@ jobs:
           node-version: '16'  # adjust node version as needed
 
       - name: Install dependencies
-        run: npm install
+        run: cd yetanotherfrontend && npm install
 
       - name: Run tests
-        run: npm run test
+        run: cd yetanotherfrontend && npm run test
