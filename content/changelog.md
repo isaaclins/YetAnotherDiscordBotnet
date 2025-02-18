@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-18
 
+ 065c5a1 fix(deps): update nextjs monorepo to v14.2.24 (#115)
+
+ b233a29 Merge pull request #114 from isaaclins/renovate/npm-next-vulnerability
+
+
+
+## 2025-02-18
+
  9ad63b9 feat: Update Renovate CI workflow to run npm commands in yetanotherfrontend directory
 
  b233a29 Merge pull request #114 from isaaclins/renovate/npm-next-vulnerability
