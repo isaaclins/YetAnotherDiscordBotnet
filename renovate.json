@@ -1,31 +1,25 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-      "config:recommended"
-    ],
-    "configMigration": true,
-    "schedule": [
-      "every 1 hour every weekday"
-    ],
-    "packageRules": [
-      {
-        "matchBaseBranches": ["main"],
-        "branchPrefix": "MAIN/",
-        "automerge": true,
-        "matchPackageNames": ["*"]
-      },
-      {
-        "matchBaseBranches": ["code"],
-        "branchPrefix": "CODE/",
-        "automerge": true,
-        "matchPackageNames": ["*"]
-      }
-    ],
-    "autoApprove": true,
-    "prHourlyLimit": 0,
-    "branchConcurrentLimit": 0,
-    "reviewers": [
-      "contact@isaaclins.com",
-      "isaaclins"
-    ]
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "configMigration": true,
+  "schedule": [
+    "every 1 hour every weekday"
+  ],
+  "packageRules": [
+    {
+    "matchBaseBranches": ["code"],
+    "branchPrefix": "CODE/",
+    "automerge": true,
+    "matchPackageNames": ["*"]
+    }
+  ],
+  "autoApprove": true,
+  "prHourlyLimit": 0,
+  "branchConcurrentLimit": 0,
+  "reviewers": [
+    "contact@isaaclins.com",
+    "isaaclins"
+  ]
 }
