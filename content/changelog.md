@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-19
 
+ 1b548ae Merge pull request #131 from isaaclins/renovate/typescript-5.x-lockfile
+
+ 1cdbe41 chore(deps): update dependency typescript to v5.7.3
+
+ fe8054f Merge pull request #133 from isaaclins/renovate/react-monorepo
+
+
+
+## 2025-02-19
+
  69400a3 chore(deps): update react monorepo to v18.3.18
 
  a0e3653 Merge pull request #132 from isaaclins/renovate/wait-on-8.x-lockfile
