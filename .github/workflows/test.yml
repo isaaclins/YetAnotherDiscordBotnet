@@ -16,7 +16,7 @@ jobs:
         run: |
           echo "Searching for test files..."
           # Find all *.test.js files in the __test__ directory (adjust path if needed)
-          testFiles=$(find ./yetanotherfrontend/__test__ -maxdepth 1 -name "*.test.js" | jq -R . | jq -s .)
+          testFiles=$(find yetanotherfrontend/__test__ -maxdepth 1 -name "*.test.js" | jq -R . | jq -s .)
           echo "Found test files: $testFiles"
           # Build a JSON object with a "testFile" key whose value is the array of files
           matrix_json=$(jq -n --argjson files "$testFiles" '{ testFile: $files }')
