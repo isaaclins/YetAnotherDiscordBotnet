@@ -3,23 +3,31 @@ name: Run Tests
 on: [push]
 
 jobs:
-    test:
-        runs-on: ubuntu-latest
-        timeout-minutes: 10
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
 
-        steps:
-          - name: Checkout repository
-            uses: actions/checkout@v2
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-          - name: Set up Node.js
-            uses: actions/setup-node@v2
-            with:
-              node-version: '18'
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
 
-          - name: Install dependencies
-            run: npm install
-            working-directory: ./yetanotherfrontend
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./yetanotherfrontend
 
-          - name: Run tests
-            run: npm run test:start
-            working-directory: ./yetanotherfrontend
+      - name: Run tests
+        id: run-tests
+        run: |
+          output=$(npm run test:start)
+          echo "$output"
+          echo "::set-output name=test_output::$output"
+        working-directory: ./yetanotherfrontend
+
+      - name: Test Coverage
+        run: echo "${{ steps.run-tests.outputs.test_output }}" | grep -E 'passing|failing' | tail -n 10
+        working-directory: ./yetanotherfrontend
