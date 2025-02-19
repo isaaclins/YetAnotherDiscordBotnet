@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-19
 
+ 69400a3 chore(deps): update react monorepo to v18.3.18
+
+ a0e3653 Merge pull request #132 from isaaclins/renovate/wait-on-8.x-lockfile
+
+ fe8054f Merge pull request #133 from isaaclins/renovate/react-monorepo
+
+
+
+## 2025-02-19
+
  028fe68 Merge pull request #136 from isaaclins/renovate/radix-ui-primitives-monorepo
 
  1e5ecfa chore(deps): update dependency wait-on to v8.0.2
