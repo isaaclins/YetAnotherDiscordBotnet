@@ -13,6 +13,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
  23c5a68 Merge pull request #138 from isaaclins/renovate/postcss-8.x-lockfile
 
+ 315b955 chore(deps): update dependency @testing-library/react to v16.2.0
+
+ e0c62c5 Merge pull request #137 from isaaclins/renovate/testing-library-monorepo
+
+
+
+## 2025-02-19
+
+ 23c5a68 Merge pull request #138 from isaaclins/renovate/postcss-8.x-lockfile
+
  adab928 Merge pull request #139 from isaaclins/renovate/node-22.x
 
  c57960a chore(deps): update dependency postcss to v8.5.2
