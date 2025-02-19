@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-19
 
+ 10b7fce fix(deps): update dependency @hookform/resolvers to v4
+
+ 9994c48 Merge pull request #163 from isaaclins/renovate/sonner-2.x
+
+ e3a22fe Merge pull request #161 from isaaclins/renovate/hookform-resolvers-4.x
+
+
+
+## 2025-02-19
+
  6b4e0e6 fix(deps): update dependency sonner to v2
 
  9994c48 Merge pull request #163 from isaaclins/renovate/sonner-2.x
