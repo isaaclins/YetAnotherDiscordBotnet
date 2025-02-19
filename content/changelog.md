@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-19
 
+ 1841a90 Merge pull request #154 from isaaclins/renovate/actions-setup-node-4.x
+
+ 894eb2e Merge pull request #153 from isaaclins/renovate/actions-checkout-4.x
+
+ 93a1406 chore(deps): update actions/checkout action to v4
+
+
+
+## 2025-02-19
+
  11c15a9 Merge pull request #156 from isaaclins/renovate/concurrently-9.x
 
  1841a90 Merge pull request #154 from isaaclins/renovate/actions-setup-node-4.x
