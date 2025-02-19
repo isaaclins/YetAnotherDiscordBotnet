@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-19
 
+ 8a3d59e fix: update test:response script to use bash for concurrent execution
+
+ dd9cfa5 refactor: remove unused list-tests.js script
+
+
+
+## 2025-02-19
+
  a40baf5 fix: simple file 404
 
  eff9af2 bigboom
