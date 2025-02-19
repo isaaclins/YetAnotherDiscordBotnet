@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-19
 
+ f903421 refactor(tests): reorder matrix strategy and steps in test workflow
+
+ f98b0e5 refactor(tests): simplify test file listing and matrix setup in workflow
+
+
+
+## 2025-02-19
+
  6ba2f1f feat(tests): enhance test workflow with matrix strategy for dynamic test file execution
 
  f903421 refactor(tests): reorder matrix strategy and steps in test workflow
