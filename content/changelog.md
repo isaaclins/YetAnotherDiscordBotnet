@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-19
 
+ 40eda1a fix: update test:singlefile script to remove bash command for improved compatibility
+
+ 69ead3c fix: update test:singlefile script to ensure successful execution with concurrent processes
+
+
+
+## 2025-02-19
+
  69ead3c fix: update test:singlefile script to ensure successful execution with concurrent processes
 
  9ac0fde refactor: update test scripts for improved execution and add single file test option
