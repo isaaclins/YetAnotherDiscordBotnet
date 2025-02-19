@@ -20,13 +20,14 @@ jobs:
         run: npm install
         working-directory: ./yetanotherfrontend
 
-      - name: Run tests
-        id: run-tests
-        run: |
-          output=$(npm run test:start)
-          echo "TEST_OUTPUT=$output" >> $GITHUB_ENV
+      - name: Tests summary
+        id: tests-summary
+        run: npm run test:start | grep -E 'passing|failing' | tail -n 10
         working-directory: ./yetanotherfrontend
-
-      - name: Test Coverage
-        run: echo "$TEST_OUTPUT" | grep -E 'passing|failing' | tail -n 10
+        continue-on-error: true
+      
+      - name: Run tests (full debuggable)
+        if: failure()
+        id: run-tests
+        run: npm run test:start
         working-directory: ./yetanotherfrontend
