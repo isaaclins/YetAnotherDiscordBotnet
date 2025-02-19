@@ -13,6 +13,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
  11c15a9 Merge pull request #156 from isaaclins/renovate/concurrently-9.x
 
+ 1841a90 Merge pull request #154 from isaaclins/renovate/actions-setup-node-4.x
+
+ 470bb6b chore(deps): update actions/setup-node action to v4
+
+
+
+## 2025-02-19
+
+ 11c15a9 Merge pull request #156 from isaaclins/renovate/concurrently-9.x
+
  af95540 Merge pull request #158 from isaaclins/renovate/major-nextjs-monorepo
 
  c983388 chore(deps): update dependency concurrently to v9
