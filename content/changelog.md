@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-19
 
+ 72c045c fix(deps): update dependency react-hook-form to v7.54.2
+
+ 738cfb8 fix(tests): improve test summary output and error handling in workflow
+
+ d7bc0cf Merge pull request #146 from isaaclins/renovate/react-hook-form-7.x-lockfile
+
+
+
+## 2025-02-19
+
  22c05a5 rolback
 
  738cfb8 fix(tests): improve test summary output and error handling in workflow
