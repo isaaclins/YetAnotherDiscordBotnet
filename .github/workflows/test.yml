@@ -3,16 +3,40 @@ name: Run Tests
 on: [push]
 
 jobs:
-  test:
+  generate-matrix:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
+
+      - name: Generate test matrix
+        id: set-matrix
+        run: |
+          echo "Searching for test files..."
+          # Find all *.test.js files in the __test__ directory (adjust path if needed)
+          testFiles=$(find ./yetanotherfrontend/__test__ -maxdepth 1 -name "*.test.js" | jq -R . | jq -s .)
+          echo "Found test files: $testFiles"
+          # Build a JSON object with a "testFile" key whose value is the array of files
+          matrix_json=$(jq -n --argjson files "$testFiles" '{ testFile: $files }')
+          echo "Matrix JSON: $matrix_json"
+          echo "::set-output name=matrix::$matrix_json"
+
+  test:
+    needs: generate-matrix
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      matrix: ${{ fromJson(needs.generate-matrix.outputs.matrix) }}
+      # Optional: don't fail all runs if one fails
+      fail-fast: false
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v2
         with:
           node-version: '18'
 
@@ -20,16 +44,6 @@ jobs:
         run: npm install
         working-directory: ./yetanotherfrontend
 
-      - name: List test files
-        id: list-tests
-        run: echo "testFiles=$(node list-tests.js | jq -c -R 'split(\",\")')" >> $GITHUB_ENV
-        shell: bash
-
-    strategy:
-      matrix:
-        testFile: ${{ fromJson(env.testFiles) }}
-
-    steps:
       - name: Run test
         run: npm run test:response -- ${{ matrix.testFile }}
         working-directory: ./yetanotherfrontend
