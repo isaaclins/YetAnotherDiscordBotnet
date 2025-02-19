@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-19
 
+ c0df4fa Merge pull request #129 from isaaclins/renovate/npm-next-vulnerability
+
+ c416cad fix(deps): update dependency next to v14.2.21 [security]
+
+ edde8d5 Merge pull request #150 from isaaclins/renovate/playwright-monorepo
+
+
+
+## 2025-02-19
+
  1b548ae Merge pull request #131 from isaaclins/renovate/typescript-5.x-lockfile
 
  c87ff24 fix(deps): update playwright monorepo to v1.50.1
