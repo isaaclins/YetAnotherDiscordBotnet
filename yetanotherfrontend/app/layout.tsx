@@ -17,7 +17,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
 title: "@isaaclins on GitHub",
-  description: "'MADE BY HUMANS, FOR HUMANS, WITH HUMANS, AND BY HUMANS.' - HUMANITY",
+  description: "rah...",
 };
 
 export default function RootLayout({
