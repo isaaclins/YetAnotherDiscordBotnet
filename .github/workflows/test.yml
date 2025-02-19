@@ -22,12 +22,22 @@ jobs:
 
       - name: Tests summary
         id: tests-summary
-        run: npm run test:start | grep -E 'passing|failing' | tail -n 10
+        run: |
+          npm run test:start | tee test_output.log | grep -E 'passing|failing' | tail -n 10
         working-directory: ./yetanotherfrontend
         continue-on-error: true
-      
+
+      - name: Check for failures
+        id: check-failures
+        run: |
+          if grep -q 'failing' test_output.log; then
+            echo "failing=true" >> $GITHUB_ENV
+          else
+            echo "failing=false" >> $GITHUB_ENV
+          fi
+
       - name: Run tests (full debuggable)
-        if: failure()
+        if: env.failing == 'true'
         id: run-tests
         run: npm run test:start
         working-directory: ./yetanotherfrontend
