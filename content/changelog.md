@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-19
 
+ 63e7bd4 chore(deps): update dependency mocha to v11
+
+ 9b3561a Merge pull request #159 from isaaclins/renovate/mocha-11.x
+
+ e3a22fe Merge pull request #161 from isaaclins/renovate/hookform-resolvers-4.x
+
+
+
+## 2025-02-19
+
  10b7fce fix(deps): update dependency @hookform/resolvers to v4
 
  9994c48 Merge pull request #163 from isaaclins/renovate/sonner-2.x
