@@ -5,6 +5,7 @@ const { expect } = require('chai');
 const URL = 'http://localhost:3000';
 
 describe('Server Response Test', function () {
+    this.timeout(10000); // Set global timeout to 10 seconds
     it('should return 200 OK', async function () {
         try {
             const response = await axios.get(URL);
