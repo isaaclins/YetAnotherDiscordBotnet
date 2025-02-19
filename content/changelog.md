@@ -13,6 +13,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
  0007f57 Merge branch 'code' of https://github.com/isaaclins/YetAnotherDiscordBotnet into code
 
+ eee3e9b fix(tests): update test output handling to use environment variable
+
+
+
+## 2025-02-19
+
+ 0007f57 Merge branch 'code' of https://github.com/isaaclins/YetAnotherDiscordBotnet into code
+
  558016c Merge pull request #164 from isaaclins/renovate/tailwind-merge-3.x
 
  c48f95d feat(tests): enhance test workflow with output handling and coverage reporting
