@@ -1,8 +1,7 @@
 {
-    //this is an example of settings.json. NOTE: this will be overwritten by the build process as soon as you save new settings in the settings section.
   "BotData": {
     "Token": "this is an example for the settings.json file",
-    "GuildID": "this is an example for the settings.json file",
+    "GuildID": "this is an example for the settings.json file"
   },
   "Modules": {
     "ReverseShell": true,

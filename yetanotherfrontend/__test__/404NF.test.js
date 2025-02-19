@@ -4,7 +4,7 @@ const { expect } = require('chai');
 
 const URL = 'http://localhost:3000/404NF';
 
-describe('Server Response Test', function () {
+describe('404 Server Response Test', function () {
     this.timeout(10000); // Set global timeout to 10 seconds
     it('should return 404 NOT FOUND', async function () {
         try {
