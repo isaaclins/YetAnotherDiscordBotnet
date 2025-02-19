@@ -15,13 +15,19 @@ jobs:
         id: set-matrix
         run: |
           echo "Searching for test files..."
-          # Find all *.test.js files in the __test__ directory (adjust path if needed)
-          testFiles=$(find yetanotherfrontend/__test__ -maxdepth 1 -name "*.test.js" | jq -R . | jq -s .)
-          echo "Found test files: $testFiles"
-          # Build a JSON object with a "testFile" key whose value is the array of files
-          matrix_json=$(jq -n --argjson files "$testFiles" '{ testFile: $files }')
+          # Adjust the path if needed:
+          testFiles=$(find ./yetanotherfrontend/__test__ -maxdepth 1 -name "*.test.js")
+          if [ -z "$testFiles" ]; then
+            echo "No test files found."
+            echo "matrix={}" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          # Convert the newline-separated list into a compact JSON array (single line)
+          json_array=$(echo "$testFiles" | jq -R -s -c 'split("\n")[:-1]')
+          # Build the matrix JSON object in compact form using the -c flag
+          matrix_json=$(jq -c -n --argjson files "$json_array" '{ testFile: $files }')
           echo "Matrix JSON: $matrix_json"
-          echo "::set-output name=matrix::$matrix_json"
+          echo "matrix=$matrix_json" >> $GITHUB_OUTPUT
 
   test:
     needs: generate-matrix
@@ -29,7 +35,6 @@ jobs:
     timeout-minutes: 10
     strategy:
       matrix: ${{ fromJson(needs.generate-matrix.outputs.matrix) }}
-      # Optional: don't fail all runs if one fails
       fail-fast: false
     steps:
       - name: Checkout repository
