@@ -13,6 +13,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
  4b8ff41 Merge pull request #147 from isaaclins/renovate/react-icons-5.x-lockfile
 
+ 94ac7d6 fix(deps): update dependency @neutralinojs/neu to v11.3.1
+
+ ceeeac2 Merge pull request #134 from isaaclins/renovate/neutralinojs-neu-11.x-lockfile
+
+
+
+## 2025-02-19
+
+ 4b8ff41 Merge pull request #147 from isaaclins/renovate/react-icons-5.x-lockfile
+
  7286d61 fix(deps): update dependency react-icons to v5.5.0
 
  bd122c4 Merge pull request #149 from isaaclins/renovate/zod-3.x-lockfile
