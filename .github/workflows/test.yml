@@ -24,10 +24,9 @@ jobs:
         id: run-tests
         run: |
           output=$(npm run test:start)
-          echo "$output"
-          echo "::set-output name=test_output::$output"
+          echo "TEST_OUTPUT=$output" >> $GITHUB_ENV
         working-directory: ./yetanotherfrontend
 
       - name: Test Coverage
-        run: echo "${{ steps.run-tests.outputs.test_output }}" | grep -E 'passing|failing' | tail -n 10
+        run: echo "$TEST_OUTPUT" | grep -E 'passing|failing' | tail -n 10
         working-directory: ./yetanotherfrontend
