@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-19
 
+ 69ead3c fix: update test:singlefile script to ensure successful execution with concurrent processes
+
+ 9ac0fde refactor: update test scripts for improved execution and add single file test option
+
+
+
+## 2025-02-19
+
  9ac0fde refactor: update test scripts for improved execution and add single file test option
 
  dd9cfa5 refactor: remove unused list-tests.js script
