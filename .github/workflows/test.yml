@@ -20,7 +20,17 @@ jobs:
         run: npm install
         working-directory: ./yetanotherfrontend
 
-      - name: Tests summary
-        id: tests-summary
-        run: npm run test:start | tee temp_output.txt | grep -E 'passing' && tail -n 10 || (grep -E 'failing' && tail -n 10 || cat temp_output.txt) && rm temp_output.txt # it aint that hard lil bro
+      - name: List test files
+        id: list-tests
+        run: node list-tests.js
+
+      - name: Set up matrix
+        id: setup-matrix
+        run: echo "matrix=$(echo \"${{ steps.list-tests.outputs.testFiles }}\" | jq -c -R 'split(",") | {testFile: .}')"
+        shell: bash
+
+      - name: Run test
+        run: npm run test:response -- ${{ matrix.testFile }}
         working-directory: ./yetanotherfrontend
+        strategy:
+          matrix: ${{ fromJson(steps.setup-matrix.outputs.matrix) }}
