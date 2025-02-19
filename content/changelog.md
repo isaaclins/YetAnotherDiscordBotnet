@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-19
 
+ 6b4e0e6 fix(deps): update dependency sonner to v2
+
+ 9994c48 Merge pull request #163 from isaaclins/renovate/sonner-2.x
+
+ d7bc0cf Merge pull request #146 from isaaclins/renovate/react-hook-form-7.x-lockfile
+
+
+
+## 2025-02-19
+
  72c045c fix(deps): update dependency react-hook-form to v7.54.2
 
  738cfb8 fix(tests): improve test summary output and error handling in workflow
