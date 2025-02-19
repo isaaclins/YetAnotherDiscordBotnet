@@ -50,5 +50,5 @@ jobs:
         working-directory: ./yetanotherfrontend
 
       - name: Run test
-        run: npm run test:singlefile ${{ matrix.testFile }}
+        run: ls & npm run test:singlefile ../${{ matrix.testFile }}
         working-directory: ./yetanotherfrontend
