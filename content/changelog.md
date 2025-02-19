@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-19
 
+ 4b8ff41 Merge pull request #147 from isaaclins/renovate/react-icons-5.x-lockfile
+
+ 7286d61 fix(deps): update dependency react-icons to v5.5.0
+
+ bd122c4 Merge pull request #149 from isaaclins/renovate/zod-3.x-lockfile
+
+
+
+## 2025-02-19
+
  851e1a6 fix(deps): update dependency zod to v3.24.2
 
  bd122c4 Merge pull request #149 from isaaclins/renovate/zod-3.x-lockfile
