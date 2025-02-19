@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-19
 
+ 851e1a6 fix(deps): update dependency zod to v3.24.2
+
+ bd122c4 Merge pull request #149 from isaaclins/renovate/zod-3.x-lockfile
+
+ c15767e Merge pull request #152 from isaaclins/renovate/tailwindcss-monorepo
+
+
+
+## 2025-02-19
+
  894eb2e Merge pull request #153 from isaaclins/renovate/actions-checkout-4.x
 
  8e36068 chore(deps): update dependency tailwindcss to v3.4.17
