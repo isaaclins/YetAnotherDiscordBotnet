@@ -13,6 +13,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
  1b548ae Merge pull request #131 from isaaclins/renovate/typescript-5.x-lockfile
 
+ c87ff24 fix(deps): update playwright monorepo to v1.50.1
+
+ edde8d5 Merge pull request #150 from isaaclins/renovate/playwright-monorepo
+
+
+
+## 2025-02-19
+
+ 1b548ae Merge pull request #131 from isaaclins/renovate/typescript-5.x-lockfile
+
  1cdbe41 chore(deps): update dependency typescript to v5.7.3
 
  fe8054f Merge pull request #133 from isaaclins/renovate/react-monorepo
