@@ -13,6 +13,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
  028fe68 Merge pull request #136 from isaaclins/renovate/radix-ui-primitives-monorepo
 
+ 1e5ecfa chore(deps): update dependency wait-on to v8.0.2
+
+ a0e3653 Merge pull request #132 from isaaclins/renovate/wait-on-8.x-lockfile
+
+
+
+## 2025-02-19
+
+ 028fe68 Merge pull request #136 from isaaclins/renovate/radix-ui-primitives-monorepo
+
  45b928e fix(deps): update radix-ui-primitives monorepo
 
  e0c62c5 Merge pull request #137 from isaaclins/renovate/testing-library-monorepo
