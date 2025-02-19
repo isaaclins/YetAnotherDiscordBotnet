@@ -22,12 +22,5 @@ jobs:
 
       - name: Tests summary
         id: tests-summary
-        run: npm run test:start | grep -E 'passing|failing' | tail -n 10
-        working-directory: ./yetanotherfrontend
-        continue-on-error: true
-      
-      - name: Run tests (full debuggable)
-        if: failure()
-        id: run-tests
-        run: npm run test:start
+        run: npm run test:start | tee temp_output.txt | grep -E 'passing' && tail -n 10 || (grep -E 'failing' && tail -n 10 || cat temp_output.txt) && rm temp_output.txt # it aint that hard lil bro
         working-directory: ./yetanotherfrontend
