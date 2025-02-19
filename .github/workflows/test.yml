@@ -30,7 +30,8 @@ jobs:
       - name: Check for failures
         id: check-failures
         run: |
-          if grep -q 'failing' test_output.log; then
+          echo "Checking for failures in test_output.log..."
+          if [ -f test_output.log ] && grep -q 'failing' test_output.log; then
             echo "failing=true" >> $GITHUB_ENV
           else
             echo "failing=false" >> $GITHUB_ENV
