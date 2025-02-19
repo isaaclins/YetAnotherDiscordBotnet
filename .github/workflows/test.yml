@@ -23,7 +23,7 @@ jobs:
       - name: Tests summary
         id: tests-summary
         run: |
-          npm run test:start | tee test_output.log | grep -E 'passing|failing' | tail -n 10
+          npm run test:response | tee test_output.log | grep -E 'passing|failing' | tail -n 10
         working-directory: ./yetanotherfrontend
         continue-on-error: true
 
@@ -39,5 +39,5 @@ jobs:
       - name: Run tests (full debuggable)
         if: env.failing == 'true'
         id: run-tests
-        run: npm run test:start
+        run: npm run test:response
         working-directory: ./yetanotherfrontend
