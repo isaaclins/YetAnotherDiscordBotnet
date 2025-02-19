@@ -8,8 +8,8 @@
     "next": "next dev",
     "browserdev": "cd browser && neu run",
     "all": "npm run setup && npm run dev",
-    "test:start": "concurrently --kill-others --success first \"npm install && npm run next\" \"wait-on http://localhost:3000 && npm run test:response\"",
-    "test:response": "bash -c 'concurrently --kill-others \"npm run next\" \"wait-on http://localhost:3000 && npx mocha \\\"$@\\\"\"' --"
+    "test:local": "concurrently --kill-others --success first \"npm install && npm run next\" \"wait-on http://localhost:3000 && npx mocha __test__/*.js",
+    "test:singlefile": "bash -c 'file=${1#./yetanotherfrontend/}; concurrently --kill-others \"npm run next\" \"wait-on http://localhost:3000 && npx mocha \\\"$file\\\"\"' --"
   },
   "main": "main.js",
   "dependencies": {
