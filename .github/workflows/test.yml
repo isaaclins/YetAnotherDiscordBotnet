@@ -7,10 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
-    strategy:
-      matrix:
-        testFile: ${{ fromJson(steps.setup-matrix.outputs.matrix) }}
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -33,6 +29,11 @@ jobs:
         run: echo "matrix=$(echo \"${{ steps.list-tests.outputs.testFiles }}\" | jq -c -R 'split(\",\") | {testFile: .}')"
         shell: bash
 
+    strategy:
+      matrix:
+        testFile: ${{ fromJson(steps.setup-matrix.outputs.matrix) }}
+
+    steps:
       - name: Run test
         run: npm run test:response -- ${{ matrix.testFile }}
         working-directory: ./yetanotherfrontend
