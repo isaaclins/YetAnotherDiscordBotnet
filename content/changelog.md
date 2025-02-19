@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-19
 
+ 32f41b7 fix(deps): update nextjs monorepo to v15
+
+ 9b3561a Merge pull request #159 from isaaclins/renovate/mocha-11.x
+
+ af95540 Merge pull request #158 from isaaclins/renovate/major-nextjs-monorepo
+
+
+
+## 2025-02-19
+
  63e7bd4 chore(deps): update dependency mocha to v11
 
  9b3561a Merge pull request #159 from isaaclins/renovate/mocha-11.x
