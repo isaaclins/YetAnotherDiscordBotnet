@@ -22,16 +22,12 @@ jobs:
 
       - name: List test files
         id: list-tests
-        run: node list-tests.js
-
-      - name: Set up matrix
-        id: setup-matrix
-        run: echo "matrix=$(echo \"${{ steps.list-tests.outputs.testFiles }}\" | jq -c -R 'split(\",\") | {testFile: .}')"
+        run: echo "testFiles=$(node list-tests.js | jq -c -R 'split(\",\")')" >> $GITHUB_ENV
         shell: bash
 
     strategy:
       matrix:
-        testFile: ${{ fromJson(steps.setup-matrix.outputs.matrix) }}
+        testFile: ${{ fromJson(env.testFiles) }}
 
     steps:
       - name: Run test
