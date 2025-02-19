@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-19
 
+ 78b9522 chore(deps): update actions/checkout action to v4
+
+ d64786b Merge pull request #168 from isaaclins/renovate/actions-setup-node-4.x
+
+ ecd5707 Merge pull request #167 from isaaclins/renovate/actions-checkout-4.x
+
+
+
+## 2025-02-19
+
  0f42aa4 chore(deps): update dependency postcss to v8.5.3 (#166)
 
  975c7e9 chore(deps): update actions/setup-node action to v4
