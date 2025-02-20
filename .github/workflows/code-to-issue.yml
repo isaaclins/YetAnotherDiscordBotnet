@@ -20,7 +20,9 @@ jobs:
             const { execSync } = require('child_process');
             const fs = require('fs');
             const path = require('path');
-            
+            const github = require('@actions/github');
+            const context = github.context;
+
             // Determine the current commit and its parent
             const currentSha = process.env.GITHUB_SHA;
             let baseSha;
@@ -89,7 +91,7 @@ jobs:
                 console.log(`Creating issue: ${issueTitle}`);
                 console.log(`Issue body: ${issueBody}`);
                 // Create the GitHub issue using the GitHub API.
-                await github.issues.create({
+                await github.rest.issues.create({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
                   title: issueTitle,
