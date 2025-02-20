@@ -9,6 +9,16 @@ Stay updated with the latest changes in the YetAnotherDiscordBotnet project.
 This is an Automated process which takes the latest commit message and overwrites it to the bottom of this page.
 
 
+## 2025-02-20
+
+ 56cf6c5 Merge pull request #171 from isaaclins/169-failable-unit-test-matrix-enhancement
+
+ 625805f Merge pull request #170 from isaaclins/renovate/sonner-2.x-lockfile
+
+ c52e55c fix(deps): update dependency sonner to v2.0.1
+
+
+
 ## 2025-02-19
 
  ecd5707 Merge pull request #167 from isaaclins/renovate/actions-checkout-4.x
