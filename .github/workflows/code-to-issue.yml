@@ -30,16 +30,24 @@ jobs:
               console.error("Error finding parent commit:", error);
               process.exit(1);
             }
-            
+
+            console.log(`Base commit: ${baseSha}`);
+            console.log(`Current commit: ${currentSha}`);
+
             // List files changed between the previous commit and current commit
             let files = [];
+
+            console.log(`Getting changed files between ${baseSha} and ${currentSha}`);
+
             try {
               files = execSync(`git diff --name-only ${baseSha} ${currentSha}`).toString().split('\n').filter(f => f);
             } catch (error) {
               console.error("Error getting changed files:", error);
               process.exit(1);
             }
-            
+
+            console.log("Changed files:", files);
+
             for (const file of files) {
               let content;
               try {
@@ -56,6 +64,10 @@ jobs:
               const issueMatch = content.match(issueRegex);
               const bodyMatch = content.match(bodyRegex);
               
+              console.log(`Checking file: ${file}`);
+              console.log(`Issue match: ${issueMatch}`);
+              console.log(`Body match: ${bodyMatch}`);
+
               if (issueMatch && bodyMatch) {
                 const issueTitle = issueMatch[1].trim();
                 const issueBodyContent = bodyMatch[1].trim();
@@ -63,19 +75,19 @@ jobs:
                 // Remove the comment block that contains the annotations.
                 // This example assumes a block comment starts with /** and ends with */
                 const codeSnippet = content.replace(/\/\*\*[\s\S]*?\*\//, '').trim();
-                
+                console.log(`Code snippet: ${codeSnippet}`);
                 // Determine language based on file extension (fallback to plain text)
                 const ext = file.split('.').pop();
                 const language = ['js','go','c','cs','rb'].includes(ext) ? ext : '';
-                
+                console.log(`Language: ${language}`);
                 // Format the code snippet inside a markdown code block.
                 const formattedCode = language
                   ? "```" + language + "\n" + codeSnippet + "\n```"
                   : "```\n" + codeSnippet + "\n```";
-                
+                console.log(`Formatted code: ${formattedCode}`);
                 const issueBody = `${issueBodyContent}\n\n${formattedCode}`;
                 console.log(`Creating issue: ${issueTitle}`);
-                
+                console.log(`Issue body: ${issueBody}`);
                 // Create the GitHub issue using the GitHub API.
                 await github.issues.create({
                   owner: context.repo.owner,
@@ -84,5 +96,6 @@ jobs:
                   body: issueBody,
                   assignees: [context.repo.owner],
                 });
+                console.log(`Issue created: ${issueTitle}`);
               }
             }
