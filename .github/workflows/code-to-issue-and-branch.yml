@@ -39,7 +39,10 @@ jobs:
             // Get list of changed files
             let files = [];
             try {
-              files = execSync(`git diff --name-only ${baseSha} ${currentSha}`).toString().split('\n').filter(f => f);
+              files = execSync(`git diff --name-only ${baseSha} ${currentSha}`)
+                        .toString()
+                        .split('\n')
+                        .filter(f => f);
             } catch (error) {
               console.error("Error getting changed files:", error);
               process.exit(1);
@@ -53,7 +56,7 @@ jobs:
               try {
                 content = fs.readFileSync(file, 'utf8');
               } catch (error) {
-                // Skip files that cannot be read (binary etc.)
+                // Skip files that cannot be read (binary, etc.)
                 continue;
               }
               // Look for annotations in the file
@@ -72,8 +75,8 @@ jobs:
                 const ext = file.split('.').pop();
                 const language = ['js', 'go', 'c', 'cs', 'rb'].includes(ext) ? ext : '';
                 const formattedCode = language
-                  ? "```" + language + "\n" + codeSnippet + "\n```"
-                  : "```\n" + codeSnippet + "\n```";
+                  ? `\n\`\`\`${language}\n${codeSnippet}\n\`\`\`\n`
+                  : `\n\`\`\`\n${codeSnippet}\n\`\`\`\n`;
                 const issueBody = `${issueBodyContent}\n\n${formattedCode}`;
 
                 // Create the issue using the GitHub API
