@@ -1,0 +1,113 @@
+name: Create Issue and Branch from Code Annotations
+
+on: [push]
+
+jobs:
+  create-issue-and-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2  # Ensure we have the previous commit
+
+      - name: Extract annotations and create issue
+        id: create_issue
+        uses: actions/github-script@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          script: |
+            const { execSync } = require('child_process');
+            const fs = require('fs');
+            
+            const currentSha = process.env.GITHUB_SHA;
+            let baseSha;
+            try {
+              baseSha = execSync('git rev-parse HEAD^').toString().trim();
+            } catch (error) {
+              console.error("Error finding parent commit:", error);
+              process.exit(1);
+            }
+
+            let files = [];
+            try {
+              files = execSync(`git diff --name-only ${baseSha} ${currentSha}`).toString().split('\n').filter(f => f);
+            } catch (error) {
+              console.error("Error getting changed files:", error);
+              process.exit(1);
+            }
+
+            for (const file of files) {
+              let content;
+              try {
+                content = fs.readFileSync(file, 'utf8');
+              } catch (error) {
+                continue;
+              }
+
+              const issueRegex = /@issue\s+(.+)/;
+              const bodyRegex = /@body\s+(.+)/;
+
+              const issueMatch = content.match(issueRegex);
+              const bodyMatch = content.match(bodyRegex);
+
+              if (issueMatch && bodyMatch) {
+                const issueTitle = issueMatch[1].trim();
+                const issueBodyContent = bodyMatch[1].trim();
+
+                const issue = await github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title: issueTitle,
+                  body: issueBodyContent,
+                  assignees: [context.repo.owner],
+                });
+                console.log(`Issue created: ${issue.data.html_url}`);
+                
+                core.setOutput("issue_number", issue.data.number);
+                core.setOutput("issue_title", issueTitle);
+              }
+            }
+
+      - name: Create branch from issue
+        if: steps.create_issue.outputs.issue_number
+        uses: actions/github-script@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          script: |
+            const issueNumber = "${{ steps.create_issue.outputs.issue_number }}";
+            const issueTitle = "${{ steps.create_issue.outputs.issue_title }}";
+            
+            if (!issueNumber || !issueTitle) {
+              console.log('No issue created, skipping branch creation.');
+              return;
+            }
+            
+            const sanitizedTitle = issueTitle.trim().replace(/[^a-zA-Z0-9]+/g, '_');
+            const branchName = `issue-${issueNumber}-${sanitizedTitle}`;
+            console.log(`Creating branch: ${branchName}`);
+            
+            const baseBranch = 'main';
+            const { data: baseRef } = await github.git.getRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: `heads/${baseBranch}`
+            });
+            const sha = baseRef.object.sha;
+            
+            await github.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: `refs/heads/${branchName}`,
+              sha: sha,
+            });
+            console.log(`Branch ${branchName} created successfully!`);
+            
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              assignees: [context.repo.owner]
+            });
