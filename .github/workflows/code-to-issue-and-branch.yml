@@ -1,4 +1,4 @@
-name: Create Issue from Code Annotations
+name: Create Issue from Code Annotations and branch from said issue
 
 on: [push]
 
@@ -103,6 +103,7 @@ jobs:
   create-branch:
     needs: create-issue
     runs-on: ubuntu-latest
+    if: needs.create-issue.outputs.issue_number != ''
     steps:
       - name: Create branch for the created issue and comment on it
         uses: actions/github-script@v6
@@ -113,29 +114,33 @@ jobs:
             // Retrieve outputs from the previous job
             const issueNumber = parseInt("${{ needs.create-issue.outputs.issue_number }}", 10);
             const issueTitle = "${{ needs.create-issue.outputs.issue_title }}";
+            if (isNaN(issueNumber)) {
+              console.log("No valid issue number provided, skipping branch creation.");
+              return;
+            }
             // Sanitize issue title for branch naming: replace non-alphanumeric with underscores.
             const sanitizedTitle = issueTitle.trim().replace(/[^a-zA-Z0-9]+/g, '_');
             const branchName = `issue-${issueNumber}-${sanitizedTitle}`;
             console.log(`Creating branch: ${branchName}`);
-
+    
             // Define the base branch (adjust if needed)
             const baseBranch = 'main';
-            const { data: baseRef } = await github.git.getRef({
+            const { data: baseRef } = await github.rest.git.getRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
               ref: `heads/${baseBranch}`
             });
             const sha = baseRef.object.sha;
-
+    
             // Create the new branch from the base branch's commit SHA.
-            await github.git.createRef({
+            await github.rest.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
               ref: `refs/heads/${branchName}`,
               sha: sha,
             });
             console.log(`Branch ${branchName} created successfully!`);
-
+    
             // "Assign" the branch to the issue by adding a comment with branch details.
             await github.rest.issues.createComment({
               owner: context.repo.owner,
