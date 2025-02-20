@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-20
 
+ 6a51435 Merge pull request #173 from isaaclins/renovate/actions-checkout-4.x
+
+ bf0673e Merge pull request #174 from isaaclins/renovate/actions-github-script-7.x
+
+ ea4cf42 chore(deps): update actions/checkout action to v4
+
+
+
+## 2025-02-20
+
  1806eca chore(deps): update actions/github-script action to v7
 
  78b0e91 test: add issue annotation for test case 4
