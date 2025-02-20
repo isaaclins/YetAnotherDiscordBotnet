@@ -20,8 +20,6 @@ jobs:
             const { execSync } = require('child_process');
             const fs = require('fs');
             const path = require('path');
-            // Remove the following line to avoid redeclaring 'github'
-            // const github = require('@actions/github');
             const context = github.context;
 
             // Determine the current commit and its parent
