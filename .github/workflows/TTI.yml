@@ -12,6 +12,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Create branch from issue
-        run: ISSUE_NUMBER=${{ github.event.issue.number }} ISSUE_TITLE=${{ github.event.issue.title }} BRANCH_NAME="issue-${ISSUE_NUMBER}-$(echo ${ISSUE_TITLE} | tr ' ' '_' | tr -cd '[:alnum:]_')" && git checkout -b ${BRANCH_NAME} && git push origin ${BRANCH_NAME}
+        run: |
+          ISSUE_NUMBER=${{ github.event.issue.number }}
+          ISSUE_TITLE="${{ github.event.issue.title }}"
+          BRANCH_NAME="issue-${ISSUE_NUMBER}-$(echo ${ISSUE_TITLE} | tr ' ' '_' | tr -cd '[:alnum:]_')"
+          git checkout -b "${BRANCH_NAME}"
+          git push origin "${BRANCH_NAME}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
