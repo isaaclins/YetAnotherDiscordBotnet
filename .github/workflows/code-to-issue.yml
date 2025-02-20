@@ -20,7 +20,8 @@ jobs:
             const { execSync } = require('child_process');
             const fs = require('fs');
             const path = require('path');
-            const github = require('@actions/github');
+            // Remove the following line to avoid redeclaring 'github'
+            // const github = require('@actions/github');
             const context = github.context;
 
             // Determine the current commit and its parent
@@ -58,14 +59,14 @@ jobs:
                 // Skip binary or unreadable files.
                 continue;
               }
-              
+
               // Regex to capture annotation lines
               const issueRegex = /@issue\s+(.+)/;
               const bodyRegex = /@body\s+(.+)/;
-              
+
               const issueMatch = content.match(issueRegex);
               const bodyMatch = content.match(bodyRegex);
-              
+
               console.log(`Checking file: ${file}`);
               console.log(`Issue match: ${issueMatch}`);
               console.log(`Body match: ${bodyMatch}`);
@@ -73,7 +74,7 @@ jobs:
               if (issueMatch && bodyMatch) {
                 const issueTitle = issueMatch[1].trim();
                 const issueBodyContent = bodyMatch[1].trim();
-                
+
                 // Remove the comment block that contains the annotations.
                 // This example assumes a block comment starts with /** and ends with */
                 const codeSnippet = content.replace(/\/\*\*[\s\S]*?\*\//, '').trim();
