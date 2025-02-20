@@ -103,8 +103,6 @@ jobs:
   create-branch:
     needs: create-issue
     runs-on: ubuntu-latest
-    # Only run if an issue was created.
-    if: ${{ needs.create-issue.outputs.issue_number != '' }}
     steps:
       - name: Create branch for the created issue and comment on it
         uses: actions/github-script@v6
