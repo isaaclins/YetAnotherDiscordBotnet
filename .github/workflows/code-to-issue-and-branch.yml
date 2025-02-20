@@ -124,7 +124,7 @@ jobs:
             console.log(`Creating branch: ${branchName}`);
     
             // Define the base branch (adjust if needed)
-            const baseBranch = 'main';
+            const baseBranch = 'code';
             const { data: baseRef } = await github.rest.git.getRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
