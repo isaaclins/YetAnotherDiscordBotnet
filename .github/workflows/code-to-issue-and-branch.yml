@@ -1,4 +1,4 @@
-name: Create Issue from Code Annotations and branch from said issue
+name: Create Issue from Code Annotations and Branch from Said Issue
 
 on: [push]
 
@@ -24,7 +24,6 @@ jobs:
             const { execSync } = require('child_process');
             const fs = require('fs');
 
-            // Determine current and previous commit
             const currentSha = process.env.GITHUB_SHA;
             let baseSha;
             try {
@@ -36,7 +35,6 @@ jobs:
             console.log(`Base commit: ${baseSha}`);
             console.log(`Current commit: ${currentSha}`);
 
-            // Get list of changed files
             let files = [];
             try {
               files = execSync(`git diff --name-only ${baseSha} ${currentSha}`)
@@ -50,28 +48,27 @@ jobs:
             console.log("Changed files:", files);
 
             let createdIssue = null;
-            // Loop over each file until an annotation is found
+            let issueTitle = "";
+            let issueNumber = "";
+
             for (const file of files) {
               let content;
               try {
                 content = fs.readFileSync(file, 'utf8');
               } catch (error) {
-                // Skip files that cannot be read (binary, etc.)
                 continue;
               }
-              // Look for annotations in the file
+
               const issueRegex = /@issue\s+(.+)/;
               const bodyRegex = /@body\s+(.+)/;
               const issueMatch = content.match(issueRegex);
               const bodyMatch = content.match(bodyRegex);
 
               if (issueMatch && bodyMatch) {
-                const issueTitle = issueMatch[1].trim();
+                issueTitle = issueMatch[1].trim();
                 const issueBodyContent = bodyMatch[1].trim();
 
-                // Remove a block comment (assumed to be /** ... */) to isolate code
                 const codeSnippet = content.replace(/\/\*\*[\s\S]*?\*\//, '').trim();
-                // Determine language for formatting (fallback to plain text)
                 const ext = file.split('.').pop();
                 const language = ['js', 'go', 'c', 'cs', 'rb'].includes(ext) ? ext : '';
                 const formattedCode = language
@@ -79,7 +76,6 @@ jobs:
                   : `\n\`\`\`\n${codeSnippet}\n\`\`\`\n`;
                 const issueBody = `${issueBodyContent}\n\n${formattedCode}`;
 
-                // Create the issue using the GitHub API
                 const response = await github.rest.issues.create({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
@@ -87,64 +83,51 @@ jobs:
                   body: issueBody,
                   assignees: [context.repo.owner],
                 });
+
                 createdIssue = response.data;
+                issueNumber = createdIssue.number.toString();
                 console.log(`Issue created: ${issueTitle}`);
-                // Only create one issue per push – remove break if you need to process multiple annotations.
                 break;
               }
             }
 
-            if (createdIssue) {
-              return { issue_number: createdIssue.number.toString(), issue_title: createdIssue.title };
-            } else {
+            if (!createdIssue) {
+              console.log("No annotations found. Exiting.");
               return { issue_number: "", issue_title: "" };
             }
 
-  create-branch:
-    needs: create-issue
-    runs-on: ubuntu-latest
-    if: needs.create-issue.outputs.issue_number != ''
-    steps:
-      - name: Create branch for the created issue and comment on it
-        uses: actions/github-script@v6
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          script: |
-            // Retrieve outputs from the previous job
-            const issueNumber = parseInt("${{ needs.create-issue.outputs.issue_number }}", 10);
-            const issueTitle = "${{ needs.create-issue.outputs.issue_title }}";
-            if (isNaN(issueNumber)) {
-              console.log("No valid issue number provided, skipping branch creation.");
-              return;
-            }
-            // Sanitize issue title for branch naming: replace non-alphanumeric with underscores.
-            const sanitizedTitle = issueTitle.trim().replace(/[^a-zA-Z0-9]+/g, '_');
+            // Sanitize issue title for branch naming
+            const sanitizedTitle = issueTitle.replace(/[^a-zA-Z0-9]+/g, '_');
             const branchName = `issue-${issueNumber}-${sanitizedTitle}`;
             console.log(`Creating branch: ${branchName}`);
-    
-            // Define the base branch (adjust if needed)
+
             const baseBranch = 'code';
-            const { data: baseRef } = await github.rest.git.getRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: `heads/${baseBranch}`
-            });
-            const sha = baseRef.object.sha;
-    
-            // Create the new branch from the base branch's commit SHA.
-            await github.rest.git.createRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: `refs/heads/${branchName}`,
-              sha: sha,
-            });
-            console.log(`Branch ${branchName} created successfully!`);
-    
-            // "Assign" the branch to the issue by adding a comment with branch details.
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: issueNumber,
-              body: `A branch has been created for this issue: **${branchName}**.`,
-            });
+            try {
+              const { data: baseRef } = await github.rest.git.getRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: `heads/${baseBranch}`
+              });
+
+              await github.rest.git.createRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: `refs/heads/${branchName}`,
+                sha: baseRef.object.sha,
+              });
+
+              console.log(`Branch ${branchName} created successfully!`);
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                body: `A branch has been created for this issue: **${branchName}**.`,
+              });
+
+            } catch (error) {
+              console.error("Error creating branch:", error);
+              process.exit(1);
+            }
+
+            return { issue_number: issueNumber, issue_title: issueTitle };
