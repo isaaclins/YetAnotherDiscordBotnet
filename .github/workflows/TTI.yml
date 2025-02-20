@@ -1,8 +1,9 @@
 name: Create Branches out of Issues
 
 on:
+  push: {}  # Trigger on any push event.
   issues:
-    types: [assigned, push]
+    types: [assigned]  # Trigger when an issue is assigned.
 
 jobs:
   create-branch:
@@ -12,10 +13,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create branch from issue
+        # This step runs only if the event contains issue data.
+        if: ${{ github.event.issue != null }}
         run: |
           ISSUE_NUMBER=${{ github.event.issue.number }}
           ISSUE_TITLE="${{ github.event.issue.title }}"
-          # Generate a branch name from the issue title and number.
+          # Generate branch name using the issue number and a sanitized title.
           BRANCH_NAME="issue-${ISSUE_NUMBER}-$(echo "${ISSUE_TITLE}" | tr ' ' '_' | tr -cd '[:alnum:]_')"
           
           # Check if the branch already exists on the remote.
@@ -24,7 +27,7 @@ jobs:
             exit 0
           fi
           
-          # Create and push the branch if it does not exist.
+          # Create and push the branch.
           git checkout -b "${BRANCH_NAME}"
           git push origin "${BRANCH_NAME}"
         env:
