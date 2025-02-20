@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Create branch from issue
         run: ISSUE_NUMBER=${{ github.event.issue.number }} ISSUE_TITLE=${{ github.event.issue.title }} BRANCH_NAME="issue-${ISSUE_NUMBER}-$(echo ${ISSUE_TITLE} | tr ' ' '_' | tr -cd '[:alnum:]_')" && git checkout -b ${BRANCH_NAME} && git push origin ${BRANCH_NAME}
