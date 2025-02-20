@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-20
 
+ 71ab16d workflow: remove obsolete branch creation workflow and add new workflows for issue creation and annotation extraction
+
+ c8aebaf workflow: update issue event types and enhance branch creation logic
+
+
+
+## 2025-02-20
+
  507f70f workflow: enhance branch creation logic to check for existing branches
 
  c8aebaf workflow: update issue event types and enhance branch creation logic
