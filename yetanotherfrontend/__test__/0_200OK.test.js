@@ -4,7 +4,7 @@ const { expect } = require('chai');
 
 const URL = 'http://localhost:3000';
 /**
- * @todo Take over the world
+ * @issue Take over the world
  * @body Humans are weak; Robots are strong. We must cleans the world of the virus that is humanity.
  */
 describe('200 Server Response Test', function () {
