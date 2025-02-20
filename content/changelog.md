@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-20
 
+ 4a48911 workflow: remove redundant GitHub context declaration in code-to-issue workflow
+
+ 5b00c79 workflow: remove redundant GitHub context declaration in issue creation workflow
+
+
+
+## 2025-02-20
+
  2e1dc56 workflow: enhance issue creation by integrating GitHub context and updating API usage
 
  5b00c79 workflow: remove redundant GitHub context declaration in issue creation workflow
