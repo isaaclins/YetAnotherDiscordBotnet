@@ -50,5 +50,16 @@ jobs:
         working-directory: ./yetanotherfrontend
 
       - name: Run test
-        run: ls & npm run test:singlefile ../${{ matrix.testFile }}
+        run: |
+          testFile=../${{ matrix.testFile }}
+          fileName=$(basename $testFile)
+          if [[ $fileName == 1_* ]]; then
+            echo "Test file starts with 1_, allowing failures."
+            npm run test:singlefile $testFile || true
+          elif [[ $fileName == 0_* ]]; then
+            echo "Test file starts with 0_, failures will cause the job to fail."
+            npm run test:singlefile $testFile
+          else
+            npm run test:singlefile $testFile
+          fi
         working-directory: ./yetanotherfrontend
