@@ -15,7 +15,16 @@ jobs:
         run: |
           ISSUE_NUMBER=${{ github.event.issue.number }}
           ISSUE_TITLE="${{ github.event.issue.title }}"
-          BRANCH_NAME="issue-${ISSUE_NUMBER}-$(echo ${ISSUE_TITLE} | tr ' ' '_' | tr -cd '[:alnum:]_')"
+          # Generate a branch name from the issue title and number.
+          BRANCH_NAME="issue-${ISSUE_NUMBER}-$(echo "${ISSUE_TITLE}" | tr ' ' '_' | tr -cd '[:alnum:]_')"
+          
+          # Check if the branch already exists on the remote.
+          if git ls-remote --exit-code --heads origin "${BRANCH_NAME}"; then
+            echo "Branch '${BRANCH_NAME}' already exists. Skipping branch creation."
+            exit 0
+          fi
+          
+          # Create and push the branch if it does not exist.
           git checkout -b "${BRANCH_NAME}"
           git push origin "${BRANCH_NAME}"
         env:
