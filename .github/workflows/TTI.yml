@@ -2,7 +2,7 @@ name: Create Branches out of Issues
 
 on:
   issues:
-    types: [assigned]
+    types: [assigned, push]
 
 jobs:
   create-branch:
