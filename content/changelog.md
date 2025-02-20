@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-20
 
+ 58c6fe1 workflow: improve code-to-issue-and-branch workflow and clean up test annotations
+
+ b9e13bd test: add issue annotation to failing test case
+
+
+
+## 2025-02-20
+
  40f19f7 workflow: refactor issue creation workflow to separate issue and branch creation steps
 
  b9e13bd test: add issue annotation to failing test case
