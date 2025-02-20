@@ -1,0 +1,48 @@
+name: Create Branch on Issue Creation
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  create-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create branch from issue
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issue = context.payload.issue;
+            if (!issue) {
+              console.log('No issue found.');
+              return;
+            }
+            // Sanitize the issue title for branch naming:
+            // Replace any non-alphanumeric characters with underscores.
+            const sanitizedTitle = issue.title.trim().replace(/[^a-zA-Z0-9]+/g, '_');
+            const branchName = `issue-${issue.number}-${sanitizedTitle}`;
+            console.log(`Creating branch: ${branchName}`);
+
+            // Define the base branch from which to create the new branch.
+            const baseBranch = 'main';
+
+            // Get the reference (commit SHA) of the base branch.
+            const { data: baseRef } = await github.git.getRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: `heads/${baseBranch}`
+            });
+            const sha = baseRef.object.sha;
+
+            // Create the new branch based on the base branch's commit.
+            try {
+              await github.git.createRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: `refs/heads/${branchName}`,
+                sha: sha,
+              });
+              console.log(`Branch ${branchName} created successfully!`);
+            } catch (error) {
+              console.error(`Failed to create branch: ${error}`);
+            }
