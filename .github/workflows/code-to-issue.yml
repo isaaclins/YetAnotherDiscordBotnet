@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2  # Ensure we have the previous commit
 
       - name: Extract annotations and create issue
         uses: actions/github-script@v6
@@ -17,6 +19,7 @@ jobs:
           script: |
             const { execSync } = require('child_process');
             const fs = require('fs');
+            const path = require('path');
             
             // Determine the current commit and its parent
             const currentSha = process.env.GITHUB_SHA;
@@ -56,23 +59,23 @@ jobs:
               if (issueMatch && bodyMatch) {
                 const issueTitle = issueMatch[1].trim();
                 const issueBodyContent = bodyMatch[1].trim();
-
+                
                 // Remove the comment block that contains the annotations.
                 // This example assumes a block comment starts with /** and ends with */
                 const codeSnippet = content.replace(/\/\*\*[\s\S]*?\*\//, '').trim();
-
+                
                 // Determine language based on file extension (fallback to plain text)
                 const ext = file.split('.').pop();
                 const language = ['js','go','c','cs','rb'].includes(ext) ? ext : '';
-
+                
                 // Format the code snippet inside a markdown code block.
                 const formattedCode = language
                   ? "```" + language + "\n" + codeSnippet + "\n```"
                   : "```\n" + codeSnippet + "\n```";
-
+                
                 const issueBody = `${issueBodyContent}\n\n${formattedCode}`;
                 console.log(`Creating issue: ${issueTitle}`);
-
+                
                 // Create the GitHub issue using the GitHub API.
                 await github.issues.create({
                   owner: context.repo.owner,
