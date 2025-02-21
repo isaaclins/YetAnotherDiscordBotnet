@@ -1,4 +1,4 @@
-// [pages/api/save-settings.ts]
+// [./yetanotherfrontend/pages/api/save-settings.ts]
 import { NextApiRequest, NextApiResponse } from "next";
 import fs from "fs";
 import path from "path";
