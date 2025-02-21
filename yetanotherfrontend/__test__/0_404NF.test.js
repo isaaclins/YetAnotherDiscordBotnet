@@ -3,10 +3,6 @@ const { describe, it } = require('mocha');
 const { expect } = require('chai');
 
 const URL = 'http://localhost:3000/404NF';
-/**
- * @issue hel
- * @body <text here>
- */
 
 describe('404 Server Response Test', function () {
     this.timeout(10000); // Set global timeout to 10 seconds
