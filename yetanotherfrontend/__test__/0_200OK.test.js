@@ -3,10 +3,7 @@ const { describe, it } = require('mocha');
 const { expect } = require('chai');
 
 const URL = 'http://localhost:3000';
-/**
- * @issue Take over the world
- * @body Humans are weak; Robots are strong. We must cleans the world of the virus that is humanity.
- */
+
 describe('200 Server Response Test', function () {
     this.timeout(10000); // Set global timeout to 10 seconds
     it('should return 200 OK in index URL', async function () {
