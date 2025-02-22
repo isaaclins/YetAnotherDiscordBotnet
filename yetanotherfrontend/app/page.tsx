@@ -24,7 +24,7 @@ export default function Home() {
         </CardHeader>
         <CardContent>
           <div className="flex space-x-4">
-            <LanguageCard href="/python" icon={<AiOutlinePython style={{ fontSize: '5rem' }} />} label="Python" />
+            <LanguageCard href="/pythonCompilerUI" icon={<AiOutlinePython style={{ fontSize: '5rem' }} />} label="Python" />
             <LanguageCard href="/go" icon={<TbBrandGolang style={{ fontSize: '5rem' }} />} label="Golang" />
             <LanguageCard href="/rust" icon={<SiRust style={{ fontSize: '5rem' }} />} label="Rust" />
             <LanguageCard href="/javascript" icon={<FaJsSquare style={{ fontSize: '5rem' }} />} label="JavaScript" />
