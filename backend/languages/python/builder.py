@@ -11,7 +11,7 @@ os.makedirs(output_dir, exist_ok=True)
 client_path = os.path.join(output_dir, 'client.py')
 
 # Path to the settings.json file
-settings_path = os.path.join(os.path.dirname(__file__), '..', 'settings', 'settings.json')
+settings_path = os.path.join(os.path.dirname(__file__), '..', '..', 'settings', 'settings.json')
 print(f"[?] Settings path: {settings_path}")
 
 print(f"[?] Client path: {client_path}")
