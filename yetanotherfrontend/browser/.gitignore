@@ -1,9 +1,0 @@
-# Developer tools' files
-.lite_workspace.lua
-
-
-
-
-# Neutralinojs related files
-.storage
-*.log
