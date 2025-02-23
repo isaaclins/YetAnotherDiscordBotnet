@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "next": "next dev",
-    "test:local": "concurrently --kill-others --success first \"npm install && npm run next\" \"wait-on http://localhost:3000 && npx mocha __test__/*.js\"",
+    "test:local": "concurrently --kill-others --success first \"npm install && npm run next\" \"wait-on http://localhost:3000 && npx mocha __unit-test__/*.js\"",
     "test:singlefile": "npm run next & wait-on http://localhost:3000 && npx mocha"
   },
   "main": "main.js",
