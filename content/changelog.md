@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-23
 
+ 4d09840 feat: add API endpoints for compilation and saving settings
+
+ 9f06934 fix: update test to use correct Python URL for server response
+
+
+
+## 2025-02-23
+
  3783b8e fix: update link for Python compiler to point to pythonBuilderUI
 
  4d09840 feat: add API endpoints for compilation and saving settings
