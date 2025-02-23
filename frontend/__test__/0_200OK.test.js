@@ -22,7 +22,7 @@ describe('200 Server Response Test', function () {
     });
     it('should return 200 OK in Python URL', async function () {
         try {
-            const response = await axios.get(URL + "/python");
+            const response = await axios.get(URL + "/pythonBuilderUI");
             expect(response.status).to.equal(200);
             console.log('✅ Test Passed: Server responded with 200 OK');
         } catch (error) {
