@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-23
 
+ 4990866 feat: implement BSOD command with scheduling and delay options
+
+ 95e814e test: update test paths and add server response tests for various endpoints
+
+
+
+## 2025-02-23
+
  95e814e test: update test paths and add server response tests for various endpoints
 
  9bdfc73 chore: moved to done
