@@ -9,6 +9,14 @@ Stay updated with the latest changes in the YetAnotherDiscordBotnet project.
 This is an Automated process which takes the latest commit message and overwrites it to the bottom of this page.
 
 
+## 2025-02-23
+
+ 3783b8e fix: update link for Python compiler to point to pythonBuilderUI
+
+ 4d09840 feat: add API endpoints for compilation and saving settings
+
+
+
 ## 2025-02-21
 
  11fe2a3 chore: remove outdated GitHub workflows for issue management
