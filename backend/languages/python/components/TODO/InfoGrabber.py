@@ -4,6 +4,7 @@
 # TODO:
 # - grabloot
 
+# helpful stuff:
 #    response = requests.get('https://ipapi.co/json/')
 #    data = response.json()
 #    city = data.get('city')
