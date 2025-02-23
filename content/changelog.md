@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-23
 
+ 32e5c3b feat: add LiveAudio and LiveCam components for voice channel audio and livestreaming
+
+ 9f06934 fix: update test to use correct Python URL for server response
+
+
+
+## 2025-02-23
+
  4d09840 feat: add API endpoints for compilation and saving settings
 
  9f06934 fix: update test to use correct Python URL for server response
