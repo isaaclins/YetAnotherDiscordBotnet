@@ -4,7 +4,7 @@ import importlib
 from datetime import datetime
 
 # Ensure the OUTPUT directory exists with a timestamp
-timestamp = datetime.now().strftime("%Y_%m_%d-%H:%M:%S")
+timestamp = datetime.now().strftime("%Y_%m_%d")
 output_dir = os.path.join(os.path.dirname(__file__), 'OUTPUT', timestamp)
 os.makedirs(output_dir, exist_ok=True)
 
