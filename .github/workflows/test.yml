@@ -16,7 +16,7 @@ jobs:
         run: |
           echo "Searching for test files..."
           # Adjust the path if needed:
-          testFiles=$(find ./yetanotherfrontend/__test__ -maxdepth 1 -name "*.test.js")
+          testFiles=$(find ./frontend/__test__ -maxdepth 1 -name "*.test.js")
           if [ -z "$testFiles" ]; then
             echo "No test files found."
             echo "matrix={}" >> $GITHUB_OUTPUT
@@ -47,7 +47,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./yetanotherfrontend
+        working-directory: ./frontend
 
       - name: Run test
         run: |
@@ -62,4 +62,4 @@ jobs:
           else
             npm run test:singlefile $testFile
           fi
-        working-directory: ./yetanotherfrontend
+        working-directory: ./frontend
