@@ -1,4 +1,3 @@
-// [./yetanotherfrontend/pages/api/save-settings.ts]
 import { NextApiRequest, NextApiResponse } from "next";
 import fs from "fs";
 import path from "path";
@@ -16,7 +15,7 @@ export default async function handler(
 
       const parsedData = await settingsSchema.parseAsync(req.body);
       const datajson = JSON.stringify(parsedData, null, 2);
-      const dirPath = path.join(process.cwd(), "../settings/");
+      const dirPath = path.join(process.cwd(), "../backend/settings");
       const filePath = path.join(dirPath, "settings.json");
 
       if (!fs.existsSync(dirPath)) {
@@ -25,6 +24,8 @@ export default async function handler(
 
       fs.writeFile(filePath, datajson, (err) => {
         if (err) {
+          console.error("Error writing file:", err.message);
+          console.error(err.stack);
           res.status(500).json({ message: "Failed to save settings." });
           return;
         }
@@ -34,6 +35,7 @@ export default async function handler(
       if (error instanceof Error && error.message === "Simulated server error") {
         res.status(500).json({ message: "Internal Server Error." });
       } else {
+        console.error("Error parsing settings:", error);
         res.status(400).json({ message: "Invalid JSON data." });
       }
     }

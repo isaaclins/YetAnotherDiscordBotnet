@@ -1,4 +1,4 @@
-// [./yetanotherfrontend/pages/api/compile.ts]
+// [./frontend/app/api/compile.ts]
 import { NextApiRequest, NextApiResponse } from "next";
 import { exec } from "child_process";
 
@@ -8,7 +8,7 @@ export default async function handler(
 ) {
   if (req.method === "POST") {
     try {
-      exec("python ../python/builder.py", (error, stdout, stderr) => {
+      exec("python ../backend/languages/python/builder.py", (error, stdout, stderr) => {
         if (error) {
           console.error(`exec error: ${error}`);
           res.status(500).json({ message: "Compilation failed." });
