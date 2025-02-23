@@ -1,6 +1,7 @@
 import json
 import os
-import importlib
+import sys
+import importlib.util
 from datetime import datetime
 
 # Ensure the OUTPUT directory exists with a timestamp
@@ -28,9 +29,6 @@ except json.JSONDecodeError as e:
     print(f"[-] Error parsing JSON: {e}")
     exit(1)
 print(f"[+] Reading settings from {settings_path} successfully")
-
-# Extract the modules to include
-modules = settings["Modules"]
 
 # Start building the client.py content
 client_code = """
@@ -70,15 +68,34 @@ async def on_message(message):
         return
 """
 
-# Dynamically import and add module-specific code
+# Components directory path
+components_dir = os.path.join(os.path.dirname(__file__), 'components')
+print(f"[?] Searching for components in {components_dir}")
+
+# Get the list of modules from settings (assuming a dictionary of module names to booleans)
+modules = settings.get("Modules", {})
+
+# Process each module specified in settings
 for module_name, enabled in modules.items():
     if enabled:
-        module_path = f"python.components.{module_name.lower()}"
+        file_name = f"{module_name.lower()}.py"
+        file_path = os.path.join(components_dir, file_name)
+        if not os.path.exists(file_path):
+            print(f"[-] Module {module_name} is enabled in settings but file not found at {file_path}")
+            continue
         try:
-            module = importlib.import_module(module_path)
-            client_code += module.get_code()
-        except ModuleNotFoundError:
-            print(f"[-] Module {module_name} not found at {module_path}")
+            spec = importlib.util.spec_from_file_location(module_name, file_path)
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            if hasattr(module, "get_code"):
+                print(f"[+] Adding code from {module_name}")
+                client_code += module.get_code()
+            else:
+                print(f"[-] Module {module_name} does not have a get_code function")
+        except Exception as e:
+            print(f"[-] Error loading {module_name} from {file_path}: {e}")
+    else:
+        print(f"[?] Module {module_name} is disabled in settings; skipping.")
 
 # Finalize the client.py content
 print("[.] Building client.py")
@@ -92,6 +109,6 @@ print("[+] Building client.py successful")
 # Write the generated code to client.py
 with open(client_path, "w") as file:
     file.write(client_code)
-print("[+] writing client.py successful")
+print("[+] Writing client.py successful")
 
-print(f"[+] client.py has been generated at {client_path}") 
+print(f"[+] client.py has been generated at {client_path}")
