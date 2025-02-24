@@ -13,6 +13,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
  30c6297 Merge branch 'code' of https://github.com/isaaclins/YetAnotherDiscordBotnet into code
 
+ d6e8d25 fix(deps): update dependency @hookform/resolvers to v4.1.2 (#191)
+
+
+
+## 2025-02-24
+
+ 30c6297 Merge branch 'code' of https://github.com/isaaclins/YetAnotherDiscordBotnet into code
+
  5a49378 Merge pull request #190 from isaaclins/renovate/tailwind-merge-3.x-lockfile
 
  d619580 refactor: modularize client.py generation with helper functions for better readability and maintainability
