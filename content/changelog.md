@@ -9,6 +9,18 @@ Stay updated with the latest changes in the YetAnotherDiscordBotnet project.
 This is an Automated process which takes the latest commit message and overwrites it to the bottom of this page.
 
 
+## 2025-02-24
+
+ 6aef349 fix(deps): update dependency @hookform/resolvers to v4.1.1 (#189)
+
+
+
+## 2025-02-23
+
+ cd55923 chore(deps): update dependency eslint to v9 (#187)
+
+
+
 ## 2025-02-23
 
  4c0a1a2 feat: migrate GhostWriting module to done directory with installation check for pyautogui
