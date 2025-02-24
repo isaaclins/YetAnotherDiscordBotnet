@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-24
 
+ 06fee3a fix(deps): update dependency tailwind-merge to v3.0.2
+
+ 5a49378 Merge pull request #190 from isaaclins/renovate/tailwind-merge-3.x-lockfile
+
+ 6aef349 fix(deps): update dependency @hookform/resolvers to v4.1.1 (#189)
+
+
+
+## 2025-02-24
+
  6aef349 fix(deps): update dependency @hookform/resolvers to v4.1.1 (#189)
 
 
