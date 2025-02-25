@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-25
 
+ 45e0bd3 refactor: remove unused 'To Be Done' pages from various Builder UI components
+
+ f90cbed feat: implement language selection and dynamic component loading in Builder UI
+
+
+
+## 2025-02-25
+
  97fda64 feat: add '/baseBuilderUI' endpoint to 200 OK unit tests
 
  d8f72ce fix: update endpoint name in 200 OK unit tests
