@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-25
 
+ 4cb9f1f Merge pull request #193 from isaaclins/renovate/major-react-monorepo
+
+ e0c21da Merge pull request #192 from isaaclins/renovate/lucide-monorepo
+
+ e1c2890 fix(deps): update dependency lucide-react to ^0.475.0
+
+
+
+## 2025-02-25
+
  3e955e2 chore: added test comment
 
  4cb9f1f Merge pull request #193 from isaaclins/renovate/major-react-monorepo
