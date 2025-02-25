@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-25
 
+ 154bd0b Create ISSUE_TEMPLATE
+
+ e0c21da Merge pull request #192 from isaaclins/renovate/lucide-monorepo
+
+
+
+## 2025-02-25
+
  4cb9f1f Merge pull request #193 from isaaclins/renovate/major-react-monorepo
 
  e0c21da Merge pull request #192 from isaaclins/renovate/lucide-monorepo
