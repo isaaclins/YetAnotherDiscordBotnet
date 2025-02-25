@@ -25,11 +25,11 @@ export default function Home() {
         <CardContent>
           <div className="flex space-x-4">
             <LanguageCard href="/pythonBuilderUI" icon={<AiOutlinePython style={{ fontSize: '5rem' }} />} label="Python" />
-            <LanguageCard href="/go" icon={<TbBrandGolang style={{ fontSize: '5rem' }} />} label="Golang" />
-            <LanguageCard href="/rust" icon={<SiRust style={{ fontSize: '5rem' }} />} label="Rust" />
-            <LanguageCard href="/javascript" icon={<FaJsSquare style={{ fontSize: '5rem' }} />} label="JavaScript" />
-            <LanguageCard href="/java" icon={<FaJava style={{ fontSize: '5rem' }} />} label="Java" />
-            <LanguageCard href="/bash" icon={<SiGnubash style={{ fontSize: '5rem' }} />} label="Bash" />
+            <LanguageCard href="/goBuilderUI" icon={<TbBrandGolang style={{ fontSize: '5rem' }} />} label="Golang" />
+            <LanguageCard href="/rustBuilderUI" icon={<SiRust style={{ fontSize: '5rem' }} />} label="Rust" />
+            <LanguageCard href="/javascriptBuilderUI" icon={<FaJsSquare style={{ fontSize: '5rem' }} />} label="JavaScript" />
+            <LanguageCard href="/javaBuilderUI" icon={<FaJava style={{ fontSize: '5rem' }} />} label="Java" />
+            <LanguageCard href="/bashBuilderUI" icon={<SiGnubash style={{ fontSize: '5rem' }} />} label="Bash" />
           </div>
         </CardContent>
       </Card>
