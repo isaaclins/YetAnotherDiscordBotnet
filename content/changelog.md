@@ -13,6 +13,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
  6ce5eea feat: added setup in package.json
 
+ 8e655ee chore: added CorrectCheckBoxSpacing
+
+
+
+## 2025-02-25
+
+ 6ce5eea feat: added setup in package.json
+
  f1691ab chore: added issue for pythonBuilderUI
 
 
