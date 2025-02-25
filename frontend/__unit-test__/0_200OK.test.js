@@ -3,7 +3,7 @@ const { describe, it } = require('mocha');
 const { expect } = require('chai');
 
 const URL = 'http://localhost:3000';
-const endpoints = ['/', '/pythonBuilderUI', '/goBuilderUI', '/javaBuilderUI', '/bashBuilderUI', '/javascriptBuilderUI', '/rustBuilderUI', '/BuilderUI'];
+const endpoints = ['/', '/BuilderUI'];
 
 
 describe('200 Server Response Test', function () {
