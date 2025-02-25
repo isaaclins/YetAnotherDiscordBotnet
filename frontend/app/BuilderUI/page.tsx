@@ -12,7 +12,16 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-
+import { Button } from "@/components/ui/button";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuLabel,
+    DropdownMenuRadioGroup,
+    DropdownMenuRadioItem,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 /**
  * @issue AddBaseBuilderUIPage 
@@ -27,10 +36,12 @@ const Page: React.FC = () => {
 
     const [submittedData, setSubmittedData] = useState<any | null>(null);
     const [liveData, setLiveData] = useState<any>(fields);
+    const [selectedLanguage, setSelectedLanguage] = useState<string>("python");
+
     const onSubmit = async (data: any) => {
         try {
             console.log(data);
-            let dataToSend =liveData
+            let dataToSend = liveData;
             const response = await fetch('/api/save-settings', {
                 method: 'POST',
                 headers: {
@@ -58,7 +69,24 @@ const Page: React.FC = () => {
                     <CardDescription>Customize and compile your very own Botnet.</CardDescription>
                 </CardHeader>
                 <CardContent className="grid w-full justify-center items-center gap-4">
-                    <FormComponent onSubmit={handleSubmit(onSubmit)} liveData={liveData} setLiveData={setLiveData} fields={fields} />
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="outline">{selectedLanguage === "python" ? "Python" : "Test"}</Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className="w-56">
+                            <DropdownMenuLabel>Select Language</DropdownMenuLabel>
+                            <DropdownMenuSeparator />
+                            <DropdownMenuRadioGroup value={selectedLanguage} onValueChange={setSelectedLanguage}>
+                                <DropdownMenuRadioItem value="python">Python</DropdownMenuRadioItem>
+                                <DropdownMenuRadioItem value="test">Test</DropdownMenuRadioItem>
+                            </DropdownMenuRadioGroup>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                    {selectedLanguage === "python" ? (
+                        <FormComponent onSubmit={handleSubmit(onSubmit)} liveData={liveData} setLiveData={setLiveData} fields={fields} />
+                    ) : (
+                        <div>Hello world</div>
+                    )}
                 </CardContent>
             </Card>
         </div>
