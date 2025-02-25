@@ -11,6 +11,18 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-24
 
+ d6e8d25 fix(deps): update dependency @hookform/resolvers to v4.1.2 (#191)
+
+
+
+## 2025-02-25
+
+ 3e955e2 chore: added test comment
+
+
+
+## 2025-02-24
+
  30c6297 Merge branch 'code' of https://github.com/isaaclins/YetAnotherDiscordBotnet into code
 
  d6e8d25 fix(deps): update dependency @hookform/resolvers to v4.1.2 (#191)
