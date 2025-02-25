@@ -12,11 +12,30 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-/**
- * @issue this code works
- * @body hello world
- */
 
+
+/**
+ * @issue CorrectCheckboxSpacing
+ * @body 
+ * When clicking a checkbox, the selected checkbox moves up slightly, causing inconsistent spacing.
+ * 
+ * Possible causes:
+ * - CSS styles affecting the `:checked` state of checkboxes.
+ * - Unexpected margin or padding changes on interaction.
+ * - A layout shift due to flexbox, grid, or other positioning styles.
+ * 
+ * Steps to reproduce:
+ * 1. Open the settings page.
+ * 2. Click on any checkbox.
+ * 3. Observe the checkbox shifting position.
+ * 
+ * Expected behavior:
+ * - The checkbox should remain in its original position without shifting when clicked.
+ * 
+ * Suggested fixes:
+ * - Inspect styles using browser dev tools and check for unexpected margin/padding changes.
+ * - Ensure the checkbox `:checked` state does not introduce unintended layout modifications.
+ */
 
 const Page: React.FC = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({
