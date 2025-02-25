@@ -3,12 +3,8 @@ const { describe, it } = require('mocha');
 const { expect } = require('chai');
 
 const URL = 'http://localhost:3000';
-const endpoints = ['/', '/pythonBuilderUI', '/goBuilderUI', '/javaBuilderUI', '/bashBuilderUI', '/javascriptBuilderUI', '/rustBuilderUI'];
+const endpoints = ['/', '/pythonBuilderUI', '/goBuilderUI', '/javaBuilderUI', '/bashBuilderUI', '/javascriptBuilderUI', '/rustBuilderUI', '/baseBuilderUI'];
 
-/**
- * @issue test
- * @body test
- */
 
 describe('200 Server Response Test', function () {
     this.timeout(10000); // Set global timeout to 10 seconds
