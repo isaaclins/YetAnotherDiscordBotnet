@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "setup":"npm install && next dev",
     "next": "next dev",
     "test:local": "concurrently --kill-others --success first \"npm install && npm run next\" \"wait-on http://localhost:3000 && npx mocha __unit-test__/*.js\"",
     "test:singlefile": "npm run next & wait-on http://localhost:3000 && npx mocha"
