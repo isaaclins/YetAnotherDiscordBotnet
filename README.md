@@ -1,61 +1,28 @@
 # YetAnotherDiscordBotnet
 
-YetAnotherDiscordBotnet is a work-in-progress project aimed at creating a botnet for managing multiple Discord bots and automating tasks across various Discord servers. This project is built using Python for the backend and Next.js for the frontend.
+YetAnotherDiscordBotnet is a work-in-progress project aimed at creating a botnet for managing multiple Discord bots and automating tasks across va single Discord server. This project is built using Python (for the moment) for the backend and Next.js for the frontend.
 
-## Features
+## Current Features
 
-### Current Features
-- **Discord Bot Connection**: Establishes connections with Discord servers and channels.
-- **Automated Messaging**: Sends automated messages to specified channels.
-- **Channel Management**: Creates and manages text channels based on unique identifiers.
+### Repository Features
+- **Automated Dependency Management**: Uses Renovate to automatically scan for and update dependencies.
+- **CI/CD Pipelines**: Utilizes GitHub Actions for continuous integration and deployment.
 
-### Planned Features
-- **Advanced Command Handling**: Support for more complex commands and interactions.
-- **User Management**: Enhanced user management and permissions.
-- **Analytics and Reporting**: Collect and display usage statistics and reports.
-- **Customizable Workflows**: Allow users to define custom workflows and automations.
-
-## Adding Custom Code
-
-To add custom code to the project, follow these steps:
-
-1. **Clone the Repository**:
-    ```sh
-    git clone https://github.com/yourusername/YetAnotherDiscordBotnet.git
-    cd YetAnotherDiscordBotnet
-    ```
-
-2. **Backend (Python)**:
-    - Add your custom modules or scripts in the [components](http://_vscodecontentref_/1) directory.
-    - Update the [builder.py](http://_vscodecontentref_/2) to include your new modules.
-
-3. **Frontend (Next.js)**:
-    - Add your custom components in the [components](http://_vscodecontentref_/3) directory.
-    - Update the necessary pages or hooks to integrate your components.
-
-4. **Commit and Push**:
-    ```sh
-    git add .
-    git commit -m "Added custom code"
-    git push origin main
-    ```
+### Application Features
+- **Channel Management**: Creates and manages text channels based on unique Clients.
+- **Discord Bot Integration**: Integrates with Discord to manage channels and handle messages using the Discord API.
+- **Dynamic Client Script Generation**: Generates and manages the `client.py` script dynamically based on settings and modules.
 
 ## Maintenance
 
-To maintain the project, ensure you regularly:
+Maintaining the project is very easy and needs no coding! I've implemented Renovate into this project, meaning that it will scan for a newer version of an installed dependency (package.json) and will create a Pull Request automatically. This ensures that all dependencies are always up-to-date with minimal manual intervention.
 
-- **Update Dependencies**: Keep your dependencies up to date by running:
-    ```sh
-    npm update
-    pip install --upgrade -r python/requirements.txt
-    ```
+### Steps for Maintenance
+1. **Review Renovate PRs**: Regularly check the Pull Requests created by Renovate.
+2. **Monitor CI/CD**: Ensure that the CI/CD pipelines run successfully BEFORE merging the PRs. If everything is green, then merge!
+3. **Merge PRs**: After reviewing and testing, merge the PRs to keep dependencies updated.
 
-- **Run Tests**: Ensure all tests pass before pushing changes:
-    ```sh
-    npm test
-    ```
-
-- **Monitor Logs**: Check logs for any errors or warnings and address them promptly.
+By following these steps, you can ensure that the project remains up-to-date and secure with the latest dependency versions.
 
 ## Pipelines
 
