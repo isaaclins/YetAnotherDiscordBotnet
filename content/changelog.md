@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-25
 
+ 4328df3 fix: reduce endpoint list in 200 OK unit tests to relevant paths
+
+ f90cbed feat: implement language selection and dynamic component loading in Builder UI
+
+
+
+## 2025-02-25
+
  45e0bd3 refactor: remove unused 'To Be Done' pages from various Builder UI components
 
  f90cbed feat: implement language selection and dynamic component loading in Builder UI
