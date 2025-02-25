@@ -1,23 +1,24 @@
 ---
-name: "_"
-about: "-"
+name: "Feature Request"
+about: "Suggest a new feature or improvement"
 title: "$TITLE"
 labels: feat
 ---
 
 ## Description
 
-Add a description here
+<!-- Provide a clear and concise description of the feature request. -->
 
 ## Logical Steps
 
-- [ ] Step 1
-- [ ] Step 2
-  - [ ] Step 2.1
-  - [ ] Step 2.2
-- [ ] Step 3
-- [ ] Step 4
+- [ ] Define the scope and objectives
+- [ ] Research and gather requirements
+  - [ ] Identify key use cases
+  - [ ] Analyze potential challenges
+- [ ] Design and prototype
+- [ ] Implement and test
+- [ ] Review and deploy
 
 ## Additional Context
 
-Add additional context here
+<!-- Add any additional information, links, or references here. -->
