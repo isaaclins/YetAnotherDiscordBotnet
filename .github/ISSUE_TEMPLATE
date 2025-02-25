@@ -1,0 +1,23 @@
+---
+name: "_"
+about: "-"
+title: "$TITLE"
+labels: feat
+---
+
+## Description
+
+Add a description here
+
+## Logical Steps
+
+- [ ] Step 1
+- [ ] Step 2
+  - [ ] Step 2.1
+  - [ ] Step 2.2
+- [ ] Step 3
+- [ ] Step 4
+
+## Additional Context
+
+Add additional context here
