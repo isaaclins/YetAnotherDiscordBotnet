@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-25
 
+ 8e655ee chore: added CorrectCheckBoxSpacing
+
+ 9609b82 chore(style): refactored ./fonts to ./.fonts
+
+
+
+## 2025-02-25
+
  6ce5eea feat: added setup in package.json
 
  8e655ee chore: added CorrectCheckBoxSpacing
