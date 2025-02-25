@@ -13,6 +13,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
  154bd0b Create ISSUE_TEMPLATE
 
+ a699278 Update ISSUE_TEMPLATE
+
+
+
+## 2025-02-25
+
+ 154bd0b Create ISSUE_TEMPLATE
+
  e0c21da Merge pull request #192 from isaaclins/renovate/lucide-monorepo
 
 
