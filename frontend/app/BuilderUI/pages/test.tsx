@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { settingsSchema, fields } from "@/lib/schemas/settingsSchema";
+import { PythonSchema, fields } from "@/lib/schemas/PythonSchema";
 import FormComponent from "@/components/custom/FormComponent";
 import {
     Card,
@@ -13,9 +13,9 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 
-const PythonPage: React.FC = () => {
+const TestPage: React.FC = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({
-        resolver: zodResolver(settingsSchema),
+        resolver: zodResolver(PythonSchema),
         defaultValues: fields,
     });
 
@@ -50,4 +50,4 @@ const PythonPage: React.FC = () => {
     );
 };
 
-export default PythonPage;
+export default TestPage;

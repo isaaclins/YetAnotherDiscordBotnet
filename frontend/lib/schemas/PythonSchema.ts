@@ -1,4 +1,4 @@
-// [lib/schemas/settingsSchema.ts]
+// [lib/schemas/PythonSchema.ts]
 import { z } from "zod";
 
 export const fields = {
@@ -25,7 +25,7 @@ export const fields = {
   },
 };
 
-export const settingsSchema = z.object({
+export const PythonSchema = z.object({
   BotData: z.object({
     Token: z.string(),
     GuildID: z.string(),

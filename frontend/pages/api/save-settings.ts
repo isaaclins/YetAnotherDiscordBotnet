@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import fs from "fs";
 import path from "path";
-import { settingsSchema } from "../../lib/schemas/settingsSchema";
+import { PythonSchema } from "../../lib/schemas/PythonSchema";
 
 export default async function handler(
   req: NextApiRequest,
@@ -13,7 +13,7 @@ export default async function handler(
         throw new Error("Simulated server error");
       }
 
-      const parsedData = await settingsSchema.parseAsync(req.body);
+      const parsedData = await PythonSchema.parseAsync(req.body);
       const datajson = JSON.stringify(parsedData, null, 2);
       const dirPath = path.join(process.cwd(), "../backend/settings");
       const filePath = path.join(dirPath, "settings.json");

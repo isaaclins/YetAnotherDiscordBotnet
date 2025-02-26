@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { settingsSchema } from "@/lib/schemas/settingsSchema";
+import { PythonSchema } from "@/lib/schemas/PythonSchema";
 import { Form } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { TextInput, CheckboxInput } from "@/components/custom/FormElements";
@@ -19,7 +19,7 @@ interface FormComponentProps {
 const FormComponent: React.FC<FormComponentProps> = ({ onSubmit, liveData, setLiveData, fields }) => {
     const form = useForm({
         defaultValues: fields,
-        resolver: zodResolver(settingsSchema),
+        resolver: zodResolver(PythonSchema),
     });
 
     const watchedValues = form.watch();
