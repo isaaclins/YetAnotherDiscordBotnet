@@ -1,6 +1,11 @@
 # Tutorial on how to Code by Isaac
+
 ### **Original Code (Bad Example)**
-This code is deeply nested, has duplicate logic, and uses unclear variable names.  
+
+This code is deeply nested, has duplicate logic, and uses unclear variable names.
+
+---
+
 ```python
 def proc(u):
     if u:
@@ -11,63 +16,68 @@ def proc(u):
             else:
                 print(f"Total: {u.p}")
 ```
-### **Step 1: Avoid Deep Nesting**  
-We simplify the structure by using **early returns** and reducing unnecessary nesting.  
+> Let me guess, you understood ***shit***.
+
+---
+
+### **Step 1: Use Clear and Descriptive Naming**
+
+We begin by renaming functions and variables so their purpose is immediately clear. For example, we change `proc` to `process_user`, `u` to `user`, `u.act` to `user.is_active`, and `u.p` to `user.price`.
+
 ```python
-def proc(u):
-    if not u or not u.act:
-        return  # Exit early if user is invalid or inactive
-    
-    if u.p > 100:
-        d = u.p * 0.9
+def process_user(user):
+    if user and user.is_active:
+        if user.price > 100:
+            discounted_price = user.price * 0.9
+            print(f"Total: {discounted_price}")
+        else:
+            print(f"Total: {user.price}")
+```
+> Wow! we can actually make sense of the code!
+---
+
+### **Step 2: Avoid Deep Nesting**
+
+Next, we simplify the structure by using **early returns**. This avoids deeply nested conditionals, making the code more readable and easier to follow.
+
+```python
+def process_user(user):
+    if not user or not user.is_active:
+        return  # Exit early if the user is invalid or inactive
+
+    if user.price > 100:
+        discounted_price = user.price * 0.9
     else:
-        d = u.p
-    
-    print(f"Total: {d}")
-```
-Now, the function is flatter and easier to read. But we still have duplication in how we calculate the total price.
+        discounted_price = user.price
 
+    print(f"Total: {discounted_price}")
+```
+> This just makes it more readable. It makes it so the person reading your shit code does not get a memory leak from all the conditions he has to keep in mind.
 ---
 
-### **Step 2: Extract Shared Logic to Avoid Duplication**  
-We move the price calculation into its own function so it can be reused elsewhere if needed.  
-```python
-def apply_discount(price):
-    return price * 0.9 if price > 100 else price
+### **Step 3: Extract Shared Logic to Avoid Duplication**
 
-def proc(u):
-    if not u or not u.act:
-        return  # Exit early if user is invalid or inactive
-    
-    total = apply_discount(u.p)
-    print(f"Total: {total}")
-```
-Now, the function is cleaner, and we avoid repeating the discount calculation logic.
+Finally, we extract the discount calculation into its own function. This keeps the logic DRY (Don't Repeat Yourself) and allows for easy reuse.
 
----
-
-### **Step 3: Use Clear and Descriptive Naming**  
-Now, we rename functions and variables to make them more understandable.  
 ```python
 def apply_discount(price):
     """Apply a 10% discount if the price is over 100."""
     return price * 0.9 if price > 100 else price
 
 def process_user(user):
-    """Check if the user is active and print their total price after discount."""
     if not user or not user.is_active:
         return  # Exit early if the user is invalid or inactive
-    
+
     total_price = apply_discount(user.price)
     print(f"Total: {total_price}")
 ```
-
+> This eliminates duplication and makes it dynamic in the future. if the code has to be reused, it will be simpler, faster and more efficient.
 ---
 
 ### **Final Version (Clean Code)**
-Now, the function:  
-✅ **Has no deep nesting** (uses early return)  
-✅ **Avoids duplicate logic** (extracts discount calculation into a function)  
-✅ **Uses clear, meaningful names** (so others can understand it easily)  
 
-This step-by-step approach makes the code much **easier to read, maintain, and reuse**! 🚀
+✅ **Uses clear, meaningful names**  
+✅ **Avoids deep nesting with early returns**  
+✅ **Extracts shared logic to eliminate duplication**  
+
+This refactored code is now **easier to read, maintain, and reuse**! 🚀
