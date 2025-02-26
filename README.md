@@ -53,9 +53,6 @@ This project uses GitHub Actions for CI/CD. The workflows are defined in the [wo
         - [Commit and push changes](https://github.com/isaaclins/YetAnotherDiscordBotnet/blob/code/.github/workflows/update-changelog.yaml#L44-L50)
         - [Trigger pages workflow](https://github.com/isaaclins/YetAnotherDiscordBotnet/blob/code/.github/workflows/update-changelog.yaml#L52-L58)
 
-## Contributing
-
-Contributions are welcome! Please fork the repository and submit a pull request for any improvements or bug fixes.
 
 ## License
 
