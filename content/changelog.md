@@ -11,6 +11,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-26
 
+ 109eb60 Merge pull request #201 from isaaclins/renovate/axios-1.x-lockfile
+
+ 5f0fb48 fix(deps): update dependency axios to v1.8.1
+
+ d418430 refactor: replace settings schema with Python schema in forms and API
+
+
+
+## 2025-02-26
+
  6bd2f0d docs: add detailed End-User License Agreement (EULA) for Proof of Concept software
 
  d418430 refactor: replace settings schema with Python schema in forms and API
