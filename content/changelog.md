@@ -13,6 +13,16 @@ This is an Automated process which takes the latest commit message and overwrite
 
  109eb60 Merge pull request #201 from isaaclins/renovate/axios-1.x-lockfile
 
+ 22bfae5 refactor: remove unused register and errors props from TemplatePage component
+
+ d0f6bb0 Merge branch 'code' of https://github.com/isaaclins/YetAnotherDiscordBotnet into code
+
+
+
+## 2025-02-26
+
+ 109eb60 Merge pull request #201 from isaaclins/renovate/axios-1.x-lockfile
+
  5f0fb48 fix(deps): update dependency axios to v1.8.1
 
  d418430 refactor: replace settings schema with Python schema in forms and API
