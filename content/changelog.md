@@ -11,6 +11,14 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-26
 
+ 6bd2f0d docs: add detailed End-User License Agreement (EULA) for Proof of Concept software
+
+ 97f8b94 docs: update README.md to include EULA agreement and improve instructions
+
+
+
+## 2025-02-26
+
  2c1697f Update README.md
 
  670c435 docs: improve formatting and clarity in README.md
