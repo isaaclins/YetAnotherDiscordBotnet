@@ -1,6 +1,13 @@
 # YetAnotherDiscordBotnet
+### **IMPORTANT – READ CAREFULLY:**
 
-Please read [`How-To-Code.md`](./How-To-Code.md) first, then read this page.
+# **By installing, copying, or otherwise using this Software, you agree that you have read the [`EULA`](/EULA.md)**
+
+Please read the following document before editing code:
+-   [`How-To-Code.md`](./How-To-Code.md) 
+
+
+## Description
 
 YetAnotherDiscordBotnet is a work-in-progress project aimed at creating a botnet for managing multiple Discord bots and automating tasks across various Discord servers. This project is built using Python for the backend and Next.js for the frontend.
 
