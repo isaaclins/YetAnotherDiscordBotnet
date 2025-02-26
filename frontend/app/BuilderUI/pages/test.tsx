@@ -49,7 +49,6 @@ const defaultValues: LanguageSchemaType = languageSchema.parse({
 const TemplatePage: React.FC = () => {
   // Initialize the form with zodResolver and default values
   const {
-    register,
     handleSubmit,
     formState: { errors },
   } = useForm<LanguageSchemaType>({
@@ -89,8 +88,6 @@ const TemplatePage: React.FC = () => {
       liveData={liveData}
       setLiveData={setLiveData}
       fields={defaultValues}
-      register={register}
-      errors={errors}
     />
   );
 };
