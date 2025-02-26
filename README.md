@@ -11,8 +11,8 @@ YetAnotherDiscordBotnet is a work-in-progress project aimed at creating a botnet
 - **CI/CD Pipelines**: Utilizes GitHub Actions for continuous integration and deployment.
 
 ### Application Features
-- **Channel Management**: Creates and manages text channels based on unique Clients.
-- **Discord Bot Integration**: Integrates with Discord to manage channels and handle messages using the Discord API.
+- **Channel Management**: Creates and manages text channels based on unique Client MAC addresses.
+- **Discord Bot Integration**: Integrates with Discord to manage Clients and handle messages using the Discord API.
 - **Dynamic Client Script Generation**: Generates and manages the `client.py` script dynamically based on settings and modules.
 
 ## Maintenance
