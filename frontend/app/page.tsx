@@ -1,4 +1,4 @@
-"use client";
+ "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import {
@@ -34,7 +34,6 @@ export default function Home() {
             Please read the following End User License Agreement before
             proceeding.
           </p>
-          
         </CardHeader>
         <CardContent>
           {!showEULA ? (
