@@ -11,6 +11,18 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-02-26
 
+ d0f6bb0 Merge branch 'code' of https://github.com/isaaclins/YetAnotherDiscordBotnet into code
+
+
+
+## 2025-02-27
+
+ 484d914 fix(deps): update nextjs monorepo to v15.2.0 (#203)
+
+
+
+## 2025-02-26
+
  109eb60 Merge pull request #201 from isaaclins/renovate/axios-1.x-lockfile
 
  22bfae5 refactor: remove unused register and errors props from TemplatePage component
