@@ -13,6 +13,18 @@ This is an Automated process which takes the latest commit message and overwrite
 
  0bc409d fix(deps): update dependency react-toastify to v11 (#206)
 
+
+
+## 2025-02-28
+
+ 9df476b Create hero-journey.md
+
+
+
+## 2025-02-27
+
+ 0bc409d fix(deps): update dependency react-toastify to v11 (#206)
+
  484d914 fix(deps): update nextjs monorepo to v15.2.0 (#203)
 
 
