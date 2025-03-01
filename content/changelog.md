@@ -9,6 +9,14 @@ Stay updated with the latest changes in the YetAnotherDiscordBotnet project.
 This is an Automated process which takes the latest commit message and overwrites it to the bottom of this page.
 
 
+## 2025-03-01
+
+ 765d41b fix(deps): update dependency lucide-react to ^0.477.0 (#208)
+
+ 8d9590f chore(deps): update dependency @types/node to v22.13.7 (#209)
+
+
+
 ## 2025-02-28
 
  63b2949 chore(deps): update dependency typescript to v5.8.2 (#207)
