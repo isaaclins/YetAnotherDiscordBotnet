@@ -9,6 +9,14 @@ Stay updated with the latest changes in the YetAnotherDiscordBotnet project.
 This is an Automated process which takes the latest commit message and overwrites it to the bottom of this page.
 
 
+## 2025-03-03
+
+ c27de3a chore(deps): update dependency @types/node to v22.13.8 (#210)
+
+ ea84b13 fix(deps): update dependency @hookform/resolvers to v4.1.3 (#211)
+
+
+
 ## 2025-03-01
 
  8d9590f chore(deps): update dependency @types/node to v22.13.7 (#209)
