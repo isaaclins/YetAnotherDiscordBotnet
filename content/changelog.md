@@ -11,6 +11,18 @@ This is an Automated process which takes the latest commit message and overwrite
 
 ## 2025-03-04
 
+ c7fc16a fix(deps): update nextjs monorepo to v15.2.1 (#213)
+
+
+
+## 2025-03-05
+
+ 9bffe0f Update README.md
+
+
+
+## 2025-03-04
+
  6960a0b chore(deps): update dependency @types/node to v22.13.9 (#212)
 
  c7fc16a fix(deps): update nextjs monorepo to v15.2.1 (#213)
