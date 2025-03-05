@@ -45,20 +45,20 @@ This project uses GitHub Actions for CI/CD. The workflows are defined in the [wo
 
 - **Create Issue from Code Annotations**: Automatically creates GitHub issues from code annotations.
     - Workflow file: [code-to-issue-and-branch.yml](/.github/workflows/code-to-issue-and-branch.yml)
-    - Triggers on: [push](https://github.com/isaaclins/YetAnotherDiscordBotnet/blob/code/.github/workflows/code-to-issue-and-branch.yml#L3)
+    - Triggers on: [push](https://github.com/isaaclins/YADRMS/blob/code/.github/workflows/code-to-issue-and-branch.yml#L3)
     - Steps:
-        - [Checkout repository](https://github.com/isaaclins/YetAnotherDiscordBotnet/blob/code/.github/workflows/code-to-issue-and-branch.yml#L12-L15)
-        - [Extract annotations and create issues](https://github.com/isaaclins/YetAnotherDiscordBotnet/blob/code/.github/workflows/code-to-issue-and-branch.yml#L17-L133)
+        - [Checkout repository](https://github.com/isaaclins/YADRMS/blob/code/.github/workflows/code-to-issue-and-branch.yml#L12-L15)
+        - [Extract annotations and create issues](https://github.com/isaaclins/YADRMS/blob/code/.github/workflows/code-to-issue-and-branch.yml#L17-L133)
 
 - **Update Changelog**: Updates the changelog with the latest commit messages.
     - Workflow file: [update-changelog.yaml](/.github/workflows/update-changelog.yaml)
-    - Triggers on: [push to `code` branch](https://github.com/isaaclins/YetAnotherDiscordBotnet/blob/code/.github/workflows/update-changelog.yaml#L3-L6)
+    - Triggers on: [push to `code` branch](https://github.com/isaaclins/YADRMS/blob/code/.github/workflows/update-changelog.yaml#L3-L6)
     - Steps:
-        - [Checkout repository](https://github.com/isaaclins/YetAnotherDiscordBotnet/blob/code/.github/workflows/update-changelog.yaml#L13-L16)
-        - [Get latest commit message](https://github.com/isaaclins/YetAnotherDiscordBotnet/blob/code/.github/workflows/update-changelog.yaml#L18-L37)
-        - [Change branch and save commit messages](https://github.com/isaaclins/YetAnotherDiscordBotnet/blob/code/.github/workflows/update-changelog.yaml#L39-L42)
-        - [Commit and push changes](https://github.com/isaaclins/YetAnotherDiscordBotnet/blob/code/.github/workflows/update-changelog.yaml#L44-L50)
-        - [Trigger pages workflow](https://github.com/isaaclins/YetAnotherDiscordBotnet/blob/code/.github/workflows/update-changelog.yaml#L52-L58)
+        - [Checkout repository](https://github.com/isaaclins/YADRMS/blob/code/.github/workflows/update-changelog.yaml#L13-L16)
+        - [Get latest commit message](https://github.com/isaaclins/YADRMS/blob/code/.github/workflows/update-changelog.yaml#L18-L37)
+        - [Change branch and save commit messages](https://github.com/isaaclins/YADRMS/blob/code/.github/workflows/update-changelog.yaml#L39-L42)
+        - [Commit and push changes](https://github.com/isaaclins/YADRMS/blob/code/.github/workflows/update-changelog.yaml#L44-L50)
+        - [Trigger pages workflow](https://github.com/isaaclins/YADRMS/blob/code/.github/workflows/update-changelog.yaml#L52-L58)
 
 
 ## License

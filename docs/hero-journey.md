@@ -13,7 +13,7 @@ Der Forscher versucht verschiedene bestehende Methoden: Er nutzt **Open-Source-T
 Ohne eine bessere Lösung kann er **nicht schnell genug auf neue Bedrohungen reagieren**. Cyberkriminelle entwickeln immer **raffiniertere Angriffstechniken**, und die **Verteidigung hinkt hinterher**. Die Sicherheit seiner **Organisation oder Kunden ist gefährdet**.
 
 ## **5. Climax**  
-Er findet einen Opensource, Free "YetAnotherDiscordBotnet", der verschiedene **Malware-Versionen** und **Einstellungen automatisiert** zusammenstellt und kompiliert. Mit **wenigen Klicks** kann er gezielt **Tests durchführen** und schneller zu Erkenntnissen gelangen. Dies **revolutioniert seine Analysearbeit**.
+Er findet einen Opensource, Free "YADRMS", der verschiedene **Malware-Versionen** und **Einstellungen automatisiert** zusammenstellt und kompiliert. Mit **wenigen Klicks** kann er gezielt **Tests durchführen** und schneller zu Erkenntnissen gelangen. Dies **revolutioniert seine Analysearbeit**.
 
 ## **6. Back Home Changed**  
 Dank des neuen Tools spart der Forscher enorme Zeit und kann sich auf die eigentliche Analyse konzentrieren. Unternehmen profitieren von schnelleren Sicherheitsupdates, und die Abwehr gegen Cyberangriffe wird effektiver. Das Tool könnte sogar als Package zu helfen sein an der gesamten Cybersecurity-Community.

@@ -54,5 +54,5 @@ jobs:
         curl -X POST \
           -H "Accept: application/vnd.github.v3+json" \
           -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          https://api.github.com/repos/isaaclins/YetAnotherDiscordBotnet/actions/workflows/pages.yaml/dispatches \
+          https://api.github.com/repos/isaaclins/YADRMS/actions/workflows/pages.yaml/dispatches \
           -d '{"ref":"main"}'
