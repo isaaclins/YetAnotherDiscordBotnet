@@ -1,4 +1,4 @@
-# YetAnotherDiscordBotnet
+# YetAnotherDiscordRemoteManagementSoftware
 ### **IMPORTANT – READ CAREFULLY:**
 
 # **By installing, copying, or otherwise using this Software, you agree that you have read the [`EULA`](/EULA.md)**
@@ -9,7 +9,7 @@ Please read the following document before editing code:
 
 ## Description
 
-YetAnotherDiscordBotnet is a work-in-progress project aimed at creating a custom remote desktop application infrastructure and automating tasks from multiple clients using a single Discord server. This project is built using Python for the backend and Next.js for the frontend.
+YADRMS is a work-in-progress project aimed at creating a custom remote desktop application infrastructure and automating tasks from multiple clients using a single Discord server. This project is built using Python for the backend and Next.js for the frontend.
 
 ## Current Features
 
